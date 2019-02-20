@@ -1,0 +1,88 @@
+{
+  "acte_id": "agendaturisme170712521",
+  "titol": "Visita al mNACTEC!",
+  "data_inici": "2018-12-24 00:00:00",
+  "data_fi": "2019-01-04 23:59:59",
+  "descripcio": "Vine al Museu Nacional de la Ciència i de la Tècnica de Catalunya per les vacances de Nadal i descobreix el món de la ciència i de la tècnica.  ",
+  "imatge": [],
+  "acte_organitzadors": "",
+  "acte_url": "http://www.barcelonaesmoltmes.cat/web/agenda/-/visita-al-mnactec-",
+  "telefon_contacte": [
+    "93 736 89 66"
+  ],
+  "email": [],
+  "grup_adreca": {
+    "adreca_nom": "Museu de la Ciència i de la Tècnica de Catalunya",
+    "adreca": "Rambla d'Ègara, 270,Terrassa",
+    "codi_postal": "",
+    "municipi_nom": "Terrassa",
+    "localitzacio": "41.5650850,2.0074570"
+  },
+  "url_general": "http://mnactec.cat/ca/activitat-detall/tallers-d-hivern-2018",
+  "colaboradors": "",
+  "rel_municipis": {
+    "ine": "08279",
+    "municipi_nom": "Terrassa",
+    "municipi_nom_curt": "Terrassa",
+    "municipi_article": "",
+    "municipi_transliterat": "terrassa",
+    "municipi_curt_transliterat": "terrassa",
+    "centre_municipal": "41.5697302,2.0132071",
+    "grup_comarca": {
+      "comarca_codi": "40",
+      "comarca_nom": "Vallès Occidental"
+    },
+    "grup_provincia": {
+      "provincia_codi": "8",
+      "provincia_nom": "Barcelona"
+    },
+    "grup_ajuntament": {
+      "adreca-completa": "Raval de Montserrat, 14, 08221 Terrassa",
+      "adreca": "Raval de Montserrat, 14",
+      "codi_postal": "08221",
+      "localitzacio": "41.5637478,2.0082664",
+      "telefon_contacte": "937397000",
+      "fax": "937397067",
+      "email": "ajuntament@terrassa.cat",
+      "url_general": "https://www.terrassa.cat",
+      "cif": "P0827900B"
+    },
+    "municipi_escut": "https://media.diba.cat/diba/municipis/img/escuts/ec08279.png",
+    "municipi_bandera": "",
+    "municipi_vista": "https://media.diba.cat/diba/municipis/img/vistes/vista08279.jpg",
+    "ine6": "082798",
+    "nom_dbpedia": "Terrassa"
+  },
+  "rel_temes": {
+    "count": 0,
+    "elements": "12"
+  },
+  "tags": [
+    "El Vallès Occidental",
+    "Terrassa",
+    "Costa Barcelona"
+  ],
+  "categoria": [
+    "el_valles_occidental",
+    "terrassa",
+    "costa_barcelona"
+  ],
+  "rel_punt": "",
+  "preu": "Activitat gratuïta",
+  "peu_imatge": [],
+  "durada": "",
+  "observacions_horari": "",
+  "dies": "",
+  "tipus": [],
+  "public": [],
+  "observacions": "<p>El Museu ofereix una sèrie d'activitats al voltant de la ciència i la tècnica per aprendre, de manera lúdica i entretinguda, aspectes relacionats amb el Nadal, la música, la robòtica, la nova exposició “PERILL! Salvats per la tecnologia”, el transport, les estrelles i el calendari.</p> <p>Estan dirigits a nens i nenes de 5 a 12 anys i es desenvolupen en diferents espais del museu.</p> <p>Els tallers s'ofereixen el 24, 27, 28 i 31 de desembre; i del 2 al 4 de gener del 2019.</p> <p>Els tallers es fan en horari de matí, de 9 a 14 hores, i també es posa a disposició dels usuaris un servei d'acollida de 8 a 9 i de 14 a 15 hores.</p>",
+  "rel_comarca": [
+    "40"
+  ],
+  "documentacio": [],
+  "assistents": "",
+  "aforament": "",
+  "inscripcio": "",
+  "cos": "",
+  "cercador_codi": ""
+}
