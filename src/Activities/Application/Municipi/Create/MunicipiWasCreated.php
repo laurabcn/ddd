@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Activities\Activity\Application\Create;
+namespace App\Activities\Application\Municipi\Create;
 
 use App\Activities\Domain\Messaging\Message;
 use App\Activities\Shared\Bus\Event;
 
 
-final class ActivityWasCreated implements Event, Message
+final class MunicipiWasCreated implements Event, Message
 {
-    const NAME = 'activity.activity_created';
+    const NAME = 'municipi.municipi_created';
 
     /** @var string */
     private $id;

@@ -1,91 +1,66 @@
 <?php
-
 declare(strict_types=1);
 
-namespace App\Activities\Activity\Application\Create;
+namespace App\Activities\Domain\Activity;
 
-use App\Activities\Shared\Bus\Command;
+use App\Activities\Application\Activity\Create\ActivityWasCreated;
+use App\Activities\Shared\Aggregate\AggregateRoot;
 
-final class CreateActivityCommand implements Command
+class Activity extends AggregateRoot
 {
-    /** @var string  */
+    /** @var string */
     private $id;
-
     /** @var string */
     private $title;
-
-    /** @var string $startDate */
+    /** @var \DateTimeInterface */
     private $startDate;
-
-    /** @var string $endDate */
+    /** @var \DateTimeInterface */
     private $endDate;
-
-    /** @var string $description */
+    /** @var string */
     private $description;
-
-    /** @var string $image */
+    /** @var string */
     private $image;
-
-    /** @var string $url */
+    /** @var string */
     private $url;
-
-    /** @var string $urlGeneral */
+    /** @var string */
     private $urlGeneral;
-
-    /** @var string $email */
+    /** @var string */
     private $email;
-
-    /** @var string $phone */
+    /** @var string */
     private $phone;
-
-    /** @var array $address */
-    private $address;
-
-    /** @var array $municipi */
-    private $municipi;
-
-    /** @var array $tags */
-    private $tags;
-
-    /** @var string $price */
+    /** @var string */
+    private $siteId;
+    /** @var string */
+    private $municipiId;
+    /** @var string */
     private $price;
-
-    /** @var array $category */
-    private $category;
-
-    /** @var string duration */
+    /** @var string */
     private $duration;
-
-    /** @var array $types */
-    private $types;
-
-    /** @var string $observation */
+    /** @var string */
+    private $type;
+    /** @var string */
     private $observation;
-
-    /** @var string $capacity */
+    /** @var string */
     private $capacity;
-
-    /** @var string $inscription */
+    /** @var string */
     private $inscription;
 
     public function __construct(
         string $id,
         string $title,
-        string $startDate,
-        string $endDate,
+        \DateTimeInterface $startDate,
+        \DateTimeInterface $endDate,
         string $description,
         string $image,
         string $url,
         string $urlGeneral,
         string $email,
         string $phone,
-        array  $address,
-        array  $municipi,
-        array  $tags,
+        string $siteId,
+        string $municipiId,
         string $price,
-        array  $category,
         string $duration,
-        array  $types,
+        string $type,
         string $observation,
         string $capacity,
         string $inscription
@@ -101,17 +76,16 @@ final class CreateActivityCommand implements Command
         $this->urlGeneral = $urlGeneral;
         $this->email = $email;
         $this->phone = $phone;
-        $this->address = $address;
-        $this->municipi = $municipi;
-        $this->tags = $tags;
+        $this->siteId = $siteId;
+        $this->municipiId = $municipiId;
         $this->price = $price;
-        $this->category = $category;
         $this->duration = $duration;
-        $this->types = $types;
+        $this->type = $type;
         $this->observation = $observation;
         $this->capacity = $capacity;
         $this->inscription = $inscription;
 
+        $this->recordThat(new ActivityWasCreated($id, $title));
     }
 
     public function id(): string
@@ -124,12 +98,12 @@ final class CreateActivityCommand implements Command
         return $this->title;
     }
 
-    public function startDate(): string
+    public function startDate(): \DateTimeInterface
     {
         return $this->startDate;
     }
 
-    public function endDate(): string
+    public function endDate(): \DateTimeInterface
     {
         return $this->endDate;
     }
@@ -164,19 +138,14 @@ final class CreateActivityCommand implements Command
         return $this->phone;
     }
 
-    public function address(): array
+    public function siteId(): string
     {
-        return $this->address;
+        return $this->siteId;
     }
 
-    public function municipi(): array
+    public function municipiId(): string
     {
-        return $this->municipi;
-    }
-
-    public function tags(): array
-    {
-        return $this->tags;
+        return $this->municipiId;
     }
 
     public function price(): string
@@ -184,19 +153,14 @@ final class CreateActivityCommand implements Command
         return $this->price;
     }
 
-    public function category(): array
-    {
-        return $this->category;
-    }
-
     public function duration(): string
     {
         return $this->duration;
     }
 
-    public function types(): array
+    public function type(): string
     {
-        return $this->types;
+        return $this->type;
     }
 
     public function observation(): string
@@ -214,3 +178,4 @@ final class CreateActivityCommand implements Command
         return $this->inscription;
     }
 }
+

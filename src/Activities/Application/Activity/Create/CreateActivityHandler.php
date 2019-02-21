@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Activities\Activity\Application\Create;
+namespace App\Activities\Application\Activity\Create;
 
-use App\Activities\Activity\Domain\Activity;
-use App\Activities\Activity\Domain\Repository\ActivityRepository;
+use App\Activities\Domain\Activity\Activity;
+use App\Activities\Domain\Activity\Repository\ActivityRepository;
 use App\Activities\Shared\Bus\CommandHandler;
 use App\Activities\Shared\Bus\EventBus;
-use App\Activities\Toolkit\IdGenerator\UuidGenerator;
 
 final class CreateActivityHandler implements CommandHandler
 {
@@ -29,22 +28,19 @@ final class CreateActivityHandler implements CommandHandler
         $activity = new Activity(
             $command->id(),
             $command->title(),
-            $command->startDate(),
-            $command->endDate(),
+            new \DateTime($command->startDate()),
+            new \DateTime($command->endDate()),
             $command->description(),
             $command->image(),
             $command->url(),
             $command->urlGeneral(),
             $command->email(),
             $command->phone(),
-            $command->address(),
-            $command->municipi(),
-            $command->municipi(),
-            $command->tags(),
+            $command->siteId(),
+            $command->municipiId(),
             $command->price(),
-            $command->category(),
             $command->duration(),
-            $command->types(),
+            $command->type(),
             $command->observation(),
             $command->capacity(),
             $command->inscription()

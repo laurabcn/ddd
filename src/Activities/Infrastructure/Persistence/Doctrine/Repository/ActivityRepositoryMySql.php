@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace App\Activities\Activity\Infrastructure\Persistence\Doctrine\Repository;
+namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Activities\Activity\Domain\Activity;
-use App\Activities\Activity\Domain\Repository\ActivityRepository;
+use App\Activities\Domain\Activity\Activity;
+use App\Activities\Domain\Activity\Repository\ActivityRepository;
 use App\Activities\Shared\ValueObject\Id;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;

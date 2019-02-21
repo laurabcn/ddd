@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Activities\Activity\Domain\Repository;
+namespace App\Activities\Domain\Activity\Repository;
 
-use App\Activities\Activity\Domain\Activity;
+use App\Activities\Domain\Activity\Activity;
 use App\Activities\Shared\ValueObject\Id;
 
 interface ActivityRepository

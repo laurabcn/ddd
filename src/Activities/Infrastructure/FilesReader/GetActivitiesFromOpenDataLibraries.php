@@ -34,10 +34,8 @@ class GetActivitiesFromOpenDataLibraries
 
         foreach ($elements as $key => $value) {
             if(new \DateTime($value['data_fi']) < new \DateTime('today')){
-                //var_dump($value['data_fi']);
                 continue;
             }
-
 
             $files[] = $value;
         }

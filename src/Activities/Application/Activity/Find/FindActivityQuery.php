@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Activities\Activity\Application\Find;
+namespace App\Activities\Application\Activity\Find;
 
 
 final class FindActivityQuery

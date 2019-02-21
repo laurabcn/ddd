@@ -1,0 +1,31 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+    <entity name="App\Activities\Domain\Activity\Activity" table="activity"
+            repository-class="App\Activities\Activity\Infrastructure\Persistence\Doctrine\Repository\ActivityRepositoryMySql">
+        <id name="id" type="guid">
+            <generator strategy="NONE"/>
+        </id>
+        <field name="title" column="title" type="string"/>
+        <field name="startDate" column="start_date" type="datetime"/>
+        <field name="endDate" column="end_date" type="datetime"/>
+        <field name="description" column="description" type="text"/>
+        <field name="image" column="image" type="string"/>
+        <field name="url" column="url" type="string"/>
+        <field name="urlGeneral" column="urlGeneral" type="text"/>
+        <field name="email" column="email" type="string"/>
+        <field name="phone" column="phone" type="string"/>
+        <field name="price" column="price" type="string"/>
+        <field name="duration" column="duration" type="string"/>
+        <field name="observation" column="observation" type="text"/>
+        <field name="capacity" column="capacity" type="string"/>
+        <field name="inscription" column="inscription" type="string"/>
+        <many-to-one field="siteId" target-entity="Site">
+            <join-column name="site_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="municipiId" target-entity="Municipi">
+            <join-column name="municipi_id" referenced-column-name="id" />
+        </many-to-one>
+    </entity>
+</doctrine-mapping>
