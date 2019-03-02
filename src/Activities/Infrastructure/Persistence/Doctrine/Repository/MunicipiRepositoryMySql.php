@@ -6,35 +6,26 @@ namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
 
 use App\Activities\Domain\Municipi\Municipi;
 use App\Activities\Domain\Municipi\Repository\MunicipiRepository;
-use App\Activities\Shared\ValueObject\Id;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Activities\Domain\Shared\ValueObject\Id;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
-final class MunicipiRepositoryMySql implements MunicipiRepository
+final class MunicipiRepositoryMySql extends ServiceEntityRepository implements MunicipiRepository
 {
-    /** @var EntityManager */
-    private $entityManager;
-
-    /** @param EntityManager $entityManager */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(RegistryInterface $registry)
     {
-        $this->entityManager = $entityManager;
-    }
-
-    public function entityManager(): EntityManager
-    {
-        return $this->entityManager;
+        parent::__construct($registry, Municipi::class);
     }
 
     public function save(Municipi $municipi): void
     {
-        $this->entityManager()->persist($municipi);
-        $this->entityManager()->flush($municipi);
+        $this->_em->persist($municipi);
+        $this->_em->flush();
     }
 
     public function byId(Id $id): ?Municipi
     {
-        return $this->entityManager->getRepository(Municipi::class)->findOneBy(['id' => $id]);
+        return $this->findOneBy(['id' => $id->id()]);
     }
 
 }

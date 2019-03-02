@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Activities\Application\Activity\Create;
 
 use App\Activities\Domain\Messaging\Message;
-use App\Activities\Shared\Bus\Event;
+use App\Activities\Domain\Shared\Bus\Event;
 
 
 final class ActivityWasCreated implements Event, Message

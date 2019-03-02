@@ -36,8 +36,6 @@ class GetActivitiesFromOpenData
             if(new \DateTime($value['data_fi']) < new \DateTime('today')){
                 continue;
             }
-
-            //var_dump($value['data_fi']);
             $files[] = $value;
         }
         return $files;

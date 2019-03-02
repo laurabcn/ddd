@@ -3,8 +3,8 @@
 namespace App\Activities\Infrastructure\FilesReader;
 
 use App\Activities\Application\Activity\Create\CreateActivityCommand;
-use App\Activities\Application\Activity\Create\CreateMunicipiCommand;
-use App\Activities\Domain\FilesReader\File;
+use App\Activities\Application\Municipi\Create\CreateMunicipiCommand;
+use App\Activities\Application\Site\Create\CreateSiteCommand;
 use App\Activities\Domain\FilesReader\FilesReader;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
@@ -31,7 +31,6 @@ class ActivitiesReader implements FilesReader
         $this->commandBus = $commandBus;
     }
 
-    /** @return File[] */
     public function read(string $path): void
     {
         $filestourism = $this->getActivitiesFromOpenData->execute($path);
@@ -40,43 +39,48 @@ class ActivitiesReader implements FilesReader
         $files = array_merge($filestourism, $fileslibrary);
 
         foreach ($files as $file) {
-            $command = new CreateMunicipiCommand(
-                $idMunicipi = $file['rel_municipis']['grup_provincia']['provincia_codi'],
-                $file['rel_municipis']['municipi_nom']);
+            $commandMunicipi = new CreateMunicipiCommand(
+                $idMunicipi = (isset( $file['rel_municipis']['grup_provincia'])) ? $file['rel_municipis']['grup_provincia']['provincia_codi']: '8',
+                isset($file['rel_municipis']['municipi_nom']) ? $file['rel_municipis']['municipi_nom'] : 'Barcelona'
+            );
 
-            $this->commandBus->handle($command);
+            $this->commandBus->handle($commandMunicipi);
+            $commandSite = new CreateSiteCommand(
+                $idSite = UuidGenerator::generateId(),
+                $file['grup_adreca']['adreca_nom'],
+                $file['grup_adreca']['adreca'],
+                $file['grup_adreca']['codi_postal'],
+                $idMunicipi,
+                $file['grup_adreca']['localitzacio']
+            );
 
-            $site = [
-                'id' => $idSite = UuidGenerator::generateId(),
-                'site' => $file['grup_adreca']['adreca_nom'],
-                'address' => $file['grup_adreca']['adreca'],
-                'codi_postal' => $file['grup_adreca']['codi_postal'],
-                'idMunicipi' => $idMunicipi,
-                'idComarca' => $idComarca,
-                'coordenates' => $file['grup_adreca']['localitzacio']
-            ];
+            $this->commandBus->handle($commandSite);
 
-            $command = new CreateActivityCommand(
+            $imatge = count($file['imatge']) > 0 ? $file['imatge'][0] : null;
+            $tipus = count($file['tipus']) > 0 ? $file['tipus'][0] : null;
+            $email = count($file['email']) > 0 ? $file['email'][0] : null;
+            $phone = count($file['telefon_contacte']) > 0 ? $file['telefon_contacte'][0] : null;
+
+            $commandActivity = new CreateActivityCommand(
                 $file['acte_id'],
                 $file['titol'],
                 $file['data_inici'],
                 $file['data_fi'],
                 $file['descripcio'],
-                $file['imatge'][],
+                $imatge,
                 $file['acte_url'],
                 $file['url_general'],
-                $file['email'],
-                $file['telefon_contacte'],
+                $email,
+                $phone,
                 $idSite,
-                $idMunicipi,
                 $file['preu'],
                 $file['durada'],
-                $file['tipus'][],
+                $tipus,
                 $file['observacions'],
-                $file['capacity'],
-                $file['inscription']
+                $file['aforament'],
+                $file['inscripcio']
             );
-            $this->commandBus->handle($command);
+            $this->commandBus->handle($commandActivity);
         }
     }
 }

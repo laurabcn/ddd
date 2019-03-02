@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Activities\Activity\Infrastructure\Persistence\Doctrine\Types;
+namespace App\Activities\Infrastructure\Persistence\Doctrine\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\GuidType;

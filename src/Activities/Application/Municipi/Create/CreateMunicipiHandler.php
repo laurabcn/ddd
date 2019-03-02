@@ -1,54 +1,41 @@
 <?php
-
 declare(strict_types=1);
 
-namespace App\Activities\Application\Activity\Create;
+namespace App\Activities\Application\Municipi\Create;
 
-use App\Activities\Domain\Activity\Activity;
-use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Shared\Bus\CommandHandler;
-use App\Activities\Shared\Bus\EventBus;
+use App\Activities\Domain\Municipi\Municipi;
+use App\Activities\Domain\Municipi\Repository\MunicipiRepository;
+use App\Activities\Domain\Shared\Bus\CommandHandler;
+use App\Activities\Domain\Shared\Bus\EventBus;
+use App\Activities\Domain\Shared\ValueObject\Id;
 
 final class CreateMunicipiHandler implements CommandHandler
 {
-    /** @var ActivityRepository */
-    private $activityRepository;
+    /** @var MunicipiRepository */
+    private $municipiRepository;
 
     /** @var EventBus  */
     private $eventBus;
 
-    public function __construct(ActivityRepository $activityRepository, EventBus $eventBus)
+    public function __construct(MunicipiRepository $municipiRepository, EventBus $eventBus)
     {
-        $this->activityRepository = $activityRepository;
+        $this->municipiRepository = $municipiRepository;
         $this->eventBus = $eventBus;
     }
 
-    public function handle(CreateActivityCommand $command): void
+    public function handle(CreateMunicipiCommand $command): void
     {
-        $activity = new Activity(
-            $command->id(),
-            $command->title(),
-            new \DateTime($command->startDate()),
-            new \DateTime($command->endDate()),
-            $command->description(),
-            $command->image(),
-            $command->url(),
-            $command->urlGeneral(),
-            $command->email(),
-            $command->phone(),
-            $command->siteId(),
-            $command->municipiId(),
-            $command->price(),
-            $command->duration(),
-            $command->type(),
-            $command->observation(),
-            $command->capacity(),
-            $command->inscription()
-        );
+        $municipi = $this->municipiRepository->byId(new Id($command->id()));
 
-        $this->activityRepository->save($activity);
+        if(null === $municipi){
 
-        $this->eventBus->publish(...$activity->uncommittedEvents());
+            $municipi = new Municipi(
+                $command->id(),
+                $command->name()
+            );
+
+            $this->municipiRepository->save($municipi);
+        }
     }
 }
 

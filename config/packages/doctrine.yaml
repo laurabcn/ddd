@@ -15,9 +15,8 @@ doctrine:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
         url: '%env(resolve:DATABASE_URL)%'
-
         types:
-            Id:  App\Activities\Activity\Infrastructure\Persistence\Doctrine\Types\Id
+            Id:  App\Activities\Infrastructure\Persistence\Doctrine\Type\Id
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
@@ -27,7 +26,7 @@ doctrine:
             App:
                 is_bundle: false
                 type: xml
-                prefix: App\Activities\Activity\Domain
+                prefix: App\Activities\Domain
                 dir: "%kernel.root_dir%/Activities/Infrastructure/Persistence/Doctrine/Mappings"
         dql:
             datetime_functions:

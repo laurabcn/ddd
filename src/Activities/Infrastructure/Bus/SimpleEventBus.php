@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\Activities\Infrastructure\Bus;
 
-use App\Activities\Shared\Bus\Event;
-use App\Activities\Shared\Bus\EventBus;
-use Assert\Assertion;
+
+use App\Activities\Domain\Shared\Bus\Event;
+use App\Activities\Domain\Shared\Bus\EventBus;
 
 class SimpleEventBus implements EventBus
 {
@@ -17,13 +17,8 @@ class SimpleEventBus implements EventBus
         $this->eventBus = $eventBus;
     }
 
-    /**
-     * @param $event $event
-     * @throws \Assert\AssertionFailedException
-     */
     public function handle($event): void
     {
-        Assertion::isInstanceOf($event, Event::class);
         $this->eventBus->handle($event);
     }
 

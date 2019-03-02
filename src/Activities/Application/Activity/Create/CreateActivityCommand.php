@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Activities\Application\Activity\Create;
 
-use App\Activities\Shared\Bus\Command;
+use App\Activities\Domain\Shared\Bus\Command;
 
 final class CreateActivityCommand implements Command
 {
@@ -41,9 +41,6 @@ final class CreateActivityCommand implements Command
     /** @var string $siteId */
     private $siteId;
 
-    /** @var string $municipiId */
-    private $municipiId;
-
     /** @var string $price */
     private $price;
 
@@ -68,16 +65,15 @@ final class CreateActivityCommand implements Command
         string $startDate,
         string $endDate,
         string $description,
-        string $image,
+        ?string $image,
         string $url,
         string $urlGeneral,
-        string $email,
-        string $phone,
+        ?string $email,
+        ?string $phone,
         string $siteId,
-        string $municipiId,
         string $price,
         string $duration,
-        string $type,
+        ?string $type,
         string $observation,
         string $capacity,
         string $inscription
@@ -94,7 +90,6 @@ final class CreateActivityCommand implements Command
         $this->email = $email;
         $this->phone = $phone;
         $this->siteId = $siteId;
-        $this->municipiId = $municipiId;
         $this->price = $price;
         $this->duration = $duration;
         $this->type = $type;
@@ -129,7 +124,7 @@ final class CreateActivityCommand implements Command
         return $this->description;
     }
 
-    public function image(): string
+    public function image(): ?string
     {
         return $this->image;
     }
@@ -144,12 +139,12 @@ final class CreateActivityCommand implements Command
         return $this->urlGeneral;
     }
 
-    public function email(): string
+    public function email(): ?string
     {
         return $this->email;
     }
 
-    public function phone(): string
+    public function phone(): ?string
     {
         return $this->phone;
     }
@@ -158,12 +153,6 @@ final class CreateActivityCommand implements Command
     {
         return $this->siteId;
     }
-
-    public function municipiId(): string
-    {
-        return $this->municipiId;
-    }
-
 
     public function price(): string
     {
@@ -175,7 +164,7 @@ final class CreateActivityCommand implements Command
         return $this->duration;
     }
 
-    public function type(): string
+    public function type(): ?string
     {
         return $this->type;
     }
@@ -193,5 +182,10 @@ final class CreateActivityCommand implements Command
     public function inscription(): string
     {
         return $this->inscription;
+    }
+
+    public function municipiId(): string
+    {
+        return $this->municipiId;
     }
 }

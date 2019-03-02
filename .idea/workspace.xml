@@ -2,31 +2,270 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8f29b0-9856-4af5-94fc-413df0958c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/MunicipiWasCreated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Municipi/Find/FindActivityQuery.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Domain/Municipi/Municipi.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.orm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Site/Create/SiteWasCreated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Application/Site/Find/FindSiteQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Domain/Site/Repository/SiteRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Domain/Site/Site.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Site.Site.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/SiteRepositoryMySql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Application/Create/ActivityWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/ActivityWasCreated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Application/Create/CreateActivityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Application/Create/CreateActivityHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Application/Find/FindActivityQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Find/FindActivityQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Domain/Activity.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Domain/Repository/ActivityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Mappings/Activity.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Types/Id.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Id.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/setTouristActivitiesCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/setTouristActivitiesCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes/annotations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/ActivityWasCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/ActivityWasCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Application/Municipi/Find/FindActivityQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Municipi/Find/FindMunicipiQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/Municipi/Municipi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Municipi/Municipi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleEventBus.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleEventBus.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesReader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesReader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.Municipi.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Id.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Id.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Aggregate/AggregateRoot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Aggregate/AggregateRoot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Bus/Bus.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Bus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Bus/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Bus/CommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/CommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Bus/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Bus/EventBus.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/EventBus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Bus/EventHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/EventHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/CommandBus/CacheQueryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/CacheQueryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/CommandBus/CommandHandlerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/CommandHandlerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/CommandBus/QueryHandlerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/QueryHandlerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Storage/CacheConfigurationNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Storage/CacheConfigurationNotFound.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/Storage/CacheStorage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/Storage/CacheStorage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/ValueObject/Description.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/ValueObject/Id.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Id.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/ValueObject/Name.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/ValueObject/Size.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Shared/ValueObject/Slug.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/EntityManager_9a5be93.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getAnnotations_CacheService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getAnnotations_CacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getCacheClearerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getCacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getCache_AppClearerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getCache_GlobalClearerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getCache_SystemClearerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getCommandBusService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConfig_Resource_SelfCheckingResourceCheckerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_CommandLoaderService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_AboutService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_AssetsInstallService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_CacheClearService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_CachePoolClearService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_CachePoolDeleteService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_CachePoolPruneService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_CacheWarmupService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_ConfigDebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_ConfigDumpReferenceService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_ContainerDebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_DebugAutowiringService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_EventDispatcherDebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_FormDebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineCache_ContainsCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineCache_DeleteCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineCache_FlushCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineCache_StatsCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineMigrations_DiffCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineMigrations_ExecuteCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineMigrations_GenerateCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineMigrations_LatestCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineMigrations_MigrateCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineMigrations_StatusCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_PublicAlias_DoctrineMigrations_VersionCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_RouterDebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_RouterMatchService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_TranslationDebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_TranslationUpdateService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_XliffLintService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_Command_YamlLintService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getConsole_ErrorListenerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getCreateActivityHandlerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_ArgumentResolver_DefaultService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_ArgumentResolver_RequestAttributeService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_ArgumentResolver_RequestService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_ArgumentResolver_ServiceService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_ArgumentResolver_SessionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_ArgumentResolver_VariadicService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_DumpListenerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_FileLinkFormatter_UrlFormatService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDebug_Security_UserValueResolverService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDependencyInjection_Config_ContainerParametersResourceCheckerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_CacheClearMetadataCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_CacheClearQueryCacheCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_CacheClearResultCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_CacheCollectionRegionCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_ClearEntityRegionCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_ClearQueryRegionCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_DatabaseCreateCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_DatabaseDropCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_DatabaseImportCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_Dbal_DefaultConnectionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_EnsureProductionSettingsCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_GenerateEntitiesCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_MappingConvertCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_MappingImportCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_MappingInfoCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_Orm_DefaultEntityManagerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_Orm_ProxyCacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_Orm_Validator_UniqueService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_QueryDqlCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_QuerySqlCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_SchemaCreateCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_SchemaDropCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_SchemaUpdateCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getDoctrine_SchemaValidateCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getEventBusService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getFilesystemService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_FactoryService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_RegistryService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_ResolvedTypeFactoryService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_ServerParamsService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeExtension_CsrfService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeExtension_Form_DataCollectorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeExtension_Form_HttpFoundationService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeExtension_Form_ValidatorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeExtension_Repeated_ValidatorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeExtension_Submit_ValidatorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeExtension_Upload_ValidatorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeGuesser_DoctrineService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_TypeGuesser_ValidatorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_Type_ChoiceService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_Type_EntityService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getForm_Type_FormService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getFragment_Renderer_InlineService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeAuthService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeControllerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeCrudService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeEntityService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeFixturesService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeFormService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeFunctionalTestService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeMigrationService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeRegistrationFormService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeSerializerEncoderService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeSerializerNormalizerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeSubscriberService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeTwigExtensionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeUnitTestService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeUserService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeValidatorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_AutoCommand_MakeVoterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_ConsoleErrorListenerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_DoctrineHelperService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_FileManagerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_GeneratorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_Renderer_FormTypeRendererService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMaker_SecurityConfigUpdaterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getMonolog_Logger_SecurityService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getPropertyAccessorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getPropertyInfo_PhpDocExtractorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getPropertyInfo_ReflectionExtractorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getPropertyInfo_SerializerExtractorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getRedirectControllerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getRouter_CacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getRouting_LoaderService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_AccessListenerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_AccessMapService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Access_AuthenticatedVoterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Access_ExpressionVoterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Access_SimpleRoleVoterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_AuthenticationUtilsService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Authentication_Listener_Anonymous_MainService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Authentication_Provider_Anonymous_MainService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_ChannelListenerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Command_UserPasswordEncoderService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_ContextListener_0Service.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Csrf_TokenManagerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_EncoderFactory_GenericService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Firewall_Map_Context_DevService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Firewall_Map_Context_MainService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_PasswordEncoderService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_User_Provider_Concrete_InMemoryService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSecurity_Validator_UserPasswordService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSerializerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSerializer_Mapping_CacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSerializer_Mapping_ClassMetadataFactoryService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getServicesResetterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSessionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSetTouristActivitiesCommandService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_Command_DebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_Command_NewEmailService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_Command_SendEmailService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_EmailSender_ListenerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_Mailer_DefaultService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_Mailer_Default_Plugin_MessageloggerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_Mailer_Default_Transport_EventdispatcherService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_Mailer_Default_Transport_RealService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSwiftmailer_TransportService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTemplateControllerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_ExtractorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_CsvService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_DatService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_IniService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_JsonService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_MoService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_PhpService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_PoService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_QtService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_ResService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_XliffService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_Loader_YmlService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_ReaderService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTranslation_WarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_CacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_Command_DebugService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_Command_LintService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_Controller_ExceptionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_Controller_PreviewErrorService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_ExceptionListenerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_Form_RendererService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_Runtime_HttpkernelService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_Runtime_SecurityCsrfService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getTwig_TemplateCacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getValidator_EmailService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getValidator_ExpressionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getValidator_Mapping_CacheWarmerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getVarDumper_CliDumperService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getVarDumper_Command_ServerDumpService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebProfiler_Controller_ExceptionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebProfiler_Controller_ProfilerService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebProfiler_Controller_RouterService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebServer_Command_ServerLogService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebServer_Command_ServerRunService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebServer_Command_ServerStartService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebServer_Command_ServerStatusService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getWebServer_Command_ServerStopService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/get_Security_RequestMatcher_ZfHj2lWService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/get_ServiceLocator_9YeNH1Service.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/get_ServiceLocator_UEpceA5Service.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/srcDevDebugProjectContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainer.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcDevDebugProjectContainerCompiler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,46 +303,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php">
+        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state relative-caret-position="283">
+              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSetTouristActivitiesCommandService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" column="391" selection-start-line="10" selection-start-column="391" selection-end-line="10" selection-end-column="391" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesReader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+            <state relative-caret-position="139">
+              <caret line="42" column="80" selection-start-line="42" selection-start-column="80" selection-end-line="42" selection-end-column="80" />
               <folding>
                 <element signature="e#61#130#0#PHP" expanded="true" />
               </folding>
@@ -111,8 +323,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/Municipi.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -120,12 +337,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>RecipeWriteRepository</find>
-      <find>App\Activities\Activity\Domain\Activity</find>
-      <find>App\Activities\Domain\Activity;</find>
-      <find>activities</find>
-      <find>Activity</find>
-      <find>Activity\Activity</find>
       <find>SimpleBus\DoctrineORMBridge\EventListener\CollectsEventsFromEntities</find>
       <find>CollectsEventsFromEntities</find>
       <find>Activity/Infrastructure/Id</find>
@@ -135,6 +346,27 @@
       <find>imatge</find>
       <find>rel_municipis</find>
       <find>tags</find>
+      <find>grup_provincia</find>
+      <find>App\Activities\Application\Municipi\Create\CreateMunicipiCommand</find>
+      <find>App\Activities\Activity\Domain</find>
+      <find>App\Activities\Activity</find>
+      <find>App\Activities\Domain\Activity\Activity</find>
+      <find>App\Activities\Domain\Shared\CommandBus\CommandHandlerInterface</find>
+      <find>Shar</find>
+      <find>GuzzleHttp\</find>
+      <find>SimpleEventBus</find>
+      <find>SimpleCommandBus</find>
+      <find>commandBuscccc</find>
+      <find>uncommittedEvents</find>
+      <find>descr</find>
+      <find>acte_u</find>
+      <find>url_general</find>
+      <find>telefon_contacte</find>
+      <find>preu</find>
+      <find>durada</find>
+      <find>observacions</find>
+      <find>municipiId</find>
+      <find>aforament</find>
     </findStrings>
     <replaceStrings>
       <replace>activities</replace>
@@ -152,56 +384,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Doctrine/Repository.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/DoctrineRecipeWriteRepository.php" />
-        <option value="$PROJECT_DIR$/src/Activities/QueryHandler/GetContentCachedQuery.php" />
-        <option value="$PROJECT_DIR$/var/cache/dev/ContainerAHiVsqP/getSimpleBus_DoctrineOrmBridge_CollectsEventsFromEntitiesService.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Entity.Employee.orm.yml" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Activity.orm.yml" />
-        <option value="$PROJECT_DIR$/var/cache/dev/ContainerEFSiPzL/getSimpleBus_DoctrineOrmBridge_CollectsEventsFromEntitiesService.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Id.php" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/docker/login.sh" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Domain/Repository/ActivityRepository.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/ActivityRepositoryMySql.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Shared/ValueObject/Id.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Types/Id.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenData.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Shared/Aggregate/AggregateRoot.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleEventBus.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/config/bundles.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" />
-        <option value="$PROJECT_DIR$/act.txt" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Application/Create/CreateActivityCommand.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Domain/Activity.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Application/Create/CreateActivityHandler.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Mappings/Municipi.orm.xml" />
-        <option value="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Mappings/Activity.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateActivityCommand.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/Municipi.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Site/Repository/SiteRepository.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.orm.xml" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Create/ActivityWasCreated.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Site.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenData.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Site/Find/FindSiteQuery.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Site/Create/SiteWasCreated.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Find/FindActivityQuery.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Id.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/SiteRepositoryMySql.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Shared/Aggregate/AggregateRoot.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Bus.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Event.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Command.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/EventBus.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Slug.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/EventHandler.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiCommand.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Aggregate/AggregateRoot.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/CommandHandler.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/QueryHandlerInterface.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/CommandHandlerInterface.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/CacheQueryInterface.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Storage/CacheConfigurationNotFound.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Storage/CacheStorage.php" />
         <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Create/ActivityWasCreated.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleCommandBus.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleEventBus.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.Municipi.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Site.Site.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Site/Site.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Municipi/Municipi.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteHandler.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Id.php" />
+        <option value="$PROJECT_DIR$/act.txt" />
         <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" />
         <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Find/FindActivityQuery.php" />
-        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/setTouristActivitiesCommand.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/Municipi/Municipi.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.orm.xml" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/ActivityWasCreated.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateActivityCommand.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiCommand.php" />
+        <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/config/routes/annotations.yaml" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesReader.php" />
       </list>
     </option>
@@ -317,11 +549,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/web-server-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="232" />
-    <option name="y" value="133" />
-    <option name="width" value="1657" />
-    <option name="height" value="947" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="67" />
+    <option name="y" value="79" />
+    <option name="width" value="1843" />
+    <option name="height" value="935" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -344,12 +576,6 @@
             <path>
               <item name="activities" type="b2602c69:ProjectViewProjectNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -371,7 +597,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Activities" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Activity" type="462c0819:PsiDirectoryNode" />
+              <item name="Site" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="activities" type="b2602c69:ProjectViewProjectNode" />
@@ -379,7 +605,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Activities" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Municipi" type="462c0819:PsiDirectoryNode" />
+              <item name="Site" type="462c0819:PsiDirectoryNode" />
+              <item name="Create" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="activities" type="b2602c69:ProjectViewProjectNode" />
@@ -395,30 +622,6 @@
               <item name="Activities" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="Activity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Activities" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="FilesReader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Activities" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Messaging" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Activities" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="activities" type="b2602c69:ProjectViewProjectNode" />
@@ -438,39 +641,7 @@
             <path>
               <item name="activities" type="b2602c69:ProjectViewProjectNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Activities" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Persistence" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Activities" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="Doctrine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Activities" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="Doctrine" type="462c0819:PsiDirectoryNode" />
-              <item name="Mappings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Activities" type="462c0819:PsiDirectoryNode" />
-              <item name="Infrastructure" type="462c0819:PsiDirectoryNode" />
-              <item name="Persistence" type="462c0819:PsiDirectoryNode" />
-              <item name="Doctrine" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -490,19 +661,19 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Activities/Infrastructure/Bus" />
+      <recent name="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository" />
+      <recent name="$PROJECT_DIR$/src/Activities/Application" />
+      <recent name="$PROJECT_DIR$/src/Activities/Domain" />
+      <recent name="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Activities/Domain" />
       <recent name="$PROJECT_DIR$/src/Activities/Application/Activity" />
       <recent name="$PROJECT_DIR$/src/Activities/Domain/Activity" />
       <recent name="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type" />
       <recent name="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository" />
-      <recent name="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository" />
-      <recent name="$PROJECT_DIR$/src/Activities/Application" />
-      <recent name="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository" />
-      <recent name="$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository" />
-      <recent name="$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Mappings" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -548,17 +719,22 @@
       <workItem from="1550308538505" duration="35874000" />
       <workItem from="1550612439752" duration="3691000" />
       <workItem from="1550685513828" duration="9168000" />
-      <workItem from="1550768201127" duration="5598000" />
+      <workItem from="1550768201127" duration="26610000" />
+      <workItem from="1550916981074" duration="286000" />
+      <workItem from="1550919574119" duration="3515000" />
+      <workItem from="1551126269902" duration="3333000" />
+      <workItem from="1551214118939" duration="6796000" />
+      <workItem from="1551465515757" duration="8201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148734000" />
+    <option name="totallyTimeSpent" value="191877000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="79" width="1843" height="935" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20752628" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22036728" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -570,20 +746,21 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3286638" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4994664" weight="0.18312986" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053364" side_tool="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4997233" weight="0.32963374" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4986165" visible="true" weight="0.35979512" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013835" side_tool="true" weight="0.372919" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" internal_type="SLIDING" order="3" type="SLIDING" weight="0.32927504" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26377296" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21638075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32890365" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32852387" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -591,9 +768,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3286638" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4994664" visible="true" weight="0.25226587" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053364" side_tool="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4997233" weight="0.32963374" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4986165" visible="true" weight="0.372919" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013835" side_tool="true" weight="0.372919" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -603,348 +781,367 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php</url>
+          <line>25</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Doctrine/config/Entity.Employee.orm.yml" />
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/ContainerEFSiPzL/getSimpleBus_DoctrineOrmBridge_CollectsEventsFromEntitiesService.php" />
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Types/Type.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/flex/src/Configurator/MakefileConfigurator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpdocker/nginx/nginx.conf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Doctrine/config/Activity.orm.yml" />
-    <entry file="file://$PROJECT_DIR$/src/Activities/Activity/Infrastructure/Persistence/Doctrine/Repository.php" />
-    <entry file="file://$PROJECT_DIR$/docker/login.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Id.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#86#131#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Shared/ValueObject/Id.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/db.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="11" selection-start-line="10" selection-start-column="38" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Shared/Bus/Bus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Shared/Bus/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Shared/Bus/EventHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Shared/Aggregate/AggregateRoot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Shared/Bus/EventBus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleEventBus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="43" />
-          <folding>
-            <element signature="e#78#114#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/bundles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="49" column="37" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/act.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="7" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/ActivityWasCreated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="53" />
-          <folding>
-            <element signature="e#88#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-          <folding>
-            <element signature="e#88#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Find/FindActivityQuery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="150">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding>
+            <element signature="e#86#130#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Description.php" />
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Size.php" />
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Slug.php" />
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Name.php" />
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Event.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+        <state relative-caret-position="45">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/FilesReader/File.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Messaging/Message.php">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/EventHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.orm.xml">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/CacheQueryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Storage/CacheConfigurationNotFound.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+        <state>
+          <caret selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Storage/CacheStorage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/ActivityWasCreated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
-            <element signature="e#109#153#0#PHP" expanded="true" />
+            <element signature="e#88#132#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php">
+    <entry file="file://$PROJECT_DIR$/config/bundles.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding>
-            <element signature="e#109#153#0#PHP" expanded="true" />
-          </folding>
+          <caret line="17" column="78" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#87#131#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Municipi/Municipi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="32" />
-          <folding>
-            <element signature="e#50#116#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Commands/setTouristActivitiesCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Municipi/Find/FindActivityQuery.php">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Municipi/Create/MunicipiWasCreated.php">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenData.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+        <state relative-caret-position="300">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Bus.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        <state relative-caret-position="75">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php">
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/CommandHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/QueryHandlerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="39" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/CommandBus/CommandHandlerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleCommandBus.php" />
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Commands/setTouristActivitiesCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/EventBus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="42" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/FilesReader/File.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="30" column="45" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleEventBus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding>
+            <element signature="e#68#111#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Aggregate/AggregateRoot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+          <folding>
+            <element signature="e#83#126#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        <state relative-caret-position="105">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/var/cache/dev/ContainerYCgJai7/getSetTouristActivitiesCommandService.php">
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="391" selection-start-line="10" selection-start-column="391" selection-end-line="10" selection-end-column="391" />
+        <state relative-caret-position="168">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php">
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        <state relative-caret-position="192">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Id.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding>
+            <element signature="e#103#148#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Site.Site.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Site/Site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+          <folding>
+            <element signature="e#71#129#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="43" />
+          <folding>
+            <element signature="e#86#130#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+          <folding>
+            <element signature="e#109#153#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Municipi.Municipi.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Municipi/Municipi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+          <folding>
+            <element signature="e#87#131#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+          <folding>
+            <element signature="e#84#136#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Id.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/simple-bus/message-bus/src/Bus/Middleware/MessageBusSupportingMiddleware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/act.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="83" column="12" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="186" column="28" selection-start-line="186" selection-start-column="28" selection-end-line="186" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding>
+            <element signature="e#88#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="132" column="30" selection-start-line="132" selection-start-column="30" selection-end-line="132" selection-end-column="30" />
+          <folding>
+            <element signature="e#75#141#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesReader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+        <state relative-caret-position="139">
+          <caret line="42" column="80" selection-start-line="42" selection-start-column="80" selection-end-line="42" selection-end-column="80" />
           <folding>
             <element signature="e#61#130#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/Municipi.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

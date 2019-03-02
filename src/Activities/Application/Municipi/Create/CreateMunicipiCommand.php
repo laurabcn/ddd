@@ -1,10 +1,9 @@
 <?php
-
 declare(strict_types=1);
 
-namespace App\Activities\Application\Activity\Create;
+namespace App\Activities\Application\Municipi\Create;
 
-use App\Activities\Shared\Bus\Command;
+use App\Activities\Domain\Shared\Bus\Command;
 
 final class CreateMunicipiCommand implements Command
 {

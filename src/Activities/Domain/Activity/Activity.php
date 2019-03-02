@@ -4,11 +4,12 @@ declare(strict_types=1);
 namespace App\Activities\Domain\Activity;
 
 use App\Activities\Application\Activity\Create\ActivityWasCreated;
-use App\Activities\Shared\Aggregate\AggregateRoot;
+use App\Activities\Domain\Shared\Aggregate\AggregateRoot;
+use App\Activities\Domain\Shared\ValueObject\Id;
 
 class Activity extends AggregateRoot
 {
-    /** @var string */
+    /** @var Id */
     private $id;
     /** @var string */
     private $title;
@@ -28,10 +29,8 @@ class Activity extends AggregateRoot
     private $email;
     /** @var string */
     private $phone;
-    /** @var string */
-    private $siteId;
-    /** @var string */
-    private $municipiId;
+    /** @var Id */
+    private $site;
     /** @var string */
     private $price;
     /** @var string */
@@ -51,16 +50,15 @@ class Activity extends AggregateRoot
         \DateTimeInterface $startDate,
         \DateTimeInterface $endDate,
         string $description,
-        string $image,
+        ?string $image,
         string $url,
         string $urlGeneral,
-        string $email,
-        string $phone,
-        string $siteId,
-        string $municipiId,
+        ?string $email,
+        ?string $phone,
+        Id $siteId,
         string $price,
         string $duration,
-        string $type,
+        ?string $type,
         string $observation,
         string $capacity,
         string $inscription
@@ -76,8 +74,7 @@ class Activity extends AggregateRoot
         $this->urlGeneral = $urlGeneral;
         $this->email = $email;
         $this->phone = $phone;
-        $this->siteId = $siteId;
-        $this->municipiId = $municipiId;
+        $this->site = $siteId;
         $this->price = $price;
         $this->duration = $duration;
         $this->type = $type;
@@ -88,7 +85,7 @@ class Activity extends AggregateRoot
         $this->recordThat(new ActivityWasCreated($id, $title));
     }
 
-    public function id(): string
+    public function id(): Id
     {
         return $this->id;
     }
@@ -113,7 +110,7 @@ class Activity extends AggregateRoot
         return $this->description;
     }
 
-    public function image(): string
+    public function image(): ?string
     {
         return $this->image;
     }
@@ -128,24 +125,19 @@ class Activity extends AggregateRoot
         return $this->urlGeneral;
     }
 
-    public function email(): string
+    public function email(): ?string
     {
         return $this->email;
     }
 
-    public function phone(): string
+    public function phone(): ?string
     {
         return $this->phone;
     }
 
-    public function siteId(): string
+    public function site(): Id
     {
-        return $this->siteId;
-    }
-
-    public function municipiId(): string
-    {
-        return $this->municipiId;
+        return $this->site;
     }
 
     public function price(): string
@@ -158,7 +150,7 @@ class Activity extends AggregateRoot
         return $this->duration;
     }
 
-    public function type(): string
+    public function type(): ?string
     {
         return $this->type;
     }

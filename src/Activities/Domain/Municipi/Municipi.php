@@ -3,9 +3,11 @@ declare(strict_types=1);
 
 namespace App\Activities\Domain\Municipi;
 
+use App\Activities\Domain\Shared\ValueObject\Id;
+
 class Municipi
 {
-    /** @var string */
+    /** @var Id */
     private $id;
     /** @var string */
     private $name;
@@ -16,7 +18,7 @@ class Municipi
         $this->name = $name;
     }
 
-    public function id(): string
+    public function id(): Id
     {
         return $this->id;
     }

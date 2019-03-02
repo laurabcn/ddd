@@ -6,8 +6,9 @@ namespace App\Activities\Application\Activity\Create;
 
 use App\Activities\Domain\Activity\Activity;
 use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Shared\Bus\CommandHandler;
-use App\Activities\Shared\Bus\EventBus;
+use App\Activities\Domain\Shared\Bus\CommandHandler;
+use App\Activities\Domain\Shared\Bus\EventBus;
+use App\Activities\Domain\Shared\ValueObject\Id;
 
 final class CreateActivityHandler implements CommandHandler
 {
@@ -36,8 +37,7 @@ final class CreateActivityHandler implements CommandHandler
             $command->urlGeneral(),
             $command->email(),
             $command->phone(),
-            $command->siteId(),
-            $command->municipiId(),
+            new Id($command->siteId()),
             $command->price(),
             $command->duration(),
             $command->type(),
