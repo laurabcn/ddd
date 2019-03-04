@@ -3,9 +3,12 @@
 namespace App\Activities\Infrastructure\FilesReader;
 
 use App\Activities\Application\Activity\Create\CreateActivityCommand;
-use App\Activities\Application\Municipi\Create\CreateMunicipiCommand;
+use App\Activities\Application\Provincia\Create\CreateProvinciaCommand;
 use App\Activities\Application\Site\Create\CreateSiteCommand;
 use App\Activities\Domain\FilesReader\FilesReader;
+use App\Activities\Domain\Provincia\Municipi;
+use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
+use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
 
@@ -17,17 +20,22 @@ class ActivitiesReader implements FilesReader
     /** @var GetActivitiesFromOpenDataLibraries */
     private $getActivitiesFromOpenDataLibraries;
 
+    /** @var ProvinciaRepository  */
+    private $provinciaRepository;
+
     /** @var CommandBus $commandBus  */
     private $commandBus;
 
     public function __construct(
         GetActivitiesFromOpenData $getActivitiesFromOpenData,
         GetActivitiesFromOpenDataLibraries $getActivitiesFromOpenDataLibraries,
+        ProvinciaRepository $provinciaRepository,
         \SimpleBus\SymfonyBridge\Bus\CommandBus $commandBus
     )
     {
         $this->getActivitiesFromOpenData = $getActivitiesFromOpenData;
         $this->getActivitiesFromOpenDataLibraries = $getActivitiesFromOpenDataLibraries;
+        $this->provinciaRepository = $provinciaRepository;
         $this->commandBus = $commandBus;
     }
 
@@ -39,12 +47,34 @@ class ActivitiesReader implements FilesReader
         $files = array_merge($filestourism, $fileslibrary);
 
         foreach ($files as $file) {
-            $commandMunicipi = new CreateMunicipiCommand(
-                $idMunicipi = (isset( $file['rel_municipis']['grup_provincia'])) ? $file['rel_municipis']['grup_provincia']['provincia_codi']: '8',
-                isset($file['rel_municipis']['municipi_nom']) ? $file['rel_municipis']['municipi_nom'] : 'Barcelona'
-            );
+            $idMunicipi = UuidGenerator::generateId();
+            $idProvincia = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '8' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
+            $nameMunicipi = !isset($file['rel_municipis']['municipi_nom']) ? null : $file['rel_municipis']['municipi_nom'];
+            $nameProvincia = !isset( $file['rel_municipis']['grup_provincia']['provincia_nom']) ? null : $file['rel_municipis']['grup_provincia']['provincia_nom'];
 
-            $this->commandBus->handle($commandMunicipi);
+            $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
+
+             if(null === $provincia && null !== $nameProvincia ) {
+                $commandProvincia = new CreateProvinciaCommand(
+                    $idProvincia,
+                    $nameProvincia,
+                    [$idMunicipi => $nameMunicipi]
+                );
+                $this->commandBus->handle($commandProvincia);
+                $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
+            }
+
+            if(null !== $nameMunicipi){
+                $hasMunicipi = $provincia->hasMunicipi($nameMunicipi);
+                if(count($hasMunicipi) === 0 ){
+                   $provincia->registerMunicipi(
+                       new Id($idMunicipi),
+                       $nameMunicipi
+                   );
+                   $this->provinciaRepository->save($provincia);
+                }
+            }
+
             $commandSite = new CreateSiteCommand(
                 $idSite = UuidGenerator::generateId(),
                 $file['grup_adreca']['adreca_nom'],
@@ -80,7 +110,7 @@ class ActivitiesReader implements FilesReader
                 $file['aforament'],
                 $file['inscripcio']
             );
-            $this->commandBus->handle($commandActivity);
+           // $this->commandBus->handle($commandActivity);
         }
     }
 }

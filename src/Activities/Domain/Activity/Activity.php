@@ -9,7 +9,7 @@ use App\Activities\Domain\Shared\ValueObject\Id;
 
 class Activity extends AggregateRoot
 {
-    /** @var Id */
+    /** @var string */
     private $id;
     /** @var string */
     private $title;
@@ -85,7 +85,7 @@ class Activity extends AggregateRoot
         $this->recordThat(new ActivityWasCreated($id, $title));
     }
 
-    public function id(): Id
+    public function id(): string
     {
         return $this->id;
     }

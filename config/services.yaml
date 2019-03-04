@@ -31,16 +31,16 @@ services:
     App\Activities\Domain\Shared\Bus\EventBus: '@App\Activities\Infrastructure\Bus\SimpleEventBus'
 
     App\Activities\Domain\Activity\Repository\ActivityRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\ActivityRepositoryMySql'
-    App\Activities\Domain\Municipi\Repository\MunicipiRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\MunicipiRepositoryMySql'
+    App\Activities\Domain\Provincia\Repository\ProvinciaRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\ProvinciaRepositoryMySql'
     App\Activities\Domain\Site\Repository\SiteRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\SiteRepositoryMySql'
 
     App\Activities\Application\Activity\Create\CreateActivityHandler:
         tags:
             - { name: command_handler, handles: 'App\Activities\Application\Activity\Create\CreateActivityCommand' }
 
-    App\Activities\Application\Municipi\Create\CreateMunicipiHandler:
+    App\Activities\Application\Provincia\Create\CreateProvinciaHandler:
         tags:
-            - { name: command_handler, handles: 'App\Activities\Application\Municipi\Create\CreateMunicipiCommand' }
+            - { name: command_handler, handles: 'App\Activities\Application\Provincia\Create\CreateProvinciaCommand' }
 
     App\Activities\Application\Site\Create\CreateSiteHandler:
         tags:
