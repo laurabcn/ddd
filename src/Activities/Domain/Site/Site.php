@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Activities\Domain\Site;
 
-use App\Activities\Application\Site\Create\SiteWasCreated;
 use App\Activities\Domain\Shared\ValueObject\Id;
 
 class Site
@@ -16,7 +15,7 @@ class Site
     private $address;
     /** @var string */
     private $postalCode;
-    /** @var Id */
+    /** @var string */
     private $municipiId;
     /** @var string */
     private $coordinates;
@@ -26,7 +25,7 @@ class Site
         string $site,
         string $address,
         string $postalCode,
-        Id $municipiId,
+        string $municipiId,
         string $coordinates
     ) {
         $this->id = $id;
@@ -57,7 +56,7 @@ class Site
         return $this->postalCode;
     }
 
-    public function municipiId(): Id
+    public function municipiId(): string
     {
         return $this->municipiId;
     }

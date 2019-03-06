@@ -4,37 +4,34 @@ declare(strict_types = 1);
 
 namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
 
+use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Activities\Domain\Site\Repository\SiteRepository;
 use App\Activities\Domain\Site\Site;
-use App\Activities\Shared\ValueObject\Id;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
-final class SiteRepositoryMySql implements SiteRepository
+final class SiteRepositoryMySql extends ServiceEntityRepository implements SiteRepository
 {
-    /** @var EntityManager */
-    private $entityManager;
 
-    /** @param EntityManager $entityManager */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(RegistryInterface $registry)
     {
-        $this->entityManager = $entityManager;
-    }
-
-    public function entityManager(): EntityManager
-    {
-        return $this->entityManager;
+        parent::__construct($registry, Site::class);
     }
 
     public function save(Site $site): void
     {
-        $this->entityManager()->persist($site);
-        $this->entityManager()->flush($site);
+        $this->_em->persist($site);
+        $this->_em->flush();
     }
 
     public function byId(Id $id): ?Site
     {
-        return $this->entityManager->getRepository(Site::class)->findOneBy(['id' => $id]);
+        return $this->findOneBy(['id' => $id->id()]);
+    }
+
+    public function bySite(string $site): ?Site
+    {
+        return $this->findOneBy(['name' => $site]);
     }
 
 }

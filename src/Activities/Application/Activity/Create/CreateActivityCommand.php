@@ -183,9 +183,4 @@ final class CreateActivityCommand implements Command
     {
         return $this->inscription;
     }
-
-    public function municipiId(): string
-    {
-        return $this->municipiId;
-    }
 }

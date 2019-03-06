@@ -27,14 +27,13 @@ final class CreateProvinciaHandler implements CommandHandler
     public function handle(CreateProvinciaCommand $command): void
     {
         $provincia = new Provincia(
-            new Id($command->id()),
+            $command->id(),
             $command->name()
         );
 
         foreach ($command->municipi() as $key => $municipi)
         {
-            $municipi = new Municipi($key, $municipi, $command->id());
-            $provincia->addMunicipi($municipi);
+            $provincia->registerMunicipi(new Id($key), $municipi);
         }
 
         $this->provinciaRepository->save($provincia);

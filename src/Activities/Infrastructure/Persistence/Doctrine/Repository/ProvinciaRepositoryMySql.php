@@ -23,9 +23,9 @@ final class ProvinciaRepositoryMySql extends ServiceEntityRepository implements 
         $this->_em->flush();
     }
 
-    public function byId(Id $id): ?Provincia
+    public function byId(string $id): ?Provincia
     {
-        return $this->findOneBy(['id' => $id->id()]);
+        return $this->findOneBy(['id' => $id]);
     }
 
 }

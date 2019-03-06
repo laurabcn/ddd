@@ -10,7 +10,7 @@ use Doctrine\DBAL\Types\GuidType;
 class Id extends GuidType
 {
     const MYTYPE = 'Id';
-    const NAMESPACE = 'App\Activities\Shared\ValueObject';
+    const NAMESPACE = 'App\Activities\Domain\Shared\ValueObject';
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {

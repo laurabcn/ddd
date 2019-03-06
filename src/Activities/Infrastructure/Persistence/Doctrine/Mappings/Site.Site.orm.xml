@@ -4,13 +4,13 @@
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
     <entity name="App\Activities\Domain\Site\Site" table="site"
             repository-class="App\Activities\Infrastructure\Persistence\Doctrine\Repository\SiteRepositoryMySql">
-        <id name="id" type="guid">
+        <id name="id" type="Id">
             <generator strategy="NONE"/>
         </id>
         <field name="name" column="name" type="string"/>
         <field name="address" column="address" type="string"/>
         <field name="postalCode" column="postalCode" type="string"/>
-        <field name="municipiId" column="municipiId" type="Id"/>
+        <field name="municipiId" column="municipiId" type="string"/>
         <field name="coordinates" column="coordinates" type="string"/>
     </entity>
 </doctrine-mapping>

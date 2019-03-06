@@ -6,39 +6,27 @@ namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
 
 use App\Activities\Domain\Activity\Activity;
 use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Shared\ValueObject\Id;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Activities\Domain\Shared\ValueObject\Id;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
-final class ActivityRepositoryMySql implements ActivityRepository
+final class ActivityRepositoryMySql extends ServiceEntityRepository  implements ActivityRepository
 {
-    /**
-     * @var EntityManager
-     */
-    private $entityManager;
-
-    /**
-     * @param EntityManager $entityManager
-     */
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(RegistryInterface $registry)
     {
-        $this->entityManager = $entityManager;
+        parent::__construct($registry, Activity::class);
     }
 
-    public function entityManager(): EntityManager
-    {
-        return $this->entityManager;
-    }
 
     public function save(Activity $activity): void
     {
-        $this->entityManager()->persist($activity);
-        $this->entityManager()->flush($activity);
+        $this->_em->persist($activity);
+        $this->_em->flush($activity);
     }
 
     public function byId(Id $id): ?Activity
     {
-        return $this->entityManager->getRepository(Activity::class)->findOneBy(['id' => $id]);
+        return $this->findOneBy(['id' => $id]);
     }
 
 }

@@ -32,7 +32,7 @@ final class CreateSiteHandler implements CommandHandler
             $command->site(),
             $command->address(),
             $command->postalCode(),
-            new Id($command->municipiId()),
+            $command->municipiId(),
             $command->coordinates()
         );
 

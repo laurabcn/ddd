@@ -40,11 +40,10 @@ class Provincia extends AggregateRoot
 
     public function registerMunicipi(Id $municipiId, string $name)
     {
-        var_dump($this->id);
         $municipi = new Municipi(
             $municipiId->id(),
             $name,
-            $this->id
+            $this->id()
         );
 
         $this->addMunicipi($municipi);
@@ -60,7 +59,7 @@ class Provincia extends AggregateRoot
         return $this->municipi->get($municipiId->id());
     }
 
-    public function hasMunicipi(string $municipi)
+    public function hasMunicipi(string $municipi): Object
     {
         return  $this->municipi->filter( function($entry) use ($municipi) {
             return $entry->name() === $municipi;
