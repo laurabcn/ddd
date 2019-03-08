@@ -8,9 +8,9 @@
             <generator strategy="NONE"/>
         </id>
         <field name="name" column="name" type="string"/>
-        <field name="address" column="address" type="string"/>
-        <field name="postalCode" column="postalCode" type="string"/>
-        <field name="municipiId" column="municipiId" type="string"/>
-        <field name="coordinates" column="coordinates" type="string"/>
+        <field name="address" column="address" nullable="true" type="string"/>
+        <field name="postalCode" column="postalCode" nullable="true" type="string"/>
+        <field name="municipiId" column="municipiId" nullable="true" type="string"/>
+        <field name="coordinates" column="coordinates" nullable="true" type="string"/>
     </entity>
 </doctrine-mapping>

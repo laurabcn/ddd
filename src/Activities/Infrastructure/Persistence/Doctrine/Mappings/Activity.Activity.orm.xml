@@ -7,21 +7,22 @@
         <id name="id" type="Id">
             <generator strategy="NONE"/>
         </id>
+        <field name="acteId" column="acte_id" type="string" />
         <field name="title" column="title" type="string"/>
         <field name="startDate" column="start_date" type="datetime"/>
         <field name="endDate" column="end_date" type="datetime"/>
         <field name="description" column="description" type="text"/>
         <field name="image" column="image" nullable="true" type="string"/>
-        <field name="url" column="url" type="string"/>
-        <field name="urlGeneral" column="urlGeneral" type="text"/>
+        <field name="url" column="url" nullable="true" type="string"/>
+        <field name="urlGeneral" column="urlGeneral" nullable="true" type="text"/>
         <field name="email" column="email" nullable="true" type="string"/>
         <field name="phone" column="phone" nullable="true" type="string"/>
-        <field name="price" column="price" type="string"/>
-        <field name="duration" column="duration" type="string"/>
-        <field name="observation" column="observation" type="text"/>
-        <field name="capacity" column="capacity" type="string"/>
+        <field name="price" column="price" nullable="true" type="text"/>
+        <field name="duration" column="duration" nullable="true" type="string"/>
+        <field name="observation" column="observation" nullable="true" type="text"/>
+        <field name="capacity" column="capacity" nullable="true" type="string"/>
         <field name="type" column="type" nullable="true" type="string"/>
-        <field name="inscription" column="inscription" type="string"/>
-        <field name="site" column="siteId" type="string"/>
+        <field name="inscription" column="inscription" nullable="true" type="string"/>
+        <field name="site" column="siteId" nullable="true" type="string"/>
     </entity>
 </doctrine-mapping>

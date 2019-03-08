@@ -12,6 +12,9 @@ final class CreateActivityCommand implements Command
     private $id;
 
     /** @var string */
+    private $acteId;
+
+    /** @var string */
     private $title;
 
     /** @var string $startDate */
@@ -61,25 +64,27 @@ final class CreateActivityCommand implements Command
 
     public function __construct(
         string $id,
+        string $acteId,
         string $title,
         string $startDate,
         string $endDate,
         string $description,
         ?string $image,
-        string $url,
-        string $urlGeneral,
+        ?string $url,
+        ?string $urlGeneral,
         ?string $email,
         ?string $phone,
-        string $siteId,
-        string $price,
-        string $duration,
+        ?string $siteId,
+        ?string $price,
+        ?string $duration,
         ?string $type,
-        string $observation,
-        string $capacity,
-        string $inscription
+        ?string $observation,
+        ?string $capacity,
+        ?string $inscription
     )
     {
         $this->id = $id;
+        $this->acteId = $acteId;
         $this->title = $title;
         $this->startDate = $startDate;
         $this->endDate = $endDate;
@@ -102,6 +107,11 @@ final class CreateActivityCommand implements Command
     public function id(): string
     {
         return $this->id;
+    }
+
+    public function acteId(): string
+    {
+        return $this->acteId;
     }
 
     public function title(): string
@@ -129,12 +139,12 @@ final class CreateActivityCommand implements Command
         return $this->image;
     }
 
-    public function url(): string
+    public function url(): ?string
     {
         return $this->url;
     }
 
-    public function urlGeneral(): string
+    public function urlGeneral(): ?string
     {
         return $this->urlGeneral;
     }
@@ -149,17 +159,17 @@ final class CreateActivityCommand implements Command
         return $this->phone;
     }
 
-    public function siteId(): string
+    public function siteId(): ?string
     {
         return $this->siteId;
     }
 
-    public function price(): string
+    public function price(): ?string
     {
         return $this->price;
     }
 
-    public function duration(): string
+    public function duration(): ?string
     {
         return $this->duration;
     }
@@ -169,17 +179,17 @@ final class CreateActivityCommand implements Command
         return $this->type;
     }
 
-    public function observation(): string
+    public function observation(): ?string
     {
         return $this->observation;
     }
 
-    public function capacity(): string
+    public function capacity(): ?string
     {
         return $this->capacity;
     }
 
-    public function inscription(): string
+    public function inscription(): ?string
     {
         return $this->inscription;
     }

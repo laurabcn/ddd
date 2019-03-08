@@ -28,6 +28,7 @@ final class CreateActivityHandler implements CommandHandler
     {
         $activity = new Activity(
             $command->id(),
+            $command->acteId(),
             $command->title(),
             new \DateTime($command->startDate()),
             new \DateTime($command->endDate()),

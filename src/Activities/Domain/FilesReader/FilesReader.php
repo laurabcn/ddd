@@ -5,5 +5,5 @@ namespace App\Activities\Domain\FilesReader;
 
 interface FilesReader
 {
-    public function read(string $path) : void;
+    public function read(string $language) : void;
 }

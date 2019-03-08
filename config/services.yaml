@@ -24,8 +24,16 @@ services:
     GuzzleHttp\Client: ~
     GuzzleHttp\ClientInterface: '@GuzzleHttp\Client'
 
-    App\Activities\Infrastructure\FilesReader\ActivitiesReader: ~
-    App\Activities\Domain\FilesReader\FilesReader: '@App\Activities\Infrastructure\FilesReader\ActivitiesReader'
+    App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioLanguagesReader: ~
+    App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioCatalaReader: ~
+
+    App\Activities\Infrastructure\Commands\GetActivitiesDiputacioLanguages:
+        arguments:
+            $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioLanguagesReader'
+
+    App\Activities\Infrastructure\Commands\GetActivitiesDiputacioCatala:
+        arguments:
+            $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioCatalaReader'
 
     App\Activities\Infrastructure\Bus\SimpleEventBus: ~
     App\Activities\Domain\Shared\Bus\EventBus: '@App\Activities\Infrastructure\Bus\SimpleEventBus'

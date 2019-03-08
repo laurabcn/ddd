@@ -12,6 +12,8 @@ class Activity extends AggregateRoot
     /** @var string */
     private $id;
     /** @var string */
+    private $acteId;
+    /** @var string */
     private $title;
     /** @var \DateTimeInterface */
     private $startDate;
@@ -46,25 +48,27 @@ class Activity extends AggregateRoot
 
     public function __construct(
         string $id,
+        string $acteId,
         string $title,
         \DateTimeInterface $startDate,
         \DateTimeInterface $endDate,
         string $description,
         ?string $image,
-        string $url,
-        string $urlGeneral,
+        ?string $url,
+        ?string $urlGeneral,
         ?string $email,
         ?string $phone,
-        Id $siteId,
-        string $price,
-        string $duration,
+        ?Id $siteId,
+        ?string $price,
+        ?string $duration,
         ?string $type,
-        string $observation,
-        string $capacity,
-        string $inscription
+        ?string $observation,
+        ?string $capacity,
+        ?string $inscription
     )
     {
         $this->id = $id;
+        $this->acteId = $acteId;
         $this->title = $title;
         $this->startDate = $startDate;
         $this->endDate = $endDate;
@@ -88,6 +92,11 @@ class Activity extends AggregateRoot
     public function id(): string
     {
         return $this->id;
+    }
+
+    public function acteId(): string
+    {
+        return $this->acteId;
     }
 
     public function title(): string
@@ -140,12 +149,12 @@ class Activity extends AggregateRoot
         return $this->site;
     }
 
-    public function price(): string
+    public function price(): ?string
     {
         return $this->price;
     }
 
-    public function duration(): string
+    public function duration(): ?string
     {
         return $this->duration;
     }
@@ -160,12 +169,12 @@ class Activity extends AggregateRoot
         return $this->observation;
     }
 
-    public function capacity(): string
+    public function capacity(): ?string
     {
         return $this->capacity;
     }
 
-    public function inscription(): string
+    public function inscription(): ?string
     {
         return $this->inscription;
     }

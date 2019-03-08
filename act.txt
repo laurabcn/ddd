@@ -1,3 +1,107 @@
+[
+   {
+      "acte_id":"agendabiblioteques233986986",
+      "titol":"HORA DEL CONTE PER A MENUTS: L'Elmer: l'elefant de colors",
+      "data_inici":"2019-04-06 10:30:00",
+      "data_fi":"2019-04-06 23:59:59",
+      "descripcio":"<p><span style='color:black;'><span style='font-family:arial,sans-serif;'><span style='font-size:12.0pt;'>A càrrec de l’<strong>Equip de Menuts de la Biblioteca<\/strong>.",
+      "imatge":[
+         "http:\/\/bibliotecavirtual.diba.cat\/documents\/352117\/180979110\/Elmer\/b7c175a4-afa2-4c8a-8ae4-7a15c352c918?t=1550937885732"
+      ],
+      "acte_organitzadors":"Vilanova i la Geltrú. Biblioteca Joan Oliva i Milà",
+      "acte_url":"http:\/\/bibliotecavirtual.diba.cat\/detall-esdeveniment\/-\/contingut\/352117\/hora-del-conte-per--a-menuts-lelmer-lelefant-de-colors",
+      "telefon_contacte":[
+         "938 932 039"
+      ],
+      "email":[
+         "b.vilanovag.jo@diba.cat"
+      ],
+      "grup_adreca":{
+         "adreca_nom":" Biblioteca Joan Oliva i Milà",
+         "adreca":"Plaça de la Vila, 13 08800 Vilanova i la Geltrú",
+         "codi_postal":"08800",
+         "municipi_nom":"Vilanova i la Geltrú",
+         "localitzacio":"41.2240870,1.7255370"
+      },
+      "url_general":"http:\/\/bibliotecavirtual.diba.cat\/detall-esdeveniment\/-\/contingut\/352117\/hora-del-conte-per--a-menuts-lelmer-lelefant-de-colors",
+      "colaboradors":"",
+      "rel_municipis":{
+         "ine":"08307",
+         "municipi_nom":"Vilanova i la Geltrú",
+         "municipi_nom_curt":"Vilanova i la Geltrú",
+         "municipi_article":"",
+         "municipi_transliterat":"vilanova_i_la_geltru",
+         "municipi_curt_transliterat":"vilanova_i_la_geltru",
+         "centre_municipal":"41.2241192,1.7260687",
+         "grup_comarca":{
+            "comarca_codi":"17",
+            "comarca_nom":"Garraf"
+         },
+         "grup_provincia":{
+            "provincia_codi":"8",
+            "provincia_nom":"Barcelona"
+         },
+         "grup_ajuntament":{
+            "adreca-completa":"Plaça de la Vila, 8, 08800 Vilanova i la Geltrú",
+            "adreca":"Plaça de la Vila, 8",
+            "codi_postal":"08800",
+            "localitzacio":"41.2241192,1.7260687",
+            "telefon_contacte":"938140000",
+            "fax":"938142425",
+            "email":"ajt_vilanova@vilanova.cat",
+            "url_general":"https:\/\/www.vilanova.cat",
+            "cif":"P0830800I"
+         },
+         "municipi_escut":"https:\/\/media.diba.cat\/diba\/municipis\/img\/escuts\/ec08307.png",
+         "municipi_bandera":"https:\/\/media.diba.cat\/diba\/municipis\/img\/banderes\/bn08307.gif",
+         "municipi_vista":"https:\/\/media.diba.cat\/diba\/municipis\/img\/vistes\/vista08307.jpg",
+         "ine6":"083073",
+         "nom_dbpedia":"Vilanova_i_la_Geltrú"
+      },
+      "rel_temes":{
+         "count":0,
+         "elements":"3"
+      },
+      "tags":[
+         "Hora del conte",
+         "Nadons",
+         "Vilanova i la Geltrú. Biblioteca Joan Oliva i Milà"
+      ],
+      "categoria":[
+         "hora_del_conte",
+         "nadons",
+         "vilanova_i_la_geltru_biblioteca_joan_oliva_i_mila"
+      ],
+      "rel_punt":"biblioteca423980",
+      "preu":"",
+      "peu_imatge":[
+
+      ],
+      "durada":"",
+      "observacions_horari":"",
+      "dies":"",
+      "tipus":[
+         "Hora del conte"
+      ],
+      "public":[
+         "Nadons"
+      ],
+      "observacions":"",
+      "rel_comarca":[
+         "17"
+      ],
+      "documentacio":"",
+      "assistents":"",
+      "aforament":"",
+      "inscripcio":"",
+      "cos":"",
+      "cercador_codi":""
+   }
+]
+
+
+
+
 {
   "acte_id": "agendaturisme170712521",
   "titol": "Visita al mNACTEC!",
@@ -85,4 +189,20 @@
   "inscripcio": "",
   "cos": "",
   "cercador_codi": ""
+}
+
+{
+   "id":"activitat_2",
+   "imatge":"",
+   "nom_del_lloc":"",
+   "localitzacio":"",
+   "data_inicial":"2019-03-22 00:00:00",
+   "data_final":"2019-03-22 23:59:59",
+   "categoria_principal":"Aigua",
+   "categories":"Aigua",
+   "etiquetes":"dia mundial de l'aigua, dia internacional",
+   "contacte":"",
+   "cos":"Sense deixar ningú darrere Qui sigui, sigui on estigui, l'aigua és el vostre dret humà El Dia Mundial de l'Aigua se celebra anualment el 22 de març com un mitjà per centrar l'atenció en la importància de l'aigua i la defensa de la gestió sostenible dels recursos hídrics. L'Assemblea General de les Nacions Unides va designar el 22 de de març de 1993 com el primer Dia Mundial de l'Aigua, després que la seva celebració s'aprovés a la Conferència de les Nacions Unides sobre el Medi Ambient i el Desenvolupament (CNUMAD) l'any 1992. L'objectiu 6 per al desenvolupament sostenible és cristal·lí: aigua per a tothom cap al 2030. Per definició, això significa que no hi ha ningú darrere. Però avui, milers de milions de persones encara viuen sense aigua potable: les llars, les escoles, els llocs de treball, les explotacions i les fàbriques que lluiten per sobreviure i prosperar. Els grups marginats, dones, nens, refugiats, pobles indígenes, persones amb discapacitat i molts altres, sovint s'obliden i, de vegades, s'enfronten a la discriminació, ja que intenten accedir i gestionar l'aigua segura que necessiten. Aquest Dia Mundial de l'Aigua, del 22 de març de 2019, tracta de fer front a la crisi de l'aigua abordant els motius pels quals queda molta gent sense accés al recurs. La diada serveix per explicar quines accions es desenvolupen i es recomana fer servir les xarxes socials (Twitter, Facebook, Instagram...) i el hashtag \/ paraula clau #diamundialaigua #worldwaterday #acaworldwaterday2019 . Més informació internacional del WorldWaterDay .  ",
+   "destinatari":"",
+   "organitzador":""
 }

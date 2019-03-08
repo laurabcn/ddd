@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class setTouristActivitiesCommand extends ContainerAwareCommand
+class GetActivitiesDiputacioLanguages extends ContainerAwareCommand
 {
     private $reader;
 
@@ -22,12 +22,12 @@ class setTouristActivitiesCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('app:create-user')
+            ->setName('get:diputacio:language')
             ->setDescription('Insert data from activities to Barcelona')
             ->addArgument(
                 'language',
                 InputArgument::REQUIRED,
-                'ca : Català, es : español, en : english, ru : russian, de : aleman, fr : Frances'
+                'es : español, en : english, ru : russian, de : aleman, fr : Frances'
             )
             ->setHelp('This command get data for tourism calendar...')
         ;
@@ -50,6 +50,9 @@ class setTouristActivitiesCommand extends ContainerAwareCommand
     {
         $language = $input->getArgument('language');
 
-        $this->reader->read($language);
+        if(in_array($language, ['es', 'en', 'ru', 'de', 'fr'] ))
+        {
+            $this->reader->read($language);
+        }
     }
 }

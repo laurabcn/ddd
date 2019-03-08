@@ -28,10 +28,10 @@ final class CreateSiteCommand implements Command
     public function __construct(
         string $id,
         string $site,
-        string $address,
-        string $postalCode,
-        string $municipiId,
-        string $coordinates
+        ?string $address,
+        ?string $postalCode,
+        ?string $municipiId,
+        ?string $coordinates
     ) {
         $this->id = $id;
         $this->site = $site;
@@ -51,22 +51,22 @@ final class CreateSiteCommand implements Command
         return $this->site;
     }
 
-    public function address(): string
+    public function address(): ?string
     {
         return $this->address;
     }
 
-    public function postalCode(): string
+    public function postalCode(): ?string
     {
         return $this->postalCode;
     }
 
-    public function municipiId(): string
+    public function municipiId(): ?string
     {
         return $this->municipiId;
     }
 
-    public function coordinates(): string
+    public function coordinates(): ?string
     {
         return $this->coordinates;
     }
