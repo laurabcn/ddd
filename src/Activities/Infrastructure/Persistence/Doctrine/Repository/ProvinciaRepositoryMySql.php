@@ -28,4 +28,9 @@ final class ProvinciaRepositoryMySql extends ServiceEntityRepository implements 
         return $this->findOneBy(['id' => $id]);
     }
 
+    public function byName(string $name): ?Provincia
+    {
+        return $this->findOneBy(['name' => $name]);
+    }
+
 }

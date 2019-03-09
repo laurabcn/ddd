@@ -32,6 +32,7 @@ final class CreateActivityHandler implements CommandHandler
             $command->title(),
             new \DateTime($command->startDate()),
             new \DateTime($command->endDate()),
+            $command->language(),
             $command->description(),
             $command->image(),
             $command->url(),

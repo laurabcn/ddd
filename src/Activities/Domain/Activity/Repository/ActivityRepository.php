@@ -10,5 +10,9 @@ interface ActivityRepository
 {
     public function byId(Id $id): ?Activity;
 
+    public function byCode(string $code): ?Activity;
+
+    public function byCodeAndLanguage(string $code, string $language): ?Activity;
+
     public function save(Activity $activity): void;
 }

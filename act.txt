@@ -206,3 +206,36 @@
    "destinatari":"",
    "organitzador":""
 }
+
+
+array(17) {
+  'adre_a' => string(47) "Pg. de Santa Madrona, 39-41 (Parc de Montjuïc)"
+  'codi' => string(11) "20180423038"
+  'comarca_i_municipi' =>string(48) "agenda:ubicacions/barcelona/barcelones/barcelona"
+  'data_fi' => string(23) "2018-07-15T00:00:00.000"
+  'data_inici' => string(23) "2018-03-29T00:00:00.000"
+  'denominaci' =>  string(30) "Exposició "Xamans i Esperits""
+  'descripcio' => string(479) "L'exposició "Xamans i Esperits. Tresors del Museo del Jade de Costa Rica" reuneix una mostra excepcional de les col·leccions arqueològiques del Museo del Jade i de la Cultura Precolombina de San José de Costa Rica. A través de precioses peces de jade, joies, ceràmiques i objectes de pedra, creats en un marc d'una cosmovisió animista, descobrim els processos històrics, la tecnologia i les creences vinculades tant al món quotidià com al cerimonial dels pobles antics."
+  'enlla_os' => string(708) "http://www.macbarcelona.cat/Exposicions/Exposicions-temporals-actuals/Xamans-i-Esperits.-Tresors-del-Museo-del-Jade-de-Costa-Rica,https://agenda.cultura.gencat.cat/content/agenda/ca/results.html?c=eyJrZXl3b3JkcyI6IiIsImRhdGFPcHRpb24iOiIiLCJkYXRhRGVzZGUiOiIiLCJkYXRhRmluc2EiOiIiLCJlc3BhaSI6IiIsInBvYmxhY2lvIjoiIiwiYW1iaXRzIjpbImFnZW5kYTphbWJpdHMvZGl2dWxnYWNpbyJdLCJjYXRlZ29yaWVzIjpbXX0_&page=0,https://agenda.cultura.gencat.cat/content/agenda/ca/results.html?c=eyJrZXl3b3JkcyI6IiIsImRhdGFPcHRpb24iOiIiLCJkYXRhRGVz"...
+  'espai' =>  string(48) "Museu d'Arqueologia de Catalunya (MAC Barcelona)"
+  'horari' => string(122) "<p>· De dimarts a dissabtes: de 9.30 a 19 h</p>
+<p>· Diumenges i festius: de 10 a 14.30 h</p>
+<p>· Dilluns: tancat</p>
+"
+  'imatges' =>
+  string(111) "/content/dam/agenda/articles/2018/04/23/038/xamans.jpg,/content/dam/agenda/articles/2018/04/23/038/xamans_1.jpg"
+  'latitud' =>
+  string(10) "41.3697771"
+  'longitud' =>
+  string(18) "2.1576602000000094"
+  'subt_tol' =>
+  string(53) "<p>Tresors del Museo del Jade de Costa Rica<br>
+</p>
+"
+  'tags_categor_es' =>
+  string(29) "agenda:categories/exposicions"
+  'tags_mbits' =>
+  string(24) "agenda:ambits/divulgacio"
+  'url' =>
+  string(19) "http://www.mac.cat/"
+}

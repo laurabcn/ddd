@@ -96,6 +96,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                 $file['categories'],
                 $file['data_inicial'],
                 $file['data_final'],
+                $language,
                 $file['cos'],
                 $file['imatge'],
                 null,
@@ -171,7 +172,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                 }
             }
 
-            $activity = $this->activityRepository->byId(new Id($file['acte_id']));
+            $activity = $this->activityRepository->byCode($file['acte_id']);
 
             if (null === $activity) {
                 $imatge = count($file['imatge']) > 0 ? $file['imatge'][0] : null;
@@ -185,6 +186,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                     $file['titol'],
                     $file['data_inici'],
                     $file['data_fi'],
+                    $language,
                     $file['descripcio'],
                     $imatge,
                     $file['acte_url'],

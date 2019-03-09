@@ -5,26 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e8f29b0-9856-4af5-94fc-413df0958c08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesDiputacioCatala.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataDiputacio.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataMuseum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataParks.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataSostenible.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataTheater.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesGeneralitatCatala.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesGeneralitatCatalaReader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromSocrata.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/act.txt" beforeDir="false" afterPath="$PROJECT_DIR$/act.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/Site/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Site/Site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/setTouristActivitiesCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesDiputacioLanguages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesReader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Domain/Provincia/Repository/ProvinciaRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Domain/Provincia/Repository/ProvinciaRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Site.Site.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Site.Site.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ProvinciaRepositoryMySql.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ProvinciaRepositoryMySql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/.gitignore" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,76 +59,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php">
+        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromSocrata.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2242">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="464">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="59">
+              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
               <folding>
-                <element signature="e#61#130#0#PHP" expanded="true" />
+                <element signature="e#88#132#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php">
+        <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="35" column="97" selection-start-line="35" selection-start-column="97" selection-end-line="35" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesDiputacioLanguages.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" column="37" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesDiputacioCatala.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="11" column="34" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+            <state relative-caret-position="150">
+              <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataDiputacio.php">
+        <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesGeneralitatCatalaReader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+            <state relative-caret-position="53">
+              <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -140,11 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tags</find>
-      <find>grup_provincia</find>
-      <find>App\Activities\Application\Municipi\Create\CreateMunicipiCommand</find>
-      <find>App\Activities\Activity\Domain</find>
-      <find>App\Activities\Activity</find>
       <find>App\Activities\Domain\Activity\Activity</find>
       <find>App\Activities\Domain\Shared\CommandBus\CommandHandlerInterface</find>
       <find>Shar</find>
@@ -170,6 +126,11 @@
       <find>ActivitiesReader</find>
       <find>var_</find>
       <find>var_dump(</find>
+      <find>creat</find>
+      <find>tags_categor_es</find>
+      <find>Id</find>
+      <find>new Id</find>
+      <find>duration</find>
     </findStrings>
     <replaceStrings>
       <replace>activities</replace>
@@ -187,9 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/Municipi/Repository/MunicipiRepository.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/MunicipiRepositoryMySql.php" />
         <option value="$PROJECT_DIR$/src/Activities/Application/Municipi/Create/CreateMunicipiHandler.php" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/ValueObject/Id.php" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
@@ -203,41 +161,44 @@
         <option value="$PROJECT_DIR$/src/Activities/Application/Provincia/Create/CreateProvinciaCommand.php" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/Provincia/Municipi.php" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/Shared/Aggregate/AggregateRoot.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/Provincia/Repository/ProvinciaRepository.php" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/Site/Repository/SiteRepository.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ProvinciaRepositoryMySql.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/SiteRepositoryMySql.php" />
         <option value="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteHandler.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Provincia.Municipi.orm.xml" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Type/Id.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" />
         <option value="$PROJECT_DIR$/src/Activities/Application/Provincia/Create/CreateProvinciaHandler.php" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/Provincia/Provincia.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Provincia.Provincia.orm.xml" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataParks.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataTheater.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataMuseum.php" />
-        <option value="$PROJECT_DIR$/act.txt" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataSostenible.php" />
         <option value="$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Site.Site.orm.xml" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/Site/Site.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml" />
-        <option value="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" />
         <option value="$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesReader.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/setTouristActivitiesCommand.php" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/getActivitiesDiputacioLanguages.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/getActivitiesDiputacioCatala.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesDiputacioCatala.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
-        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php" />
         <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataDiputacio.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
+        <option value="$PROJECT_DIR$/act.txt" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesGeneralitatCatala.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Provincia/Repository/ProvinciaRepository.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ProvinciaRepositoryMySql.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromSocrata.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php" />
+        <option value="$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesGeneralitatCatalaReader.php" />
       </list>
     </option>
   </component>
@@ -378,17 +339,6 @@
             <path>
               <item name="activities" type="b2602c69:ProjectViewProjectNode" />
               <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,6 +346,54 @@
               <item name="activities" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Activities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Activities" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Activities" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Activity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Activities" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Activity" type="462c0819:PsiDirectoryNode" />
+              <item name="Create" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Activities" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Site" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Activities" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Site" type="462c0819:PsiDirectoryNode" />
+              <item name="Create" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="activities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Activities" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="activities" type="b2602c69:ProjectViewProjectNode" />
@@ -436,7 +434,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Colvin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -514,18 +512,18 @@
       <workItem from="1551902189841" duration="7857000" />
       <workItem from="1551949031053" duration="84000" />
       <workItem from="1551949130395" duration="561000" />
-      <workItem from="1551980861221" duration="21346000" />
+      <workItem from="1551980861221" duration="36855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246712000" />
+    <option name="totallyTimeSpent" value="262221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18539014" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18539014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -538,7 +536,7 @@
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3286638" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4997233" weight="0.3286638" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4975097" visible="true" weight="0.13873474" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4975097" visible="true" weight="0.39400667" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50249034" side_tool="true" weight="0.27524972" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -573,17 +571,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleCommandBus.php" />
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Shared/Bus/EventBus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/FilesReader/File.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Bus/SimpleEventBus.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -606,13 +593,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/var/cache/dev/ContainerGLxqPZH/getCreateMunicipiHandlerService.php" />
     <entry file="file://$PROJECT_DIR$/config/bundles.php">
@@ -650,13 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Provincia/Repository/ProvinciaRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Site/Repository/SiteRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -684,33 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/simple-bus/message-bus/src/Bus/Middleware/MessageBusSupportingMiddleware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#84#136#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-          <folding>
-            <element signature="e#86#130#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -732,20 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ProvinciaRepositoryMySql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="70" selection-start-line="9" selection-start-column="70" selection-end-line="9" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -811,13 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Site/Site.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
@@ -839,47 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/act.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="195" column="10" selection-start-line="195" selection-start-column="4" selection-end-line="195" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-          <folding>
-            <element signature="e#75#141#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding>
-            <element signature="e#88#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Domain/FilesReader/FilesReader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -894,48 +778,178 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="35" column="97" selection-start-line="35" selection-start-column="97" selection-end-line="35" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesDiputacioCatala.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
+        <state relative-caret-position="105">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2242">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding>
-            <element signature="e#61#130#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataLibraries.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
+        <state relative-caret-position="504">
           <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromOpenDataDiputacio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/act.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="238" column="6" selection-start-line="238" selection-start-column="3" selection-end-line="238" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Commands/GetActivitiesGeneralitatCatala.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ProvinciaRepositoryMySql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="40" column="99" selection-start-line="40" selection-start-column="99" selection-end-line="40" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Repository/ActivityRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding>
+            <element signature="e#86#130#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Repository/ActivityRepositoryMySql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+          <folding>
+            <element signature="e#109#153#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioLanguagesReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="118" column="30" selection-start-line="118" selection-start-column="30" selection-end-line="118" selection-end-column="30" />
+          <folding>
+            <element signature="e#61#130#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/Persistence/Doctrine/Mappings/Activity.Activity.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Activity/Activity.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+          <folding>
+            <element signature="e#75#141#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Domain/Provincia/Repository/ProvinciaRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/simple-bus/message-bus/src/Bus/Middleware/MessageBusSupportingMiddleware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Site/Create/CreateSiteHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#84#136#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesDiputacioCatalaReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+          <folding>
+            <element signature="e#61#130#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/GetActivitiesFromSocrata.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding>
+            <element signature="e#88#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Application/Activity/Create/CreateActivityCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Activities/Infrastructure/FilesReader/ActivitiesGeneralitatCatalaReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
         </state>
       </provider>
     </entry>

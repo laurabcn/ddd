@@ -9,5 +9,7 @@ interface ProvinciaRepository
 {
     public function byId(string $id): ?Provincia;
 
+    public function byName(string $name): ?Provincia;
+
     public function save(Provincia $provincia): void;
 }

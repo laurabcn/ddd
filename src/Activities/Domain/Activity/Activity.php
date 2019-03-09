@@ -20,6 +20,8 @@ class Activity extends AggregateRoot
     /** @var \DateTimeInterface */
     private $endDate;
     /** @var string */
+    private $language;
+    /** @var string */
     private $description;
     /** @var string */
     private $image;
@@ -52,7 +54,8 @@ class Activity extends AggregateRoot
         string $title,
         \DateTimeInterface $startDate,
         \DateTimeInterface $endDate,
-        string $description,
+        string $language,
+        ?string $description,
         ?string $image,
         ?string $url,
         ?string $urlGeneral,
@@ -72,6 +75,7 @@ class Activity extends AggregateRoot
         $this->title = $title;
         $this->startDate = $startDate;
         $this->endDate = $endDate;
+        $this->language = $language;
         $this->description = $description;
         $this->image = $image;
         $this->url = $url;
@@ -114,7 +118,12 @@ class Activity extends AggregateRoot
         return $this->endDate;
     }
 
-    public function description(): string
+    public function language(): string
+    {
+        return $this->language;
+    }
+
+    public function description(): ?string
     {
         return $this->description;
     }

@@ -8,17 +8,17 @@
             <generator strategy="NONE"/>
         </id>
         <field name="acteId" column="acte_id" type="string" />
-        <field name="title" column="title" type="string"/>
         <field name="startDate" column="start_date" type="datetime"/>
         <field name="endDate" column="end_date" type="datetime"/>
-        <field name="description" column="description" type="text"/>
-        <field name="image" column="image" nullable="true" type="string"/>
-        <field name="url" column="url" nullable="true" type="string"/>
+        <field name="language" column="language" type="string"/>
+        <field name="description" column="description" nullable="true" type="text"/>
+        <field name="image" column="image" nullable="true" type="text"/>
+        <field name="url" column="url" nullable="true" type="text"/>
         <field name="urlGeneral" column="urlGeneral" nullable="true" type="text"/>
         <field name="email" column="email" nullable="true" type="string"/>
         <field name="phone" column="phone" nullable="true" type="string"/>
         <field name="price" column="price" nullable="true" type="text"/>
-        <field name="duration" column="duration" nullable="true" type="string"/>
+        <field name="duration" column="duration" nullable="true" type="text"/>
         <field name="observation" column="observation" nullable="true" type="text"/>
         <field name="capacity" column="capacity" nullable="true" type="string"/>
         <field name="type" column="type" nullable="true" type="string"/>

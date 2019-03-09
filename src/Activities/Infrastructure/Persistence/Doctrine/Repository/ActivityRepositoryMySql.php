@@ -29,4 +29,13 @@ final class ActivityRepositoryMySql extends ServiceEntityRepository  implements 
         return $this->findOneBy(['id' => $id]);
     }
 
+    public function byCode(string $code): ?Activity
+    {
+        return $this->findOneBy(['acteId' => $code]);
+    }
+
+    public function byCodeAndLanguage(string $code, string $language): ?Activity
+    {
+        return $this->findOneBy(['acteId' => $code]);
+    }
 }

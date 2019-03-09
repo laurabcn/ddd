@@ -62,13 +62,17 @@ final class CreateActivityCommand implements Command
     /** @var string $inscription */
     private $inscription;
 
+    /** @var string  */
+    private $language;
+
     public function __construct(
         string $id,
         string $acteId,
         string $title,
         string $startDate,
         string $endDate,
-        string $description,
+        string $language,
+        ?string $description,
         ?string $image,
         ?string $url,
         ?string $urlGeneral,
@@ -88,6 +92,7 @@ final class CreateActivityCommand implements Command
         $this->title = $title;
         $this->startDate = $startDate;
         $this->endDate = $endDate;
+        $this->language = $language;
         $this->description = $description;
         $this->image = $image;
         $this->url = $url;
@@ -129,7 +134,12 @@ final class CreateActivityCommand implements Command
         return $this->endDate;
     }
 
-    public function description(): string
+    public function language(): string
+    {
+        return $this->language;
+    }
+
+    public function description(): ?string
     {
         return $this->description;
     }
