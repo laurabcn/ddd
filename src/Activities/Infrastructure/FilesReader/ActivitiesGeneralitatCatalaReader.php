@@ -91,7 +91,10 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
                         $file['adre_a'],
                         null,
                         $idMunicipi,
-                        $coordinates
+                        $coordinates,
+                        null,
+                        null,
+                        null
                     );
 
                     $this->commandBus->handle($commandSite);

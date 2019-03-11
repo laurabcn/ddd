@@ -27,6 +27,7 @@ services:
     App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioLanguagesReader: ~
     App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioCatalaReader: ~
     App\Activities\Infrastructure\FilesReader\ActivitiesGeneralitatCatalaReader: ~
+    App\Activities\Infrastructure\FilesReader\Sites\SitesAjuntamentBCNReader: ~
 
     App\Activities\Infrastructure\Commands\GetActivitiesDiputacioLanguages:
         arguments:
@@ -39,6 +40,10 @@ services:
     App\Activities\Infrastructure\Commands\GetActivitiesGeneralitatCatala:
         arguments:
             $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesGeneralitatCatalaReader'
+
+    App\Activities\Infrastructure\Commands\GetSitesAjuntament:
+        arguments:
+            $reader: '@App\Activities\Infrastructure\FilesReader\Sites\SitesAjuntamentBCNReader'
 
     App\Activities\Infrastructure\Bus\SimpleEventBus: ~
     App\Activities\Domain\Shared\Bus\EventBus: '@App\Activities\Infrastructure\Bus\SimpleEventBus'

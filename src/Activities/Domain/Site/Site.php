@@ -19,6 +19,12 @@ class Site
     private $municipiId;
     /** @var string */
     private $coordinates;
+    /** @var string */
+    private $phone;
+    /** @var string */
+    private $description;
+    /** @var string */
+    private $url;
 
     public function __construct(
         Id $id,
@@ -26,7 +32,10 @@ class Site
         ?string $address,
         ?string $postalCode,
         ?string $municipiId,
-        ?string $coordinates
+        ?string $coordinates,
+        ?string $phone,
+        ?string $description,
+        ?string $url
     ) {
         $this->id = $id;
         $this->name = $site;
@@ -34,6 +43,9 @@ class Site
         $this->postalCode = $postalCode;
         $this->municipiId = $municipiId;
         $this->coordinates = $coordinates;
+        $this->phone = $phone;
+        $this->description = $description;
+        $this->url = $url;
     }
 
     public function id(): Id
@@ -64,6 +76,21 @@ class Site
     public function coordinates(): ?string
     {
         return $this->coordinates;
+    }
+
+    public function phone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function description(): ?string
+    {
+        return $this->description;
+    }
+
+    public function url(): ?string
+    {
+        return $this->url;
     }
 }
 

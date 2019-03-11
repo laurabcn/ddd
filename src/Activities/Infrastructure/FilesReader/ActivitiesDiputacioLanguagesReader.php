@@ -92,7 +92,10 @@ class ActivitiesDiputacioLanguagesReader implements FilesReader
                         $file['grup_adreca']['adreca'],
                         $file['grup_adreca']['codi_postal'],
                         $idMunicipi,
-                        $file['grup_adreca']['localitzacio']
+                        $file['grup_adreca']['localitzacio'],
+                        null,
+                        null,
+                        null
                     );
 
                     $this->commandBus->handle($commandSite);

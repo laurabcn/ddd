@@ -12,5 +12,8 @@
         <field name="postalCode" column="postalCode" nullable="true" type="string"/>
         <field name="municipiId" column="municipiId" nullable="true" type="string"/>
         <field name="coordinates" column="coordinates" nullable="true" type="string"/>
+        <field name="phone" column="phone" nullable="true" type="string"/>
+        <field name="description" column="description" nullable="true" type="text"/>
+        <field name="url" column="url" nullable="true" type="string"/>
     </entity>
 </doctrine-mapping>

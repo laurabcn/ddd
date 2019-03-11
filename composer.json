@@ -3,6 +3,7 @@
     "license": "proprietary",
     "require": {
         "php": "^7.2 ",
+        "ext-SimpleXML": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "guzzlehttp/guzzle": "^6.3",

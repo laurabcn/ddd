@@ -33,7 +33,10 @@ final class CreateSiteHandler implements CommandHandler
             $command->address(),
             $command->postalCode(),
             $command->municipiId(),
-            $command->coordinates()
+            $command->coordinates(),
+            $command->phone(),
+            $command->description(),
+            $command->url()
         );
 
         $this->siteRepository->save($site);

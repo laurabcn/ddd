@@ -239,3 +239,120 @@ array(17) {
   'url' =>
   string(19) "http://www.mac.cat/"
 }
+
+<row pos="3" num="3">
+<address label="Adreça">Pl Leonardo Da Vinci 4</address>
+<city label="Població">Barcelona</city>
+<code2 label="">
+<item code="0040103004001001" tree_id="401" label="Arquitectura">0040103004001001</item>
+<item code="0040103004024004" tree_id="401" label="Espais Gaudir Més">0040103004024004</item>
+<item code="0062003004001001" tree_id="620" label="Arquitectura">0062003004001001</item>
+<item code="0040103004029002" tree_id="401" label="Museus">0040103004029002</item>
+<item code="0040103004029011" tree_id="401" label="Nivell 2">0040103004029011</item>
+</code2>
+<code_url label="Web">museuciencies.cat/visitans/museu-blau/</code_url>
+<district label="Districte">Sant Martí</district>
+<addresses>
+<item>
+<district>Sant Martí</district>
+<barri>el Besòs i el Maresme</barri>
+<city>Barcelona</city>
+<coordaddressx>34943.929</coordaddressx>
+<coordaddressy>84856.692</coordaddressy>
+<code_comarca>Barcelonès</code_comarca>
+<gmapx>41.410780007377</gmapx>
+<gmapy>2.2204821664453</gmapy>
+<address>Pl Leonardo Da Vinci 4</address>
+<streetnum>4</streetnum>
+</item>
+</addresses>
+<interestinfo>
+<item>
+<interinfo>museuciencies@bcn.cat</interinfo>
+<intercode>00100002</intercode>
+<label>E-mail</label>
+</item>
+<item>
+<interinfo>museuciencies.cat/visitans/museu-blau/</interinfo>
+<intercode>00100003</intercode>
+<label>Web</label>
+</item>
+<item>
+<interinfo>www.barcelona.cat/gaudirmes/ca</interinfo>
+<intercode>00100003</intercode>
+<label>Web</label>
+</item>
+</interestinfo>
+<gmapx label="Lat">41.41078</gmapx>
+<gmapy label="Long">2.220482</gmapy>
+<id label="">99400090058</id>
+<name label="Nom">
+Museu de Ciències Naturals de Barcelona - Museu Blau
+</name>
+<phonenumber label="Tel.:">932566002</phonenumber>
+<sigla label="Sigla">MCNB</sigla>
+<type label="Tipus">Entitats i equipaments</type>
+<pos label="">3</pos>
+<tp label="">EQ</tp>
+<id label="">190945</id>
+<title label="">El Museu de Ciències Naturals - Museu Blau</title>
+<excerpt label="">
+<p>Ubicat en el singular Edifici Fòrum, el Museu de Ciències Naturals - Museu Blau és una connexió directa entre la ciutat i la natura.</p>
+</excerpt>
+<content label="">
+<h3>&#8220;Planeta Vida&#8221;</h3> <p>El Museu de Ciències Naturals de Barcelona disposa de quatre espais repartits pels emblemàtics parcs de la Ciutadella, de Montjuïc i del Fòrum. En aquest darrer, aprofitant la seva proximitat al mar, es va obrir l’última seu l’any 2011 amb el nom de <strong>Museu Blau</strong>.</p> <p>Ubicat en l’edifici construït per acollir el Fòrum de les Cultures 2004, els mateixos arquitectes que el van projectar, Herzog de Meuron, han estat els responsables de l’adaptació del museu i del disseny museogràfic de l’exposició principal.</p> <p>Aquesta exposició, &#8220;<strong>Planeta Vida</strong>&#8220;, convida a fer un viatge per la història de la vida i la seva coevolució amb el nostre planeta, amb un discurs museogràfic innovador i amb recursos audiovisuals i interactius, i fa del museu una magnífica eina per descobrir i entendre els secrets de la natura.</p> <h3>Innovació, ciència i diversió</h3> <p>Amb 9.000 metres quadrats d’instal·lacions i serveis, el Museu Blau també ofereix exposicions temporals, una mediateca, l’espai <strong>Niu de Ciència</strong> per a infants de 0 a 6 anys i una sala d’actes. A més, ofereix conferències i tallers que el converteixen en un <strong>centre actiu i vital</strong>.</p> <p>L’<strong>oferta cultural innovadora</strong> que ofereix el nou Museu Blau combina el <strong>rigor científic </strong>i el<strong> sentit lúdic</strong>. Aquest espai fa possible que conceptes que a primera vista semblen antagònics esdevinguin germans. En aquest espai s’entén que el coneixement de la natura i el debat rigorós de qüestions actuals relacionades amb el medi ambient poden anar de la mà de la <strong>diversió i el lleure</strong>.</p> <!-- .photo-galleria -->
+</content>
+<date label="">2016-12-07 11:59:48</date>
+<author label="">Cristina Povea</author>
+<categories label=""/>
+<tags label=""/>
+<language label="">ca</language>
+<originalpost label="">190945</originalpost>
+<postidioma>
+<item idioma="en">
+http://eldigital.barcelona.cat/en/pits/my-new-post-tt-342
+</item>
+<item idioma="es">
+http://eldigital.barcelona.cat/es/pits/my-new-post-tt-251
+</item>
+<item idioma="fr">
+http://eldigital.barcelona.cat/fr/pits/my-new-pits-fr-190945
+</item>
+</postidioma>
+<related_post/>
+<attachments/>
+<vignette>191</vignette>
+<moreinfo label="_MOREINFO"/>
+<usergroup>Editors PITS</usergroup>
+<post_modified>2017-12-05 09:20:09</post_modified>
+<original_modified>2017-12-05 09:20:09</original_modified>
+<custom_fields>
+<descripcio-curta-pics>
+<p>El Museu Blau és la darrera seu del Museu de Ciències Naturals, i està situat al parc del Fòrum. Buscant la fusió entre el coneixement científic i el lleure, aquest museu s’ha convertit en un equipament de referència per a tots aquells que vulguin aprofundir en el coneixement de les ciències naturals.</p>
+</descripcio-curta-pics>
+<id_asia>http://guia.barcelona.cat/_99400090058.html</id_asia>
+<text-twitter-local>
+Un lloc de referència per als qui vulguin aprofundir en el coneixement de les ciències naturals
+</text-twitter-local>
+<meta-description-local>
+Situat al Parc del Fòrum, és un equipament de referència per a tots aquells que vulguin aprofundir en el coneixement de les ciències naturals
+</meta-description-local>
+<og-title-local>El Museu de Ciències Naturals - Museu Blau</og-title-local>
+<og-description-local>
+Situat al Parc del Fòrum, és un equipament de referència per a tots aquells que vulguin aprofundir en el coneixement de les ciències naturals. Amb 9.000 metres quadrats d'instal·lacions i serveis, el Museu Blau també ofereix exposicions temporals, mediateca, activitats infantils i conferències
+</og-description-local>
+<meta-description-internacional>
+Barcelona et convida a conèixer el Museu de Ciències Naturals - Museu Blau. Deixa't sorprendre per la col·lecció de zoologia que conté el museu.
+</meta-description-internacional>
+<og-title-internacional>
+El Museu de Ciències Naturals - Museu Blau, ciència i lleure fusionats en un mateix lloc
+</og-title-internacional>
+<og-description-internacional>
+Situat a l'edifici construït per establir-hi el Fòrum de les Cultures, el Museu Blau és part del Museu de Ciències Naturals i un espai que estableix la connexió directa entre la ciutat i la naturalesa.
+</og-description-internacional>
+<text-twitter-internacional>
+Què hi ha dins l'edifici que va ser la seu del Fòrum de les Cultures? Descobreix-ho! #Fòrum #bcn
+</text-twitter-internacional>
+</custom_fields>
+<wt>pits-generic</wt>
+</row>

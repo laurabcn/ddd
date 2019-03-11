@@ -25,13 +25,25 @@ final class CreateSiteCommand implements Command
     /** @var string */
     private $coordinates;
 
+    /** @var string */
+    private $phone;
+
+    /** @var string */
+    private $description;
+
+    /** @var string */
+    private $url;
+
     public function __construct(
         string $id,
         string $site,
         ?string $address,
         ?string $postalCode,
         ?string $municipiId,
-        ?string $coordinates
+        ?string $coordinates,
+        ?string $phone,
+        ?string $description,
+        ?string $url
     ) {
         $this->id = $id;
         $this->site = $site;
@@ -39,6 +51,9 @@ final class CreateSiteCommand implements Command
         $this->postalCode = $postalCode;
         $this->municipiId = $municipiId;
         $this->coordinates = $coordinates;
+        $this->phone = $phone;
+        $this->description = $description;
+        $this->url = $url;
     }
 
     public function id(): string
@@ -69,5 +84,20 @@ final class CreateSiteCommand implements Command
     public function coordinates(): ?string
     {
         return $this->coordinates;
+    }
+
+    public function phone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function description(): ?string
+    {
+        return $this->description;
+    }
+
+    public function url(): ?string
+    {
+        return $this->url;
     }
 }
