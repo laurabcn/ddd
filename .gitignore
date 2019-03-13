@@ -53,4 +53,4 @@ fabric.properties
 .idea/httpRequests
 var
 vendor
-/.idea/workspace.xml
+/composer.lock
