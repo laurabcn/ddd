@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Activities\Application\Site\Create;
 
-use App\Activities\Domain\Shared\Bus\Command;
+use App\Activities\Domain\Shared\Bus\Command\Command;
 
 final class CreateSiteCommand implements Command
 {

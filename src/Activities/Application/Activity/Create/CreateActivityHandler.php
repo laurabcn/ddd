@@ -6,8 +6,7 @@ namespace App\Activities\Application\Activity\Create;
 
 use App\Activities\Domain\Activity\Activity;
 use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Domain\Shared\Bus\CommandHandler;
-use App\Activities\Domain\Shared\Bus\EventBus;
+use App\Activities\Domain\Shared\Bus\Command\CommandHandler;
 use App\Activities\Domain\Shared\ValueObject\Id;
 
 final class CreateActivityHandler implements CommandHandler
@@ -15,13 +14,9 @@ final class CreateActivityHandler implements CommandHandler
     /** @var ActivityRepository */
     private $activityRepository;
 
-    /** @var EventBus  */
-    private $eventBus;
-
-    public function __construct(ActivityRepository $activityRepository, EventBus $eventBus)
+    public function __construct(ActivityRepository $activityRepository)
     {
         $this->activityRepository = $activityRepository;
-        $this->eventBus = $eventBus;
     }
 
     public function handle(CreateActivityCommand $command): void
@@ -49,8 +44,6 @@ final class CreateActivityHandler implements CommandHandler
         );
 
         $this->activityRepository->save($activity);
-
-        $this->eventBus->publish(...$activity->uncommittedEvents());
     }
 }
 

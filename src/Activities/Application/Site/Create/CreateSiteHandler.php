@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Activities\Application\Site\Create;
 
-use App\Activities\Domain\Shared\Bus\CommandHandler;
-use App\Activities\Domain\Shared\Bus\EventBus;
+use App\Activities\Domain\Shared\Bus\Command\CommandHandler;
+use App\Activities\Domain\Shared\Bus\Event\EventBus;
 use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Activities\Domain\Site\Repository\SiteRepository;
 use App\Activities\Domain\Site\Site;
@@ -16,13 +16,9 @@ final class CreateSiteHandler implements CommandHandler
     /** @var SiteRepository */
     private $siteRepository;
 
-    /** @var EventBus  */
-    private $eventBus;
-
-    public function __construct(SiteRepository $siteRepository, EventBus $eventBus)
+    public function __construct(SiteRepository $siteRepository)
     {
         $this->siteRepository = $siteRepository;
-        $this->eventBus = $eventBus;
     }
 
     public function handle(CreateSiteCommand $command): void
