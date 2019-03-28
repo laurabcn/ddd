@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace App\Activities\Infrastructure\Bus;
 
 
-use App\Activities\Domain\Shared\Bus\Event;
-use App\Activities\Domain\Shared\Bus\EventBus;
+use App\Activities\Domain\Shared\Bus\Event\Event;
+use App\Activities\Domain\Shared\Bus\Event\EventBus;
 
 class SimpleEventBus implements EventBus
 {

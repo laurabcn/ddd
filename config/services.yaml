@@ -46,7 +46,7 @@ services:
             $reader: '@App\Activities\Infrastructure\FilesReader\Sites\SitesAjuntamentBCNReader'
 
     App\Activities\Infrastructure\Bus\SimpleEventBus: ~
-    App\Activities\Domain\Shared\Bus\EventBus: '@App\Activities\Infrastructure\Bus\SimpleEventBus'
+    App\Activities\Domain\Shared\Bus\Event\EventBus: '@App\Activities\Infrastructure\Bus\SimpleEventBus'
 
     App\Activities\Domain\Activity\Repository\ActivityRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\ActivityRepositoryMySql'
     App\Activities\Domain\Provincia\Repository\ProvinciaRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\ProvinciaRepositoryMySql'

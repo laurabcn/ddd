@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Activities\Application\Provincia\Create;
 
-use App\Activities\Domain\Shared\Bus\Command;
+use App\Activities\Domain\Shared\Bus\Command\Command;
 
 final class CreateProvinciaCommand implements Command
 {
@@ -13,6 +13,7 @@ final class CreateProvinciaCommand implements Command
     /** @var string */
     private $name;
 
+    /** @var array  */
     private $municipi;
 
     public function __construct(

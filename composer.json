@@ -7,6 +7,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "friendsofsymfony/rest-bundle": "^2.5",
+        "fzaninotto/faker": "^1.8",
         "guzzlehttp/guzzle": "^6.3",
         "guzzlehttp/oauth-subscriber": "0.3.*",
         "jms/serializer-bundle": "^3.2",
@@ -38,6 +39,7 @@
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.11",
+        "symfony/phpunit-bridge": "4.1.*",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
         "symfony/web-server-bundle": "*"

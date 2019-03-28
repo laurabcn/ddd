@@ -53,7 +53,7 @@ class Site
         return $this->id;
     }
 
-    public function site(): string
+    public function name(): string
     {
         return $this->name;
     }

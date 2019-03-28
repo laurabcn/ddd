@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Activities\Application\Site\Create;
 
 use App\Activities\Domain\Shared\Bus\Command\CommandHandler;
-use App\Activities\Domain\Shared\Bus\Event\EventBus;
 use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Activities\Domain\Site\Repository\SiteRepository;
 use App\Activities\Domain\Site\Site;
