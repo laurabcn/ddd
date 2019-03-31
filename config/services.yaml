@@ -28,6 +28,9 @@ services:
     App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioCatalaReader: ~
     App\Activities\Infrastructure\FilesReader\ActivitiesGeneralitatCatalaReader: ~
     App\Activities\Infrastructure\FilesReader\Sites\SitesAjuntamentBCNReader: ~
+    App\Activities\Infrastructure\Persistence\Doctrine\Repository\ActivityRepositoryMySql: ~
+    App\Activities\Infrastructure\Persistence\Doctrine\Repository\ProvinciaRepositoryMySql: ~
+    App\Activities\Infrastructure\Persistence\Doctrine\Repository\SiteRepositoryMySql: ~
 
     App\Activities\Infrastructure\Commands\GetActivitiesDiputacioLanguages:
         arguments:
@@ -63,4 +66,12 @@ services:
     App\Activities\Application\Site\Create\CreateSiteHandler:
         tags:
             - { name: command_handler, handles: 'App\Activities\Application\Site\Create\CreateSiteCommand' }
+
+    App\Activities\Application\Activity\Find\FindActivityHandler:
+        tags:
+            - { name: command_handler, handles: 'App\Activities\Application\Activity\Find\FindActivityQuery' }
+
+
+    sensio_framework_extra.view.listener:
+        alias: Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener
 

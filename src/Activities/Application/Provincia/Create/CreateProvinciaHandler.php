@@ -35,7 +35,7 @@ final class CreateProvinciaHandler implements CommandHandler
             $provincia->registerMunicipi(new Id($key), $municipi);
         }
 
-        $this->eventBus->publish([new ProvinciaWasCreated($provincia->id(), $provincia->name())]);
+        $this->eventBus->publish(new ProvinciaWasCreated($provincia->id(), $provincia->name()));
 
         $this->provinciaRepository->save($provincia);
     }

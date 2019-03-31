@@ -14,6 +14,8 @@ interface ActivityRepository
 
     public function byCodeAndLanguage(string $code, string $language): ?Activity;
 
+    public function all(): array;
+
     public function save(Activity $activity): void;
 
 }

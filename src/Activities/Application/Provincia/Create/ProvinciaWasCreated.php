@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Activities\Application\Provincia\Create;
 
-use App\Activities\Domain\Messaging\Message;
+use App\Activities\Domain\Shared\Bus\Event\Event;
 
 
-final class ProvinciaWasCreated implements  Message
+final class ProvinciaWasCreated implements  Event
 {
     const NAME = 'municipi.municipi_created';
 

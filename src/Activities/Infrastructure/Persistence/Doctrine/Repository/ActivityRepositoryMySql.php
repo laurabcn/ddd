@@ -40,4 +40,9 @@ final class ActivityRepositoryMySql extends ServiceEntityRepository  implements 
     {
         return $this->findOneBy(['acteId' => $code, 'language' => $language]);
     }
+
+    public function all(): array
+    {
+        return $this->findAll();
+    }
 }
