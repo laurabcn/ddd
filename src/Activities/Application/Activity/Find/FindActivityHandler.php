@@ -25,8 +25,6 @@ class FindActivityHandler implements QueryHandlerInterface
     {
         $activity = $this->activityRepository->ById(new Id($query->id()));
 
-        var_dump($activity);die();
-
         if(null === $activity){
             throw new ActivityNotFoundException('Activity with ' . $query->id());
         }

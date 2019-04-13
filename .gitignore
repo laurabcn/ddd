@@ -21,7 +21,6 @@ act.txt
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
-src/**/stayforlong.php
 # CMake
 cmake-build-debug/
 cmake-build-release/

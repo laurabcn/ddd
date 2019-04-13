@@ -36,6 +36,10 @@ services:
         arguments:
             $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioLanguagesReader'
 
+    App\Activities\Infrastructure\Commands\GetActivitiesAjBCN:
+        arguments:
+            $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesAjBCNReader'
+
     App\Activities\Infrastructure\Commands\GetActivitiesDiputacioCatala:
         arguments:
             $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioCatalaReader'
