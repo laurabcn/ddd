@@ -1,26 +1,13 @@
 ## Install application
 install:
-	# Copy deployment files from S3
-	./scripts/copy_s3_deployment_files.sh
 
 	# Composer
 	composer install -n --prefer-dist --no-progress --no-suggest
 
-	# Add npm auth token
-	echo "//registry.npmjs.org/:_authToken=a8747e16-33de-4ccb-8d1a-4c0f5f686463" > ~/.npmrc
-
-	# Npm
-	yarn install
-
-	# Build front (React+WebJs+WebCss) or download from S3 if exists
-	./scripts/build_js_app.sh
-
-	# Build images and inject critical
-	yarn gulp criticalBuild
-
-	# Translations
-	php bin/console translation:transifex:download
 	bin/console cache:clear
+    bin/console doctrine:schema:drop --force
+    bin/console doctrine:schema:create
+    bin/console doctrine:fixtures:load --no-interaction
 
 ## Run tests
 tests: phpunit integration behat
