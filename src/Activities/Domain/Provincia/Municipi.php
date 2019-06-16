@@ -16,7 +16,7 @@ class Municipi
 
     public function __construct(string $id, string $name, string $provinciaId)
     {
-        $this->id = $id;
+        $this->id = new Id($id);
         $this->name = $name;
         $this->provinciaId = $provinciaId;
     }

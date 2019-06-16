@@ -7,6 +7,7 @@ use App\Activities\Application\Provincia\Create\CreateProvinciaCommand;
 use App\Activities\Application\Site\Create\CreateSiteCommand;
 use App\Activities\Domain\Activity\Repository\ActivityRepository;
 use App\Activities\Domain\FilesReader\FilesReader;
+use App\Activities\Domain\Provincia\Municipi;
 use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
 use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Activities\Domain\Site\Repository\SiteRepository;
@@ -55,56 +56,85 @@ class ActivitiesAjBCNReader implements FilesReader
 
     public function read(string $language): void
     {
-        $files = $this->getActivitiesFromOpenDataAjBcn->execute();
+        $groups = $this->getActivitiesFromOpenDataAjBcn->execute();
 
-        foreach ($files as $file) {
-            var_dump($file[0]); die();
-            $nom = $file['nom_del_lloc'];
-            $site = $this->siteRepository->bySite($nom);
 
-            if (null === $site && null !== isset($nom)) {
-                $commandSite = new CreateSiteCommand(
-                    $idSite = UuidGenerator::generateId(),
-                    $nom,
-                    null,
-                    null,
-                    null,
-                    $file['localitzacio'],
-                    null,
-                    null,
-                    null
-                );
+        foreach ($groups as $group) {
+            foreach ($group as $item) {
+                foreach ($item as $file) {
+                    $nom = $file['lloc_simple']['nom'];
+                    $site = $this->siteRepository->bySite($nom);
 
-                $this->commandBus->handle($commandSite);
-            } else {
-                $idSite = $site->id()->id();
+                    $idProvincia = '8';
+                    $provincia = $this->provinciaRepository->byId($idProvincia);
+                    $nameMunicipi =  ucfirst(strtolower($file['lloc_simple']['adreca_simple']['municipi']));
+                    $municipi = new Municipi(UuidGenerator::generateId(), $nameMunicipi, $provincia->id());
+
+                    if(null === $provincia) {
+                        $commandProvincia = new CreateProvinciaCommand(
+                            $idProvincia,
+                            $nameProvincia = 'Barcelona',
+                            [$municipi->id()->id() => $municipi->name() ]
+                        );
+                        $this->commandBus->handle($commandProvincia);
+                        $provincia = $this->provinciaRepository->byId($idProvincia);
+                    }
+
+                    if(null !== $nameMunicipi){
+                        $hasMunicipi = $provincia->hasMunicipi($municipi->name());
+                        if(count($hasMunicipi) === 0 ){
+                            $provincia->registerMunicipi(
+                                $municipi->id(),
+                                $municipi->name()
+                            );
+                            $this->provinciaRepository->save($provincia);
+                        }
+                    }
+
+                    if (null === $site && null !== isset($nom)) {
+                        $commandSite = new CreateSiteCommand(
+                            $idSite = UuidGenerator::generateId(),
+                            $nom,
+                            $file['lloc_simple']['adreca_simple']['carrer'] . ', ' . $file['lloc_simple']['adreca_simple']['numero'],
+                            $file['lloc_simple']['adreca_simple']['codi_postal'],
+                            $municipi->id()->id(),
+                            $file['lloc_simple']['adreca_simple']['municipi'],
+                            null,
+                            null,
+                            null
+                        );
+
+                        $this->commandBus->handle($commandSite);
+                    } else {
+                        $idSite = $site->id()->id();
+                    }
+
+                    $commandActivity = new CreateActivityCommand(
+                        UuidGenerator::generateId(),
+                        $file['id'],
+                        $file['nom'],
+                        $file['data']['data_inici'],
+                        $file['data']['data_fi'],
+                        $language,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        $idSite,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                    );
+                    $this->commandBus->handle($commandActivity);
+                }
+
+                $files = $this->getActivitiesFromOpenData->execute($language);
             }
-
-            $commandActivity = new CreateActivityCommand(
-                UuidGenerator::generateId(),
-                $file['id'],
-                $file['categories'],
-                $file['data_inicial'],
-                $file['data_final'],
-                $language,
-                $file['cos'],
-                $file['imatge'],
-                null,
-                null,
-                null,
-                null,
-                $idSite,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-            );
-            $this->commandBus->handle($commandActivity);
         }
-
-        $files = $this->getActivitiesFromOpenData->execute($language);
-
     }
 }

@@ -43,6 +43,6 @@ class GetActivitiesAjBCN extends ContainerAwareCommand
 
     private function someMethod(InputInterface $input)
     {
-        $this->reader->read('ca');
+        $this->reader->read("ca");
     }
 }

@@ -1,4 +1,4 @@
-º#!/bin/bash
+#!/bin/bash
 
 docker-compose -f docker-compose.yml stop
 rm -rf var/cache/*
