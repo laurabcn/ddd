@@ -8,17 +8,18 @@ use App\Activities\Application\Site\Create\CreateSiteHandler;
 use App\Activities\Domain\Site\Repository\SiteRepository;
 use App\Tests\Unit\Activities\Context\Site\SiteContext;
 use App\Tests\Unit\Activities\Core\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class CreateSiteHandlerTest extends UnitTestCase
 {
     use SiteContext;
 
-    /** @var SiteRepository | \PHPUnit_Framework_MockObject_MockObject */
+    /** @var SiteRepository | MockObject */
     private $siteRepository;
     /** @var CreateSiteHandler */
     private $createSiteHandler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

@@ -59,19 +59,21 @@ class Provincia extends AggregateRoot
         return $this->municipi->get($municipiId->id());
     }
 
-    public function getMunicipiByName(string $municipi): Municipi
+    public function getMunicipiByName(string $municipi): ?Municipi
     {
         foreach ($this->municipi() as $item) {
             if($item->name() === $municipi){
                 return $item;
             }
         };
+        return null;
     }
 
-    public function hasMunicipi(string $municipi): Object
+    public function hasMunicipi(string $municipi): bool
     {
-        return  $this->municipi->filter( function($entry) use ($municipi) {
+        $this->municipi->filter( function($entry) use ($municipi) {
             return $entry->name() === $municipi;
         });
+        return false;
     }
 }

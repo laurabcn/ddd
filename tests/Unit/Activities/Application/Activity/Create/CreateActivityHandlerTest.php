@@ -8,18 +8,20 @@ use App\Activities\Application\Activity\Create\CreateActivityHandler;
 use App\Activities\Domain\Activity\Repository\ActivityRepository;
 use App\Tests\Unit\Activities\Context\Activity\ActivityContext;
 use App\Tests\Unit\Activities\Core\UnitTestCase;
+use DateTime;
+use PHPUnit\Framework\MockObject\MockObject;
 
 
 class CreateActivityHandlerTest extends UnitTestCase
 {
     use ActivityContext;
 
-    /** @var ActivityRepository | \PHPUnit_Framework_MockObject_MockObject */
+    /** @var ActivityRepository | MockObject */
     private $activityRepository;
     /** @var CreateActivityHandler */
     private $createActivityHandler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -36,22 +38,22 @@ class CreateActivityHandlerTest extends UnitTestCase
             $this->faker->uuid,
             $this->faker->uuid,
             $this->faker->name,
-            new \DateTime('today'),
-            new \DateTime('tomorrow'),
+            (new DateTime('today'))->format('Y-m-d'),
+            (new DateTime('tomorrow'))->format('Y-m-d'),
             $this->faker->name,
             $this->faker->url,
             $this->faker->url,
             $this->faker->email,
-            $this->faker->randomNumber(9),
+            $this->faker->text(9),
             $this->faker->uuid,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name
+            $this->faker->text(5),
+            $this->faker->text(10),
+            $this->faker->text(10),
+            $this->faker->text(10),
+            $this->faker->text(10),
+            $this->faker->text(10),
+            $this->faker->text(10),
+            $this->faker->text(10)
         );
 
         $activity = $this->aActivityExists();
@@ -73,8 +75,8 @@ class CreateActivityHandlerTest extends UnitTestCase
             $this->faker->uuid,
             $this->faker->uuid,
             $this->faker->name,
-            new \DateTime('today'),
-            new \DateTime('tomorrow'),
+            (new DateTime('today'))->format('Y-m-d'),
+            (new DateTime('tomorrow'))->format('Y-m-d'),
             $this->faker->name,
             null,
             null,

@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace App\Test\Activities\Application\Activity\Create;
 
-use App\Activities\Application\Activity\Create\CreateActivityCommand;
 use App\Activities\Application\Provincia\Create\CreateProvinciaCommand;
 use App\Activities\Application\Provincia\Create\CreateProvinciaHandler;
 use App\Activities\Application\Provincia\Create\ProvinciaWasCreated;
@@ -13,24 +12,24 @@ use App\Activities\Domain\Shared\Bus\Event\EventBus;
 use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Tests\Unit\Activities\Context\Provincia\ProvinciaContext;
 use App\Tests\Unit\Activities\Core\UnitTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 
 class CreateProvinciaHandlerTest extends UnitTestCase
 {
     use ProvinciaContext;
 
-    /** @var ProvinciaRepository | \PHPUnit_Framework_MockObject_MockObject */
+    /** @var ProvinciaRepository | MockObject */
     private $provinciaRepository;
 
-    /** @var EventBus | \PHPUnit_Framework_MockObject_MockObject */
+    /** @var EventBus | MockObject */
     private $eventBus;
 
     /** @var CreateProvinciaHandler */
     private $createProvinciaHandler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
-        parent::setUp();
 
         $this->provinciaRepository = $this->createMock(ProvinciaRepository::class);
         $this->eventBus = $this->createMock(EventBus::class);
