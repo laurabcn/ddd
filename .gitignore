@@ -10,6 +10,7 @@ vendor
 .idea/**/shelf
 .idea
 .env
+node_modules/
 bin
 act.txt
 # Sensitive or high-churn fi
