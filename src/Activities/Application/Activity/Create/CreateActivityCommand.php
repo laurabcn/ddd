@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Activities\Application\Activity\Create;
 
 use App\Activities\Domain\Shared\Bus\Command\Command;
-use App\Activities\Domain\Shared\ValueObject\Uuid;
 
 final class CreateActivityCommand implements Command
 {

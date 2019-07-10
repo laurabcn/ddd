@@ -6,6 +6,7 @@
         "ext-SimpleXML": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "friendsofphp/php-cs-fixer": "^2.15",
         "friendsofsymfony/rest-bundle": "^2.5",
         "fzaninotto/faker": "^1.8",
         "guzzlehttp/guzzle": "^6.3",
