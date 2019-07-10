@@ -10,6 +10,8 @@ interface ActivityRepository
 {
     public function byId(Id $id): ?Activity;
 
+    public function byIdOrException(Id $id): Activity;
+
     public function byCode(string $code): ?Activity;
 
     public function byCodeAndLanguage(string $code, string $language): ?Activity;

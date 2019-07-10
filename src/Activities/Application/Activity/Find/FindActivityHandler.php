@@ -23,11 +23,7 @@ class FindActivityHandler implements QueryHandlerInterface
 
     public function handle(FindActivityQuery $query): FindActivityResponse
     {
-        $activity = $this->activityRepository->ById(new Id($query->id()));
-
-        if(null === $activity){
-            throw new ActivityNotFoundException('Activity with ' . $query->id());
-        }
+        $activity = $this->activityRepository->ByIdOrException(new Id($query->id()));
 
         return new FindActivityResponse(
             $activity->id(),
