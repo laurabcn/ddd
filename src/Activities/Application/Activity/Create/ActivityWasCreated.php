@@ -7,7 +7,6 @@ namespace App\Activities\Application\Activity\Create;
 use App\Activities\Domain\Messaging\Message;
 use App\Activities\Domain\Shared\Bus\Event\Event;
 
-
 final class ActivityWasCreated implements Event, Message
 {
     const NAME = 'activity.activity_created';
