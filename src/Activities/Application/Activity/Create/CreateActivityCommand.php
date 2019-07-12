@@ -65,6 +65,7 @@ final class CreateActivityCommand implements Command
     /** @var string  */
     private $language;
 
+
     public function __construct(
         string $id,
         string $acteId,
