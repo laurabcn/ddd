@@ -37,8 +37,6 @@ class GetActivitiesAjBCN extends ContainerAwareCommand
 
         $output->writeln($this->someMethod($input));
         $output->writeln('Whoa!');
-        $output->write('You are about to ');
-        $output->write('create a user.');
     }
 
     private function someMethod(InputInterface $input)
