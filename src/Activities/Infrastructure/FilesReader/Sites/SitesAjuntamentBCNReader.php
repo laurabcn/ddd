@@ -6,6 +6,7 @@ namespace App\Activities\Infrastructure\FilesReader\Sites;
 use App\Activities\Application\Site\Create\CreateSiteCommand;
 use App\Activities\Domain\FilesReader\FilesReader;
 use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
+use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Activities\Domain\Site\Repository\SiteRepository;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
@@ -42,7 +43,7 @@ class SitesAjuntamentBCNReader implements FilesReader
         $files = $this->getSitesFromOpenData->execute($language);
 
         foreach ($files as $file) {
-            $idSite = UuidGenerator::generateId();
+            $idSite = new Id(UuidGenerator::generateId());
             $site = $this->siteRepository->bySite($file['title']);
 
             $provincia = $this->provinciaRepository->byName('Barcelona');
@@ -55,7 +56,7 @@ class SitesAjuntamentBCNReader implements FilesReader
                     $file['title'],
                     $file['address'],
                     null,
-                    $provincia->getMunicipiByName('Barcelona')->id()->id(),
+                    $provincia->getMunicipiByName('Barcelona')->id(),
                     $coordinates,
                     $file['phonenumber']??null,
                     $file['content']??null,

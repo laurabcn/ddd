@@ -13,18 +13,28 @@ final class ProvinciaWasCreated implements  Event
 
     /** @var string */
     private $id;
+
+    /** @var string */
+    private $code;
+
     /** @var string */
     private $name;
 
-    public function __construct(string $id, string $name)
+    public function __construct(string $id, string $code, string $name)
     {
         $this->id = $id;
+        $this->code = $code;
         $this->name = $name;
     }
 
     public function id(): string
     {
         return $this->id;
+    }
+
+    public function code(): string
+    {
+        return $this->code;
     }
 
     public function name(): string
@@ -45,6 +55,7 @@ final class ProvinciaWasCreated implements  Event
     {
         return new self(
             $payload['id'],
+            $payload['code'],
             $payload['name']
         );
     }
@@ -53,6 +64,7 @@ final class ProvinciaWasCreated implements  Event
     {
         return [
             'id' => $this->id(),
+            'code' => $this->code(),
             'name' => $this->name(),
         ];
     }

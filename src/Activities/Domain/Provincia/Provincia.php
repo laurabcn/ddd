@@ -9,23 +9,34 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Provincia extends AggregateRoot
 {
-    /** @var string */
+    /** @var Id */
     private $id;
+
+    /** @var string */
+    private $code;
+
     /** @var string */
     private $name;
+
     /** @var Municipi[]|ArrayCollection */
     private $municipi;
 
-    public function __construct(string $id, string $name)
+    public function __construct(Id $id, string $code, string $name)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->code = $code;
         $this->municipi = new ArrayCollection();
     }
 
-    public function id(): string
+    public function id(): Id
     {
         return $this->id;
+    }
+
+    public function code(): string
+    {
+        return $this->code;
     }
 
     public function name(): string
@@ -41,7 +52,7 @@ class Provincia extends AggregateRoot
     public function registerMunicipi(Id $municipiId, string $name)
     {
         $municipi = new Municipi(
-            $municipiId->id(),
+            $municipiId,
             $name,
             $this->id()
         );

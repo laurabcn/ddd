@@ -9,7 +9,7 @@ use App\Activities\Domain\Shared\ValueObject\Id;
 
 class Activity extends AggregateRoot
 {
-    /** @var string */
+    /** @var Id */
     private $id;
     /** @var string */
     private $acteId;
@@ -49,7 +49,7 @@ class Activity extends AggregateRoot
     private $inscription;
 
     public function __construct(
-        string $id,
+        Id $id,
         string $acteId,
         string $title,
         \DateTimeInterface $startDate,
@@ -90,10 +90,10 @@ class Activity extends AggregateRoot
         $this->capacity = $capacity;
         $this->inscription = $inscription;
 
-        $this->recordThat(new ActivityWasCreated($id, $title));
+        $this->recordThat(new ActivityWasCreated($id->id(), $title));
     }
 
-    public function id(): string
+    public function id(): Id
     {
         return $this->id;
     }

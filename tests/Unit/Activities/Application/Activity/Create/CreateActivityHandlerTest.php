@@ -5,7 +5,9 @@ namespace App\Test\Activities\Application\Activity\Create;
 
 use App\Activities\Application\Activity\Create\CreateActivityCommand;
 use App\Activities\Application\Activity\Create\CreateActivityHandler;
+use App\Activities\Domain\Activity\Activity;
 use App\Activities\Domain\Activity\Repository\ActivityRepository;
+use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Tests\Unit\Activities\Context\Activity\ActivityContext;
 use App\Tests\Unit\Activities\Core\UnitTestCase;
 use DateTime;
@@ -35,20 +37,20 @@ class CreateActivityHandlerTest extends UnitTestCase
     public function handleWhenActivityhasData()
     {
         $command = new CreateActivityCommand(
-            $this->faker->uuid,
+            new Id($this->faker->uuid),
             $this->faker->uuid,
             $this->faker->name,
-            (new DateTime('today'))->format('Y-m-d'),
-            (new DateTime('tomorrow'))->format('Y-m-d'),
-            $this->faker->name,
+            (new \DateTimeImmutable('today'))->format('Y-m-d'),
+            (new \DateTimeImmutable('tomorrow'))->format('Y-m-d'),
+            $this->faker->text,
+            $this->faker->text,
+            $this->faker->url,
             $this->faker->url,
             $this->faker->url,
             $this->faker->email,
-            $this->faker->text(9),
-            $this->faker->uuid,
+            (string) $this->faker->randomNumber(9),
+            new Id($this->faker->uuid),
             $this->faker->text(5),
-            $this->faker->text(10),
-            $this->faker->text(10),
             $this->faker->text(10),
             $this->faker->text(10),
             $this->faker->text(10),
@@ -56,7 +58,28 @@ class CreateActivityHandlerTest extends UnitTestCase
             $this->faker->text(10)
         );
 
-        $activity = $this->aActivityExists();
+        $activity = new Activity(
+            $command->id(),
+            $command->acteId(),
+            $command->title(),
+            new \DateTimeImmutable($command->startDate()),
+            new \DateTimeImmutable($command->endDate()),
+            $command->language(),
+            $command->description(),
+            $command->image(),
+            $command->url(),
+            $command->urlGeneral(),
+            $command->email(),
+            $command->phone(),
+            is_null($command->siteId())? null : $command->siteId(),
+            $command->price(),
+            $command->duration(),
+            $command->type(),
+            $command->observation(),
+            $command->capacity(),
+            $command->inscription()
+        );
+
 
         $this->activityRepository
             ->expects($this->once())
@@ -72,7 +95,7 @@ class CreateActivityHandlerTest extends UnitTestCase
     public function handleWhenActivityhasDataWithNull()
     {
         $command = new CreateActivityCommand(
-            $this->faker->uuid,
+            new Id($this->faker->uuid),
             $this->faker->uuid,
             $this->faker->name,
             (new DateTime('today'))->format('Y-m-d'),
@@ -93,7 +116,27 @@ class CreateActivityHandlerTest extends UnitTestCase
             null
         );
 
-        $activity = $this->aActivityExists();
+        $activity = new Activity(
+            $command->id(),
+            $command->acteId(),
+            $command->title(),
+            new \DateTimeImmutable($command->startDate()),
+            new \DateTimeImmutable($command->endDate()),
+            $command->language(),
+            $command->description(),
+            $command->image(),
+            $command->url(),
+            $command->urlGeneral(),
+            $command->email(),
+            $command->phone(),
+            is_null($command->siteId())? null : $command->siteId(),
+            $command->price(),
+            $command->duration(),
+            $command->type(),
+            $command->observation(),
+            $command->capacity(),
+            $command->inscription()
+        );
 
         $this->activityRepository
             ->expects($this->once())

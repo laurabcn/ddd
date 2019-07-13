@@ -18,7 +18,7 @@ trait SiteContext
         return $this->createMock(Site::class);
     }
 
-    protected function theSiteHasId(MockObject $site, Id $id): MockObject
+    protected function theSiteHasId(MockObject $site, Id $id): void
     {
         $site
             ->expects($this->any())
@@ -26,7 +26,7 @@ trait SiteContext
             ->willReturn($id);
     }
 
-    protected function theSiteHasName(MockObject $site, string $name): MockObject
+    protected function theSiteHasName(MockObject $site, string $name): void
     {
         $site
             ->expects($this->any())
@@ -34,7 +34,7 @@ trait SiteContext
             ->willReturn($name);
     }
 
-    protected function theSiteHasAddress(MockObject $site, string $address): MockObject
+    protected function theSiteHasAddress(MockObject $site, string $address): void
     {
         $site
             ->expects($this->any())
@@ -42,7 +42,7 @@ trait SiteContext
             ->willReturn($address);
     }
 
-    protected function theSiteHasPostalCode(MockObject $site, string $postalCode): MockObject
+    protected function theSiteHasPostalCode(MockObject $site, string $postalCode): void
     {
         $site
             ->expects($this->any())
@@ -50,7 +50,7 @@ trait SiteContext
             ->willReturn($postalCode);
     }
 
-    protected function theSiteHasMunicipiId(MockObject $site, string $municipiId): MockObject
+    protected function theSiteHasMunicipiId(MockObject $site, Id $municipiId): void
     {
         $site
             ->expects($this->any())
@@ -58,7 +58,7 @@ trait SiteContext
             ->willReturn($municipiId);
     }
 
-    protected function theSiteHasCoordinates(MockObject $site, string $coordinates): MockObject
+    protected function theSiteHasCoordinates(MockObject $site, string $coordinates): void
     {
         $site
             ->expects($this->any())
@@ -66,7 +66,7 @@ trait SiteContext
             ->willReturn($coordinates);
     }
 
-    protected function theSiteHasPhone(MockObject $site, string $phone): MockObject
+    protected function theSiteHasPhone(MockObject $site, string $phone): void
     {
         $site
             ->expects($this->any())
@@ -74,7 +74,7 @@ trait SiteContext
             ->willReturn($phone);
     }
 
-    protected function theSiteHasDescription(MockObject $site, string $description): MockObject
+    protected function theSiteHasDescription(MockObject $site, string $description): void
     {
         $site
             ->expects($this->any())
@@ -82,7 +82,7 @@ trait SiteContext
             ->willReturn($description);
     }
 
-    protected function theSiteHasUrl(MockObject $site, string $url): MockObject
+    protected function theSiteHasUrl(MockObject $site, string $url): void
     {
         $site
             ->expects($this->any())

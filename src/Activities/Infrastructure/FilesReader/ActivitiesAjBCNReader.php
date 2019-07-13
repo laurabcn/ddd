@@ -10,6 +10,7 @@ use App\Activities\Domain\FilesReader\FilesReader;
 use App\Activities\Domain\Provincia\Municipi;
 use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
 use App\Activities\Domain\Shared\ValueObject\Id;
+use App\Activities\Domain\Shared\ValueObject\Uuid;
 use App\Activities\Domain\Site\Repository\SiteRepository;
 use App\Activities\Infrastructure\FilesReader\GetActivitiesAjBcnFromOpenData;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
@@ -65,14 +66,15 @@ class ActivitiesAjBCNReader implements FilesReader
                     $nom = $file['lloc_simple']['nom'];
                     $site = $this->siteRepository->bySite($nom);
 
-                    $idProvincia = '8';
-                    $provincia = $this->provinciaRepository->byId($idProvincia);
+                    $code = '08';
+                    $provincia = $this->provinciaRepository->byId($code);
                     $nameMunicipi =  ucfirst(strtolower($file['lloc_simple']['adreca_simple']['municipi']));
-                    $municipi = new Municipi(UuidGenerator::generateId(), $nameMunicipi, $provincia->id());
+                    $municipi = new Municipi(new Id(UuidGenerator::generateId()), $nameMunicipi, $provincia->id());
 
                     if(null === $provincia) {
                         $commandProvincia = new CreateProvinciaCommand(
-                            $idProvincia,
+                            $idProvincia = new Id(UuidGenerator::generateId()),
+                            $code,
                             $nameProvincia = 'Barcelona',
                             [$municipi->id()->id() => $municipi->name() ]
                         );
@@ -82,7 +84,7 @@ class ActivitiesAjBCNReader implements FilesReader
 
                     if(null !== $nameMunicipi){
                         $hasMunicipi = $provincia->hasMunicipi($municipi->name());
-                        if(count($hasMunicipi) === 0 ){
+                        if($hasMunicipi){
                             $provincia->registerMunicipi(
                                 $municipi->id(),
                                 $municipi->name()
@@ -93,11 +95,11 @@ class ActivitiesAjBCNReader implements FilesReader
 
                     if (null === $site && null !== isset($nom)) {
                         $commandSite = new CreateSiteCommand(
-                            $idSite = UuidGenerator::generateId(),
+                            $idSite = new Id(UuidGenerator::generateId()),
                             $nom,
                             $file['lloc_simple']['adreca_simple']['carrer'] . ', ' . $file['lloc_simple']['adreca_simple']['numero'],
                             $file['lloc_simple']['adreca_simple']['codi_postal'],
-                            $municipi->id()->id(),
+                            $municipi->id(),
                             $file['lloc_simple']['adreca_simple']['municipi'],
                             null,
                             null,
@@ -110,7 +112,7 @@ class ActivitiesAjBCNReader implements FilesReader
                     }
 
                     $commandActivity = new CreateActivityCommand(
-                        UuidGenerator::generateId(),
+                        new Id(UuidGenerator::generateId()),
                         $file['id'],
                         $file['nom'],
                         $file['data']['data_inici'],

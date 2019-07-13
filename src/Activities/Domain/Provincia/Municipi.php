@@ -9,14 +9,16 @@ class Municipi
 {
     /** @var Id */
     private $id;
+
     /** @var string */
     private $name;
-    /** @var string  */
+
+    /** @var Id  */
     private $provinciaId;
 
-    public function __construct(string $id, string $name, string $provinciaId)
+    public function __construct(Id $id, string $name, Id $provinciaId)
     {
-        $this->id = new Id($id);
+        $this->id = $id;
         $this->name = $name;
         $this->provinciaId = $provinciaId;
     }
@@ -31,7 +33,7 @@ class Municipi
         return $this->name;
     }
 
-    public function provinciaId(): string
+    public function provinciaId(): Id
     {
         return $this->provinciaId;
     }

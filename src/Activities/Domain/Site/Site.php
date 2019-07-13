@@ -15,7 +15,7 @@ class Site
     private $address;
     /** @var string */
     private $postalCode;
-    /** @var string */
+    /** @var Id | null */
     private $municipiId;
     /** @var string */
     private $coordinates;
@@ -31,7 +31,7 @@ class Site
         string $site,
         ?string $address,
         ?string $postalCode,
-        ?string $municipiId,
+        ?Id $municipiId,
         ?string $coordinates,
         ?string $phone,
         ?string $description,
@@ -68,7 +68,7 @@ class Site
         return $this->postalCode;
     }
 
-    public function municipiId(): ?string
+    public function municipiId(): ?Id
     {
         return $this->municipiId;
     }

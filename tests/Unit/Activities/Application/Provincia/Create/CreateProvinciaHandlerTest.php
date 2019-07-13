@@ -7,6 +7,7 @@ use App\Activities\Application\Provincia\Create\CreateProvinciaCommand;
 use App\Activities\Application\Provincia\Create\CreateProvinciaHandler;
 use App\Activities\Application\Provincia\Create\ProvinciaWasCreated;
 use App\Activities\Domain\Provincia\Municipi;
+use App\Activities\Domain\Provincia\Provincia;
 use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
 use App\Activities\Domain\Shared\Bus\Event\EventBus;
 use App\Activities\Domain\Shared\ValueObject\Id;
@@ -30,6 +31,7 @@ class CreateProvinciaHandlerTest extends UnitTestCase
 
     protected function setUp(): void
     {
+        parent::setUp();
 
         $this->provinciaRepository = $this->createMock(ProvinciaRepository::class);
         $this->eventBus = $this->createMock(EventBus::class);
@@ -42,20 +44,30 @@ class CreateProvinciaHandlerTest extends UnitTestCase
     /**
      * @test
      */
-    public function handleWhenProvinciahasData()
+    public function handleWhenProvinciaHasTwoMunicipiData()
     {
         $municipi = new Municipi(
-            $municipiId = $this->faker->uuid,
+            $municipiId = new Id($this->faker->uuid),
             $municipiName = $this->faker->name,
-            $provinciaId = $this->faker->uuid
+            $provinciaId = new Id($this->faker->uuid)
         );
-        $event = new ProvinciaWasCreated($provinciaId, $provinciaName = $this->faker->name);
-        $command = new CreateProvinciaCommand($provinciaId, $provinciaName, [$municipiId  => $municipiName]);
-        $provincia = $this->aProvinciaExists();
 
-        $this->theProvinciaHasId($provincia, new Id($provinciaId));
-        $this->theProvinciaHasName($provincia, $provinciaName);
-        $this->theProvinciaRegisterMunicipi($provincia,$municipi);
+        $municipi2 = new Municipi(
+            $municipiId2 = new Id($this->faker->uuid),
+            $municipiName2 = $this->faker->name,
+            $provinciaId
+        );
+
+        $event = new ProvinciaWasCreated($provinciaId->id(), $code = '08', $provinciaName = $this->faker->name);
+        $command = new CreateProvinciaCommand(
+            $provinciaId,
+            $code,
+            $provinciaName,
+            [$municipiId->id()  => $municipiName, $municipiId2->id() => $municipiName2]);
+
+        $provincia = new Provincia($command->id(), $command->code(), $command->name());
+        $provincia->addMunicipi($municipi);
+        $provincia->addMunicipi($municipi2);
 
         $this->eventBus
             ->expects($this->once())

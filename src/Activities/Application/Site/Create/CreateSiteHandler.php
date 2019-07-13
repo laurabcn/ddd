@@ -23,7 +23,7 @@ final class CreateSiteHandler implements CommandHandler
     public function handle(CreateSiteCommand $command): void
     {
         $site = new Site(
-            new Id($command->id()),
+            $command->id(),
             $command->site(),
             $command->address(),
             $command->postalCode(),

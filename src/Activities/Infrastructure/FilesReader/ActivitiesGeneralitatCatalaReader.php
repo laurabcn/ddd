@@ -51,7 +51,7 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
 
         foreach ($files as $file) {
             $comarca = explode('/', $file['comarca_i_municipi']);
-            $idMunicipi = UuidGenerator::generateId();
+            $idMunicipi = new Id(UuidGenerator::generateId());
             $idProvincia = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '8' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
             $nameMunicipi = !isset($comarca[3]) ? null : $comarca[3];
             $nameProvincia = !isset( $comarca[1]) ? null : $comarca[1];
@@ -62,7 +62,7 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
                 $commandProvincia = new CreateProvinciaCommand(
                     $idProvincia,
                     $nameProvincia,
-                    [$idMunicipi => $nameMunicipi]
+                    [$idMunicipi->id() => $nameMunicipi]
                 );
                 $this->commandBus->handle($commandProvincia);
                 $provincia = $this->provinciaRepository->byName($nameProvincia);
@@ -72,14 +72,14 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
                 $hasMunicipi = $provincia->hasMunicipi($nameMunicipi);
                 if(empty($hasMunicipi)){
                    $provincia->registerMunicipi(
-                       new Id($idMunicipi),
+                       $idMunicipi,
                        $nameMunicipi
                    );
                    $this->provinciaRepository->save($provincia);
                 }
             }
 
-            $idSite = UuidGenerator::generateId();
+            $idSite = new Id(UuidGenerator::generateId());
             if(isset($file['espai'])) {
                 $site = $this->siteRepository->bySite($file['espai']);
 
@@ -109,7 +109,7 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
                 $tipus = isset($file['tags_categor_es']) ?  explode('/', $file['tags_categor_es']) : null;
 
                 $commandActivity = new CreateActivityCommand(
-                    UuidGenerator::generateId(),
+                    new Id(UuidGenerator::generateId()),
                     $file['codi'],
                     $file['denominaci'],
                     $file['data_inici'],

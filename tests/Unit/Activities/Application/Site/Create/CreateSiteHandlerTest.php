@@ -5,7 +5,9 @@ namespace App\Test\Activities\Application\Activity\Create;
 
 use App\Activities\Application\Site\Create\CreateSiteCommand;
 use App\Activities\Application\Site\Create\CreateSiteHandler;
+use App\Activities\Domain\Shared\ValueObject\Id;
 use App\Activities\Domain\Site\Repository\SiteRepository;
+use App\Activities\Domain\Site\Site;
 use App\Tests\Unit\Activities\Context\Site\SiteContext;
 use App\Tests\Unit\Activities\Core\UnitTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -33,18 +35,28 @@ class CreateSiteHandlerTest extends UnitTestCase
     public function handleWhenSiteHasData()
     {
         $command = new CreateSiteCommand(
-            $this->faker->uuid,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->name,
-            $this->faker->url
+            $idSite =  new Id($this->faker->uuid),
+            $siteName = $this->faker->name,
+            $address = $this->faker->address,
+            $postalCode = (string) $this->faker->randomNumber(5),
+            $municipiId = new Id($this->faker->name),
+            $coordinates = $this->faker->name,
+            $phoneNumber = (string) $this->faker->randomNumber(9),
+            $description = $this->faker->text,
+            $url = $this->faker->url
         );
 
-        $site = $this->aSiteExists();
+        $site = new Site(
+            $idSite,
+            $siteName,
+            $address,
+            $postalCode,
+            $municipiId,
+            $coordinates,
+            $phoneNumber,
+            $description,
+            $url
+        );
 
         $this->siteRepository
             ->expects($this->once())
@@ -60,8 +72,8 @@ class CreateSiteHandlerTest extends UnitTestCase
     public function handleWhenSiteHasDataWithNull()
     {
         $command = new CreateSiteCommand(
-            $this->faker->uuid,
-            null,
+            $idSite = new Id($this->faker->uuid),
+            $siteName = $this->faker->name,
             null,
             null,
             null,
@@ -71,7 +83,17 @@ class CreateSiteHandlerTest extends UnitTestCase
             null
         );
 
-        $site = $this->aSiteExists();
+        $site = new Site(
+            $idSite,
+            $siteName,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        );
 
         $this->siteRepository
             ->expects($this->once())

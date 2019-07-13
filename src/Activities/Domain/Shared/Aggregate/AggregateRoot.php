@@ -4,13 +4,14 @@ declare(strict_types=1);
 namespace App\Activities\Domain\Shared\Aggregate;
 
 use App\Activities\Domain\Shared\Bus\Event\Event;
+use App\Activities\Domain\Shared\ValueObject\Id;
 
 abstract class AggregateRoot
 {
     /** Event[] */
     private $events = [];
 
-    abstract public function id(): string;
+    abstract public function id(): Id;
 
     public function recordThat(Event $event): void
     {

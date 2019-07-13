@@ -77,7 +77,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
 
             if(null === $site && null !== isset($nom)) {
                 $commandSite = new CreateSiteCommand(
-                    $idSite = UuidGenerator::generateId(),
+                    $idSite = new Id(UuidGenerator::generateId()),
                     $nom,
                     null,
                     null,
@@ -94,7 +94,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
             }
 
             $commandActivity = new CreateActivityCommand(
-                UuidGenerator::generateId(),
+                new Id(UuidGenerator::generateId()),
                 $file['id'],
                 $file['categories'],
                 $file['data_inicial'],
@@ -127,8 +127,8 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
         $files = array_merge($filesDiputacio, $fileslibrary, $filesMuseum, $filesParks, $filesTheater, $filestourism);
 
         foreach ($files as $file) {
-            $idMunicipi = UuidGenerator::generateId();
-            $idProvincia = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '8' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
+            $idMunicipi = new Id(UuidGenerator::generateId());
+            $code = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '8' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
             $nameMunicipi = !isset($file['rel_municipis']['municipi_nom']) ? null : $file['rel_municipis']['municipi_nom'];
             $nameProvincia = !isset( $file['rel_municipis']['grup_provincia']['provincia_nom']) ? null : $file['rel_municipis']['grup_provincia']['provincia_nom'];
 
@@ -136,19 +136,19 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
 
              if(null === $provincia && null !== $nameProvincia ) {
                 $commandProvincia = new CreateProvinciaCommand(
-                    $idProvincia,
+                    $idProvincia = new Id(UuidGenerator::generateId()),
+                    $code,
                     $nameProvincia,
-                    [$idMunicipi => $nameMunicipi]
+                    [$idMunicipi->id() => $nameMunicipi]
                 );
                 $this->commandBus->handle($commandProvincia);
                 $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
             }
 
             if(null !== $nameMunicipi){
-                $hasMunicipi = $provincia->hasMunicipi($nameMunicipi);
-                if(count($hasMunicipi) === 0 ){
+                if($provincia->hasMunicipi($nameMunicipi)){
                    $provincia->registerMunicipi(
-                       new Id($idMunicipi),
+                       $idMunicipi,
                        $nameMunicipi
                    );
                    $this->provinciaRepository->save($provincia);
@@ -161,7 +161,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
 
                 if (null === $site) {
                     $commandSite = new CreateSiteCommand(
-                        $idSite = UuidGenerator::generateId(),
+                        $idSite = new Id(UuidGenerator::generateId()),
                         $file['grup_adreca']['adreca_nom'],
                         $file['grup_adreca']['adreca'],
                         $file['grup_adreca']['codi_postal'],
@@ -174,7 +174,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
 
                     $this->commandBus->handle($commandSite);
                 } else {
-                    $idSite = $site->id()->id();
+                    $idSite = $site->id();
                 }
             }
 
@@ -187,7 +187,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                 $phone = count($file['telefon_contacte']) > 0 ? $file['telefon_contacte'][0] : null;
 
                 $commandActivity = new CreateActivityCommand(
-                    UuidGenerator::generateId(),
+                    new Id(UuidGenerator::generateId()),
                     $file['acte_id'],
                     $file['titol'],
                     $file['data_inici'],

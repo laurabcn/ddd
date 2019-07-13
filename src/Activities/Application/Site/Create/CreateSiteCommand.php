@@ -4,10 +4,11 @@ declare(strict_types=1);
 namespace App\Activities\Application\Site\Create;
 
 use App\Activities\Domain\Shared\Bus\Command\Command;
+use App\Activities\Domain\Shared\ValueObject\Id;
 
 final class CreateSiteCommand implements Command
 {
-    /** @var string  */
+    /** @var Id  */
     private $id;
 
     /** @var string */
@@ -19,7 +20,7 @@ final class CreateSiteCommand implements Command
     /** @var string */
     private $postalCode;
 
-    /** @var string */
+    /** @var Id | null */
     private $municipiId;
 
     /** @var string */
@@ -35,11 +36,11 @@ final class CreateSiteCommand implements Command
     private $url;
 
     public function __construct(
-        string $id,
+        Id $id,
         string $site,
         ?string $address,
         ?string $postalCode,
-        ?string $municipiId,
+        ?Id $municipiId,
         ?string $coordinates,
         ?string $phone,
         ?string $description,
@@ -56,7 +57,7 @@ final class CreateSiteCommand implements Command
         $this->url = $url;
     }
 
-    public function id(): string
+    public function id(): Id
     {
         return $this->id;
     }
@@ -76,7 +77,7 @@ final class CreateSiteCommand implements Command
         return $this->postalCode;
     }
 
-    public function municipiId(): ?string
+    public function municipiId(): ?Id
     {
         return $this->municipiId;
     }

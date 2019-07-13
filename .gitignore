@@ -13,6 +13,8 @@ vendor
 node_modules/
 bin
 act.txt
+.phpunit.result.cache
+.php_cs.dist
 # Sensitive or high-churn fi
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml

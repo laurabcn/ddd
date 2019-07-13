@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Activities\Application\Activity\Create;
 
 use App\Activities\Domain\Shared\Bus\Command\Command;
+use App\Activities\Domain\Shared\ValueObject\Id;
 
 final class CreateActivityCommand implements Command
 {
@@ -41,7 +42,7 @@ final class CreateActivityCommand implements Command
     /** @var string $phone */
     private $phone;
 
-    /** @var string $siteId */
+    /** @var Id $siteId */
     private $siteId;
 
     /** @var string $price */
@@ -67,7 +68,7 @@ final class CreateActivityCommand implements Command
 
 
     public function __construct(
-        string $id,
+        Id $id,
         string $acteId,
         string $title,
         string $startDate,
@@ -79,7 +80,7 @@ final class CreateActivityCommand implements Command
         ?string $urlGeneral,
         ?string $email,
         ?string $phone,
-        ?string $siteId,
+        ?Id $siteId,
         ?string $price,
         ?string $duration,
         ?string $type,
@@ -110,7 +111,7 @@ final class CreateActivityCommand implements Command
 
     }
 
-    public function id(): string
+    public function id(): Id
     {
         return $this->id;
     }
@@ -170,7 +171,7 @@ final class CreateActivityCommand implements Command
         return $this->phone;
     }
 
-    public function siteId(): ?string
+    public function siteId(): ?Id
     {
         return $this->siteId;
     }
