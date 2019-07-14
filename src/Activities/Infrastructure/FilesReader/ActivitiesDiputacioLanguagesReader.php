@@ -62,6 +62,7 @@ class ActivitiesDiputacioLanguagesReader implements FilesReader
 
              if(null === $provincia && null !== $nameProvincia ) {
                 $commandProvincia = new CreateProvinciaCommand(
+                    new Id(UuidGenerator::generateId()),
                     $idProvincia,
                     $nameProvincia,
                     [$idMunicipi->id() => $nameMunicipi]
