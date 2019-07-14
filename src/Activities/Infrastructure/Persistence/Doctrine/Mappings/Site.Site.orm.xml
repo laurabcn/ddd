@@ -7,8 +7,8 @@
         <id name="id" type="Id">
             <generator strategy="NONE"/>
         </id>
-        <field name="name" column="name" type="string"/>
-        <field name="address" column="address" nullable="true" type="string"/>
+        <field name="name" column="name" type="text"/>
+        <field name="address" column="address" nullable="true" type="text"/>
         <field name="postalCode" column="postalCode" nullable="true" type="string"/>
         <field name="municipiId" column="municipiId" nullable="true" type="string"/>
         <field name="coordinates" column="coordinates" nullable="true" type="string"/>

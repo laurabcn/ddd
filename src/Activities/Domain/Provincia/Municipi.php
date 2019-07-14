@@ -16,11 +16,10 @@ class Municipi
     /** @var Id  */
     private $provinciaId;
 
-    public function __construct(Id $id, string $name, Id $provinciaId)
+    public function __construct(Id $id, string $name)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->provinciaId = $provinciaId;
     }
 
     public function id(): Id
@@ -31,10 +30,5 @@ class Municipi
     public function name(): string
     {
         return $this->name;
-    }
-
-    public function provinciaId(): Id
-    {
-        return $this->provinciaId;
     }
 }

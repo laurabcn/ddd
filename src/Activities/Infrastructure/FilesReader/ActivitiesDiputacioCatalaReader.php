@@ -90,7 +90,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
 
                 $this->commandBus->handle($commandSite);
             }else{
-                $idSite = $site->id()->id();
+                $idSite = $site->id();
             }
 
             $commandActivity = new CreateActivityCommand(
@@ -128,53 +128,55 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
 
         foreach ($files as $file) {
             $idMunicipi = new Id(UuidGenerator::generateId());
-            $code = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '8' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
+            $code = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '08' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
             $nameMunicipi = !isset($file['rel_municipis']['municipi_nom']) ? null : $file['rel_municipis']['municipi_nom'];
-            $nameProvincia = !isset( $file['rel_municipis']['grup_provincia']['provincia_nom']) ? null : $file['rel_municipis']['grup_provincia']['provincia_nom'];
+            $nameProvincia = isset( $file['rel_municipis']['grup_provincia']['provincia_nom']) ? $file['rel_municipis']['grup_provincia']['provincia_nom'] : null;
 
-            $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
+            if(!is_null($nameProvincia)) {
+                $provincia = $this->provinciaRepository->byName($nameProvincia);
 
-             if(null === $provincia && null !== $nameProvincia ) {
-                $commandProvincia = new CreateProvinciaCommand(
-                    $idProvincia = new Id(UuidGenerator::generateId()),
-                    $code,
-                    $nameProvincia,
-                    [$idMunicipi->id() => $nameMunicipi]
-                );
-                $this->commandBus->handle($commandProvincia);
-                $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
-            }
-
-            if(null !== $nameMunicipi){
-                if($provincia->hasMunicipi($nameMunicipi)){
-                   $provincia->registerMunicipi(
-                       $idMunicipi,
-                       $nameMunicipi
-                   );
-                   $this->provinciaRepository->save($provincia);
-                }
-            }
-
-            $idSite = null;
-            if(isset($file['grup_adreca'])) {
-                $site = $this->siteRepository->bySite($file['grup_adreca']['adreca_nom']);
-
-                if (null === $site) {
-                    $commandSite = new CreateSiteCommand(
-                        $idSite = new Id(UuidGenerator::generateId()),
-                        $file['grup_adreca']['adreca_nom'],
-                        $file['grup_adreca']['adreca'],
-                        $file['grup_adreca']['codi_postal'],
+                if (is_null($provincia)) {
+                    $commandProvincia = new CreateProvinciaCommand(
+                        $idProvincia = new Id(UuidGenerator::generateId()),
+                        $code,
+                        $nameProvincia,
                         $idMunicipi,
-                        $file['grup_adreca']['localitzacio'],
-                        null,
-                        null,
-                        null
+                        $nameMunicipi
                     );
+                    $this->commandBus->handle($commandProvincia);
+                    $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
+                }
 
-                    $this->commandBus->handle($commandSite);
-                } else {
-                    $idSite = $site->id();
+
+                if ($provincia->hasMunicipi($nameMunicipi)) {
+                    $provincia->registerMunicipi(
+                        $idMunicipi,
+                        $nameMunicipi
+                    );
+                    $this->provinciaRepository->save($provincia);
+                }
+
+                $idSite = null;
+                if (isset($file['grup_adreca'])) {
+                    $site = $this->siteRepository->bySite($file['grup_adreca']['adreca_nom']);
+
+                    if (null === $site) {
+                        $commandSite = new CreateSiteCommand(
+                            $idSite = new Id(UuidGenerator::generateId()),
+                            $file['grup_adreca']['adreca_nom'],
+                            $file['grup_adreca']['adreca'],
+                            $file['grup_adreca']['codi_postal'],
+                            $idMunicipi,
+                            $file['grup_adreca']['localitzacio'],
+                            null,
+                            null,
+                            null
+                        );
+
+                        $this->commandBus->handle($commandSite);
+                    } else {
+                        $idSite = $site->id();
+                    }
                 }
             }
 

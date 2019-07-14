@@ -17,20 +17,25 @@ final class CreateProvinciaCommand implements Command
     /** @var string */
     private $name;
 
-    /** @var array  */
-    private $municipi;
+    /** @var Id  */
+    private $municipiId;
+
+    /** @var string  */
+    private $municipiName;
 
     public function __construct(
         Id $id,
         string $code,
         string $name,
-        array $municipi
+        Id $municipiId,
+        string $municipiName
     )
     {
         $this->id = $id;
         $this->name = $name;
         $this->code = $code;
-        $this->municipi = $municipi;
+        $this->municipiId = $municipiId;
+        $this->municipiName = $municipiName;
     }
 
     public function id(): Id
@@ -48,8 +53,13 @@ final class CreateProvinciaCommand implements Command
         return $this->code;
     }
 
-    public function municipi(): array
+    public function municipiId(): Id
     {
-        return $this->municipi;
+        return $this->municipiId;
+    }
+
+    public function municipiName(): string
+    {
+        return $this->municipiName;
     }
 }

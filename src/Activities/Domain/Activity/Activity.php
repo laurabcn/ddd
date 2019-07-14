@@ -17,7 +17,7 @@ class Activity extends AggregateRoot
     private $title;
     /** @var \DateTimeInterface */
     private $startDate;
-    /** @var \DateTimeInterface */
+    /** @var \DateTimeInterface | null*/
     private $endDate;
     /** @var string */
     private $language;
@@ -53,7 +53,7 @@ class Activity extends AggregateRoot
         string $acteId,
         string $title,
         \DateTimeInterface $startDate,
-        \DateTimeInterface $endDate,
+        ?\DateTimeInterface $endDate,
         string $language,
         ?string $description,
         ?string $image,
@@ -113,7 +113,7 @@ class Activity extends AggregateRoot
         return $this->startDate;
     }
 
-    public function endDate(): \DateTimeInterface
+    public function endDate(): ?\DateTimeInterface
     {
         return $this->endDate;
     }

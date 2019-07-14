@@ -65,7 +65,8 @@ class ActivitiesDiputacioLanguagesReader implements FilesReader
                     new Id(UuidGenerator::generateId()),
                     $idProvincia,
                     $nameProvincia,
-                    [$idMunicipi->id() => $nameMunicipi]
+                    $idMunicipi,
+                    $nameMunicipi
                 );
                 $this->commandBus->handle($commandProvincia);
                 $provincia = $this->provinciaRepository->byId(new Id($idProvincia));

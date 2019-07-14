@@ -8,6 +8,7 @@ use App\Activities\Domain\Activity\Activity;
 use App\Activities\Domain\Activity\Repository\ActivityRepository;
 use App\Activities\Domain\Shared\Bus\Command\CommandHandler;
 use App\Activities\Domain\Shared\ValueObject\Id;
+use DateTime;
 
 final class CreateActivityHandler implements CommandHandler
 {
@@ -26,7 +27,7 @@ final class CreateActivityHandler implements CommandHandler
             $command->acteId(),
             $command->title(),
             new \DateTimeImmutable($command->startDate()),
-            new \DateTimeImmutable($command->endDate()),
+            is_null($command->endDate()) ? null : new \DateTimeImmutable($command->endDate()),
             $command->language(),
             $command->description(),
             $command->image(),

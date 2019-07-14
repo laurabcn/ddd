@@ -21,7 +21,7 @@ final class CreateActivityCommand implements Command
     /** @var string $startDate */
     private $startDate;
 
-    /** @var string $endDate */
+    /** @var string | null $endDate */
     private $endDate;
 
     /** @var string $description */
@@ -72,7 +72,7 @@ final class CreateActivityCommand implements Command
         string $acteId,
         string $title,
         string $startDate,
-        string $endDate,
+        ?string $endDate,
         string $language,
         ?string $description,
         ?string $image,
@@ -131,7 +131,7 @@ final class CreateActivityCommand implements Command
         return $this->startDate;
     }
 
-    public function endDate(): string
+    public function endDate(): ?string
     {
         return $this->endDate;
     }

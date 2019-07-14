@@ -18,7 +18,7 @@ class Provincia extends AggregateRoot
     /** @var string */
     private $name;
 
-    /** @var Municipi[]|ArrayCollection */
+    /** @var Municipi[] | ArrayCollection */
     private $municipi;
 
     public function __construct(Id $id, string $code, string $name)
@@ -53,8 +53,7 @@ class Provincia extends AggregateRoot
     {
         $municipi = new Municipi(
             $municipiId,
-            $name,
-            $this->id()
+            $name
         );
 
         $this->addMunicipi($municipi);
@@ -82,9 +81,6 @@ class Provincia extends AggregateRoot
 
     public function hasMunicipi(string $municipi): bool
     {
-        $this->municipi->filter( function($entry) use ($municipi) {
-            return $entry->name() === $municipi;
-        });
-        return false;
+        return !is_null($this->getMunicipiByName($municipi));
     }
 }

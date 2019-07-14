@@ -10,11 +10,8 @@ use phpDocumentor\Reflection\Types\Self_;
 final class GetActivitiesAjBcnFromOpenData
 {
     const API_URL = [
-            'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=203',
+
             'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=103',
-            'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=104',
-            'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=105',
-            'http://w10.bcn.es/APPS/asiasiacache/peticioXmlAsia?id=106'
     ];
 
     /** @var Client */
@@ -45,16 +42,18 @@ final class GetActivitiesAjBcnFromOpenData
         $files = [];
 
         foreach ($response['body']['resultat']['actes'] as $key => $value) {
-            var_dump($value);
-            if(isset($value['data']) && new \DateTime($value['data']['data_fi']) < new \DateTime('today')){
+            if(isset($value['data']) && new \DateTime($value['data']['data_fi']) < new \DateTime('today')||
+                (isset($value['data']) && !is_string($value['data']['data_inici'])) ||
+                (isset($value['data']) && !is_string($value['data']['data_fi']))){
                 continue;
             }
+
             $files[] = $value;
         }
         return $files;
     }
     protected function getFromOpenData(string $path): \SimpleXMLElement
     {
-        return new \SimpleXMLElement($path, 0, true);
+        return simplexml_load_string(file_get_contents($path));
     }
 }

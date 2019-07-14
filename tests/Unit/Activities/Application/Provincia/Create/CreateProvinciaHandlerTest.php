@@ -44,30 +44,25 @@ class CreateProvinciaHandlerTest extends UnitTestCase
     /**
      * @test
      */
-    public function handleWhenProvinciaHasTwoMunicipiData()
+    public function handleWhenProvinciaHasOneMunicipiData()
     {
         $municipi = new Municipi(
             $municipiId = new Id($this->faker->uuid),
-            $municipiName = $this->faker->name,
-            $provinciaId = new Id($this->faker->uuid)
+            $municipiName = $this->faker->name
         );
 
-        $municipi2 = new Municipi(
-            $municipiId2 = new Id($this->faker->uuid),
-            $municipiName2 = $this->faker->name,
-            $provinciaId
-        );
-
+        $provinciaId = new Id($this->faker->uuid);
         $event = new ProvinciaWasCreated($provinciaId->id(), $code = '08', $provinciaName = $this->faker->name);
         $command = new CreateProvinciaCommand(
             $provinciaId,
             $code,
             $provinciaName,
-            [$municipiId->id()  => $municipiName, $municipiId2->id() => $municipiName2]);
+            $municipiId,
+            $municipiName
+        );
 
         $provincia = new Provincia($command->id(), $command->code(), $command->name());
         $provincia->addMunicipi($municipi);
-        $provincia->addMunicipi($municipi2);
 
         $this->eventBus
             ->expects($this->once())

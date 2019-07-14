@@ -8,6 +8,7 @@ use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
 use App\Activities\Domain\Shared\Bus\Command\CommandHandler;
 use App\Activities\Domain\Shared\Bus\Event\EventBus;
 use App\Activities\Domain\Shared\ValueObject\Id;
+use App\Activities\Toolkit\IdGenerator\UuidGenerator;
 
 final class CreateProvinciaHandler implements CommandHandler
 {
@@ -31,10 +32,7 @@ final class CreateProvinciaHandler implements CommandHandler
             $command->name()
         );
 
-        foreach ($command->municipi() as $key => $municipi)
-        {
-            $provincia->registerMunicipi(new Id($key), $municipi);
-        }
+        $provincia->registerMunicipi($command->municipiId(), $command->municipiName());
 
         $this->eventBus->publish(new ProvinciaWasCreated($provincia->id()->id(), $command->code(), $provincia->name()));
 

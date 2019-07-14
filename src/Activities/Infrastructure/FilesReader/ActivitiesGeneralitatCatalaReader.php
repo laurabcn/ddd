@@ -58,25 +58,24 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
 
             $provincia = $this->provinciaRepository->byName($nameProvincia);
 
-             if(null === $provincia && null !== $nameProvincia ) {
+             if(is_null($provincia) && !is_null($nameProvincia)) {
                 $commandProvincia = new CreateProvinciaCommand(
+                    new Id(UuidGenerator::generateId()),
                     $idProvincia,
                     $nameProvincia,
-                    [$idMunicipi->id() => $nameMunicipi]
+                    $idMunicipi,
+                    $nameMunicipi
                 );
                 $this->commandBus->handle($commandProvincia);
                 $provincia = $this->provinciaRepository->byName($nameProvincia);
             }
 
-            if(null !== $nameMunicipi){
-                $hasMunicipi = $provincia->hasMunicipi($nameMunicipi);
-                if(empty($hasMunicipi)){
-                   $provincia->registerMunicipi(
-                       $idMunicipi,
-                       $nameMunicipi
-                   );
-                   $this->provinciaRepository->save($provincia);
-                }
+            if(!is_null($nameMunicipi) && !$provincia->hasMunicipi($nameMunicipi)){
+               $provincia->registerMunicipi(
+                   $idMunicipi,
+                   $nameMunicipi
+               );
+               $this->provinciaRepository->save($provincia);
             }
 
             $idSite = new Id(UuidGenerator::generateId());
@@ -99,7 +98,7 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
 
                     $this->commandBus->handle($commandSite);
                 } else {
-                    $idSite = $site->id()->id();
+                    $idSite = $site->id();
                 }
             }
 

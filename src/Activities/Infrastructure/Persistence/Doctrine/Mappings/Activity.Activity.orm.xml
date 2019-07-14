@@ -10,7 +10,7 @@
         <field name="acteId" column="acte_id" type="string" />
         <field name="title" column="title" type="string"/>
         <field name="startDate" column="start_date" type="datetime"/>
-        <field name="endDate" column="end_date" type="datetime"/>
+        <field name="endDate" column="end_date" nullable="true" type="datetime" />
         <field name="language" column="language" type="string"/>
         <field name="description" column="description" nullable="true" type="text"/>
         <field name="image" column="image" nullable="true" type="text"/>

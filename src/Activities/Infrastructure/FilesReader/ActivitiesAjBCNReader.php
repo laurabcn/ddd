@@ -14,6 +14,7 @@ use App\Activities\Domain\Shared\ValueObject\Uuid;
 use App\Activities\Domain\Site\Repository\SiteRepository;
 use App\Activities\Infrastructure\FilesReader\GetActivitiesAjBcnFromOpenData;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
+use DateTime;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
 
 class ActivitiesAjBCNReader implements FilesReader
@@ -59,46 +60,47 @@ class ActivitiesAjBCNReader implements FilesReader
     {
         $groups = $this->getActivitiesFromOpenDataAjBcn->execute();
 
-
         foreach ($groups as $group) {
             foreach ($group as $item) {
                 foreach ($item as $file) {
+                    if(is_array($file['data']['data_inici'])){
+                        continue;
+                    }
+
                     $nom = $file['lloc_simple']['nom'];
                     $site = $this->siteRepository->bySite($nom);
-
-                    $code = '08';
-                    $provincia = $this->provinciaRepository->byId($code);
+                    $code = is_array($file['lloc_simple']['adreca_simple']['codi_postal']) ? '08' : substr($file['lloc_simple']['adreca_simple']['codi_postal'], 0, 4);
                     $nameMunicipi =  ucfirst(strtolower($file['lloc_simple']['adreca_simple']['municipi']));
-                    $municipi = new Municipi(new Id(UuidGenerator::generateId()), $nameMunicipi, $provincia->id());
+                    $municipi = new Municipi(new Id(UuidGenerator::generateId()), $nameMunicipi);
 
-                    if(null === $provincia) {
+                    $provincia = $this->provinciaRepository->byName('barcelona');
+
+                    if(is_null($provincia)) {
                         $commandProvincia = new CreateProvinciaCommand(
                             $idProvincia = new Id(UuidGenerator::generateId()),
                             $code,
                             $nameProvincia = 'Barcelona',
-                            [$municipi->id()->id() => $municipi->name() ]
+                            $municipi->id(),
+                            $municipi->name()
                         );
                         $this->commandBus->handle($commandProvincia);
                         $provincia = $this->provinciaRepository->byId($idProvincia);
                     }
 
-                    if(null !== $nameMunicipi){
-                        $hasMunicipi = $provincia->hasMunicipi($municipi->name());
-                        if($hasMunicipi){
-                            $provincia->registerMunicipi(
-                                $municipi->id(),
-                                $municipi->name()
-                            );
-                            $this->provinciaRepository->save($provincia);
-                        }
+                    if(!is_null($nameMunicipi) && !$provincia->hasMunicipi($municipi->name())){
+                        $provincia->registerMunicipi(
+                            $municipi->id(),
+                            $municipi->name()
+                        );
+                        $this->provinciaRepository->save($provincia);
                     }
 
-                    if (null === $site && null !== isset($nom)) {
+                    if (is_null( $site) && !is_null($nom)) {
                         $commandSite = new CreateSiteCommand(
                             $idSite = new Id(UuidGenerator::generateId()),
                             $nom,
-                            $file['lloc_simple']['adreca_simple']['carrer'] . ', ' . $file['lloc_simple']['adreca_simple']['numero'],
-                            $file['lloc_simple']['adreca_simple']['codi_postal'],
+                            is_array($file['lloc_simple']['adreca_simple']['carrer']) ? null : $file['lloc_simple']['adreca_simple']['carrer'] . ', ' . $file['lloc_simple']['adreca_simple']['numero'],
+                            $code,
                             $municipi->id(),
                             $file['lloc_simple']['adreca_simple']['municipi'],
                             null,
@@ -108,15 +110,15 @@ class ActivitiesAjBCNReader implements FilesReader
 
                         $this->commandBus->handle($commandSite);
                     } else {
-                        $idSite = $site->id()->id();
+                        $idSite = $site->id();
                     }
 
                     $commandActivity = new CreateActivityCommand(
                         new Id(UuidGenerator::generateId()),
                         $file['id'],
                         $file['nom'],
-                        $file['data']['data_inici'],
-                        $file['data']['data_fi'],
+                        (DateTime::createFromFormat('d/m/Y', $file['data']['data_inici']))->format('Y-m-d'),
+                        is_array($file['data']['data_fi']) ? null : (DateTime::createFromFormat('d/m/Y', $file['data']['data_fi']))->format('Y-m-d'),
                         $language,
                         null,
                         null,
@@ -134,8 +136,6 @@ class ActivitiesAjBCNReader implements FilesReader
                     );
                     $this->commandBus->handle($commandActivity);
                 }
-
-                $files = $this->getActivitiesFromOpenData->execute($language);
             }
         }
     }

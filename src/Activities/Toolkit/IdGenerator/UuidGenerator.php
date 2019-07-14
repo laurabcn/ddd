@@ -8,6 +8,6 @@ class UuidGenerator
 {
     public static function generateId(): string
     {
-        return Uuid::uuid4()->toString();
+        return (Uuid::uuid4())->toString();
     }
 }
