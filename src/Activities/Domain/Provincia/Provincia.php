@@ -6,6 +6,7 @@ namespace App\Activities\Domain\Provincia;
 use App\Activities\Domain\Shared\Aggregate\AggregateRoot;
 use App\Activities\Domain\Shared\ValueObject\Id;
 use Doctrine\Common\Collections\ArrayCollection;
+use mysql_xdevapi\Exception;
 
 class Provincia extends AggregateRoot
 {
@@ -61,7 +62,9 @@ class Provincia extends AggregateRoot
 
     public function addMunicipi(Municipi $municipi): void
     {
-        $this->municipi[] = $municipi;
+        if(!$this->hasMunicipi($municipi->name())){
+            $this->municipi[] = $municipi;
+        }
     }
 
     public function getMunicipiById(Id $municipiId)

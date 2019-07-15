@@ -76,4 +76,55 @@ class CreateProvinciaHandlerTest extends UnitTestCase
 
         $this->createProvinciaHandler->handle($command);
     }
+
+    /**
+     * @test
+     */
+    public function handleWhenProvinciaHasOneMunicipiDataAndAddSameAndDifferent()
+    {
+        $municipi = new Municipi(
+            $municipiId = new Id($this->faker->uuid),
+            $municipiName = $this->faker->name
+        );
+
+        $provinciaId = new Id($this->faker->uuid);
+        $event = new ProvinciaWasCreated($provinciaId->id(), $code = '08', $provinciaName = $this->faker->name);
+        $command = new CreateProvinciaCommand(
+            $provinciaId,
+            $code,
+            $provinciaName,
+            $municipiId,
+            $municipiName
+        );
+
+        $provincia = new Provincia($command->id(), $command->code(), $command->name());
+        $provincia->addMunicipi($municipi);
+
+        $this->assertCount(1, $provincia->municipi());
+
+        $provincia->addMunicipi($municipi);
+
+        $this->assertCount(1, $provincia->municipi());
+
+        $this->eventBus
+            ->expects($this->once())
+            ->method('publish')
+            ->with($event);
+
+        $this->provinciaRepository
+            ->expects($this->once())
+            ->method('save')
+            ->with($provincia);
+
+        $this->createProvinciaHandler->handle($command);
+
+        $municipi2 = new Municipi(
+            new Id($this->faker->uuid),
+            $this->faker->name
+        );
+
+        $provincia->addMunicipi($municipi2);
+
+        $this->assertCount(2, $provincia->municipi());
+    }
 }
