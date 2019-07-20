@@ -1,7 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
-namespace App\Activities\Application\Activity\Find;
+namespace App\Activities\Activity\Application\Find;
 
 
 final class FindActivityResponse
@@ -13,22 +14,22 @@ final class FindActivityResponse
     /** @var string */
     private $title;
 
-    /** @var string */
+    /** @var string | null */
     private $description;
 
-    /** @var string */
+    /** @var string | null */
     private $duration;
 
     /** @var string */
     private $startDate;
 
-    /** @var string */
+    /** @var string | null */
     private $endDate;
 
-    /** @var string */
+    /** @var string | null */
     private $image;
 
-    /** @var string */
+    /** @var string | null */
     private $inscriptions;
 
     /** @var string | null*/
@@ -45,11 +46,11 @@ final class FindActivityResponse
 
     public function __construct(
         string $id,
-        ?string $title,
+        string $title,
         ?string $description,
         ?string $duration,
         string $startDate,
-        string $endDate,
+        ?string $endDate,
         ?string $image,
         ?string $inscriptions,
         ?string $observations,
@@ -77,7 +78,7 @@ final class FindActivityResponse
         return $this->id;
     }
 
-    public function title(): ?string
+    public function title(): string
     {
         return $this->title;
     }
@@ -97,7 +98,7 @@ final class FindActivityResponse
         return $this->startDate;
     }
 
-    public function endDate(): string
+    public function endDate(): ?string
     {
         return $this->endDate;
     }

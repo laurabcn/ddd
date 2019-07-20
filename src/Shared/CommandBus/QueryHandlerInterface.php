@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Activities\Domain\Shared\CommandBus;
+namespace App\Shared\CommandBus;
 
 interface QueryHandlerInterface
 {

@@ -1,12 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Application\Activity\Find;
+namespace App\Activities\Activity\Application\Find;
 
-use App\Activities\Domain\Activity\Exceptions\ActivityNotFoundException;
-use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Domain\Shared\CommandBus\QueryHandlerInterface;
-use App\Activities\Domain\Shared\ValueObject\Id;
+use App\Activities\Activity\Domain\Repository\ActivityRepository;
+use App\Shared\CommandBus\QueryHandlerInterface;
 
 class FindActivityHandler implements QueryHandlerInterface
 {
@@ -15,16 +14,14 @@ class FindActivityHandler implements QueryHandlerInterface
      */
     private $activityRepository;
 
-    public function __construct(
-        ActivityRepository $activityRepository
-    ) {
+    public function __construct(ActivityRepository $activityRepository)
+    {
         $this->activityRepository = $activityRepository;
     }
 
     public function handle(FindActivityQuery $query): FindActivityResponse
     {
-        $activity = $this->activityRepository->ByIdOrException(new Id($query->id()));
-
+        $activity = $this->activityRepository->ByIdOrException($query->id());
 
         return new FindActivityResponse(
             $activity->id()->id(),

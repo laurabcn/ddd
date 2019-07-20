@@ -4,12 +4,10 @@ declare(strict_types = 1);
 
 namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
 
-use App\Activities\Domain\Activity\Activities;
-use App\Activities\Domain\Activity\Activity;
+use App\Activities\Activity\Domain\Activity;
+use App\Activities\Activity\Domain\Repository\ActivityRepository;
 use App\Activities\Domain\Activity\Exceptions\ActivityNotFoundException;
-use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Domain\Shared\ValueObject\Id;
-use Doctrine\Common\Collections\Criteria;
+use App\Shared\ValueObject\Id;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -38,7 +36,7 @@ final class ActivityRepositoryMySql extends ServiceEntityRepository  implements 
 
         if(is_null($activity))
         {
-            throw new ActivityNotFoundException('Activity with ' . $id->id());
+            throw (new ActivityNotFoundException())->notFound($id);
         }
 
         return $activity;
