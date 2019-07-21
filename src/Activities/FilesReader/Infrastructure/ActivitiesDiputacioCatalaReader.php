@@ -2,15 +2,15 @@
 
 namespace App\Activities\Infrastructure\FilesReader;
 
-use App\Activities\Application\Activity\Create\CreateActivityCommand;
-use App\Activities\Application\Provincia\Create\CreateProvinciaCommand;
-use App\Activities\Application\Site\Create\CreateSiteCommand;
-use App\Activities\Domain\Activity\Repository\ActivityRepository;
+use App\Activities\Activity\Application\Create\CreateActivityCommand;
+use App\Activities\Activity\Domain\Repository\ActivityRepository;
 use App\Activities\Domain\FilesReader\FilesReader;
-use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
-use App\Activities\Domain\Shared\ValueObject\Id;
-use App\Activities\Domain\Site\Repository\SiteRepository;
+use App\Activities\Provincia\Application\Create\CreateProvinciaCommand;
+use App\Activities\Provincia\Domain\Repository\ProvinciaRepository;
+use App\Activities\Site\Application\Create\CreateSiteCommand;
+use App\Activities\Site\Domain\Repository\SiteRepository;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
+use App\Shared\ValueObject\Id;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
 
 class ActivitiesDiputacioCatalaReader implements FilesReader
@@ -21,16 +21,16 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
     /** @var GetActivitiesFromOpenDataLibraries */
     private $getActivitiesFromOpenDataLibraries;
 
-    /** @var ProvinciaRepository  */
+    /** @var ProvinciaRepository */
     private $provinciaRepository;
 
-    /** @var SiteRepository  */
+    /** @var SiteRepository */
     private $siteRepository;
 
-    /** @var ActivityRepository  */
+    /** @var ActivityRepository */
     private $activityRepository;
 
-    /** @var CommandBus $commandBus  */
+    /** @var CommandBus $commandBus */
     private $commandBus;
     private $getActivitiesFromOpenDataDiputacio;
     private $getActivitiesFromOpenDataMuseum;
@@ -50,8 +50,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
         SiteRepository $siteRepository,
         ActivityRepository $sctivityRepository,
         CommandBus $commandBus
-    )
-    {
+    ) {
         $this->getActivitiesFromOpenData = $getActivitiesFromOpenData;
         $this->getActivitiesFromOpenDataDiputacio = $getActivitiesFromOpenDataDiputacio;
         $this->getActivitiesFromOpenDataLibraries = $getActivitiesFromOpenDataLibraries;
@@ -63,19 +62,17 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
         $this->siteRepository = $siteRepository;
         $this->activityRepository = $sctivityRepository;
         $this->commandBus = $commandBus;
-
-
     }
 
     public function read(string $language): void
     {
         $filesSostenible = $this->getActivitiesFromOpenDataSostenible->execute($language);
 
-        foreach ($filesSostenible as $file){
+        foreach ($filesSostenible as $file) {
             $nom = $file['nom_del_lloc'];
             $site = $this->siteRepository->bySite($nom);
 
-            if(null === $site && null !== isset($nom)) {
+            if (null === $site && null !== isset($nom)) {
                 $commandSite = new CreateSiteCommand(
                     $idSite = new Id(UuidGenerator::generateId()),
                     $nom,
@@ -89,7 +86,7 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                 );
 
                 $this->commandBus->handle($commandSite);
-            }else{
+            } else {
                 $idSite = $site->id();
             }
 
@@ -128,11 +125,11 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
 
         foreach ($files as $file) {
             $idMunicipi = new Id(UuidGenerator::generateId());
-            $code = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '08' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
+            $code = !isset($file['rel_municipis']['grup_provincia']['provincia_codi']) ? '08' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
             $nameMunicipi = !isset($file['rel_municipis']['municipi_nom']) ? null : $file['rel_municipis']['municipi_nom'];
-            $nameProvincia = isset( $file['rel_municipis']['grup_provincia']['provincia_nom']) ? $file['rel_municipis']['grup_provincia']['provincia_nom'] : null;
+            $nameProvincia = isset($file['rel_municipis']['grup_provincia']['provincia_nom']) ? $file['rel_municipis']['grup_provincia']['provincia_nom'] : null;
 
-            if(!is_null($nameProvincia)) {
+            if (!is_null($nameProvincia)) {
                 $provincia = $this->provinciaRepository->byName($nameProvincia);
 
                 if (is_null($provincia)) {
@@ -146,7 +143,6 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                     $this->commandBus->handle($commandProvincia);
                     $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
                 }
-
 
                 if ($provincia->hasMunicipi($nameMunicipi)) {
                     $provincia->registerMunicipi(
