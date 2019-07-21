@@ -59,3 +59,4 @@ vendor
 /composer.lock
 docker/my-db
 .web-server-pid
+.php_cs.cache
