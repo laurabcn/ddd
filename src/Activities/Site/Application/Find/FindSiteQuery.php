@@ -1,9 +1,8 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace App\Activities\Application\Site\Find;
-
+namespace App\Activities\Site\Application\Find;
 
 final class FindSiteQuery
 {

@@ -1,4 +1,4 @@
 rest_controller:
-  resource: ../../src/Activities/Infrastructure/UI/http/
+  resource: ../../src/Activities/Activity/Infrastructure/UI/http/
   type: annotation
   prefix: /api

@@ -1,11 +1,12 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
+namespace App\Activities\Provincia\Infrastructure\Persistence\Repository;
 
-use App\Activities\Domain\Provincia\Provincia;
-use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
+use App\Activities\Provincia\Domain\Provincia;
+use App\Activities\Provincia\Domain\Repository\ProvinciaRepository;
+use App\Shared\ValueObject\Id;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -22,14 +23,13 @@ final class ProvinciaRepositoryMySql extends ServiceEntityRepository implements 
         $this->_em->flush();
     }
 
-    public function byId(string $id): ?Provincia
+    public function byId(Id $id): ?Provincia
     {
-        return $this->findOneBy(['id' => $id]);
+        return $this->findOneBy(['id' => $id->id()]);
     }
 
     public function byName(string $name): ?Provincia
     {
         return $this->findOneBy(['name' => $name]);
     }
-
 }

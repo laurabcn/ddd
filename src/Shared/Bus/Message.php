@@ -1,9 +1,10 @@
 <?php
-declare (strict_types = 1);
 
-namespace App\Activities\Domain\Shared\Bus;
+declare(strict_types=1);
 
-use App\Activities\Domain\Shared\ValueObject\Uuid;
+namespace App\Shared\Bus;
+
+use App\Shared\ValueObject\Uuid;
 
 abstract class Message
 {

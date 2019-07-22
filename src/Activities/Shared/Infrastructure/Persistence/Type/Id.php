@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\Persistence\Doctrine\Type;
+namespace App\Activities\Shared\Infrastructure\Persistence\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\GuidType;

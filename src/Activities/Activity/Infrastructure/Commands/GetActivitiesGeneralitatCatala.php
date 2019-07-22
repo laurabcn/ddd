@@ -1,15 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\Commands;
+namespace App\Activities\Activity\Infrastructure\Commands;
 
-use App\Activities\Domain\FilesReader\FilesReader;
+use App\Activities\FilesReader\Domain\FilesReader;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GetActivitiesDiputacioLanguages extends ContainerAwareCommand
+class GetActivitiesGeneralitatCatala extends ContainerAwareCommand
 {
     private $reader;
 
@@ -22,13 +22,8 @@ class GetActivitiesDiputacioLanguages extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('get:diputacio:language')
+            ->setName('get:generalitat:catala')
             ->setDescription('Insert data from activities to Barcelona')
-            ->addArgument(
-                'language',
-                InputArgument::REQUIRED,
-                'es : español, en : english, ru : russian, de : aleman, fr : Frances'
-            )
             ->setHelp('This command get data for tourism calendar...')
         ;
     }
@@ -40,17 +35,12 @@ class GetActivitiesDiputacioLanguages extends ContainerAwareCommand
             '================================',
         ]);
 
-        $output->writeln($this->someMethod($input));
+        $output->writeln($this->someMethod());
         $output->writeln('Whoa!');
     }
 
-    private function someMethod(InputInterface $input)
+    private function someMethod()
     {
-        $language = $input->getArgument('language');
-
-        if(in_array($language, ['es', 'en', 'ru', 'de', 'fr'] ))
-        {
-            $this->reader->read($language);
-        }
+        $this->reader->read('ca');
     }
 }

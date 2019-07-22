@@ -1,15 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\Commands;
+namespace App\Activities\Activity\Infrastructure\Commands;
 
-use App\Activities\Domain\FilesReader\FilesReader;
+use App\Activities\FilesReader\Domain\FilesReader;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GetSitesAjuntament extends ContainerAwareCommand
+class GetActivitiesAjBCN extends ContainerAwareCommand
 {
     private $reader;
 
@@ -22,13 +22,8 @@ class GetSitesAjuntament extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('get:sites-bcn:languages')
+            ->setName('get:activities:ajbcn')
             ->setDescription('Insert sites tourist interest to Barcelona')
-            ->addArgument(
-                'language',
-                InputArgument::REQUIRED,
-                'ca: català, es : español, en : english, fr : Française'
-            )
             ->setHelp('This command get data for tourism calendar...')
         ;
     }
@@ -46,11 +41,6 @@ class GetSitesAjuntament extends ContainerAwareCommand
 
     private function someMethod(InputInterface $input)
     {
-        $language = $input->getArgument('language');
-
-        if(in_array($language, ['ca','es', 'en', 'fr'] ))
-        {
-            $this->reader->read($language);
-        }
+        $this->reader->read('ca');
     }
 }

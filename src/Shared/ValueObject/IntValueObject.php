@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace App\Activities\Domain\Shared\ValueObject;
+namespace App\Shared\ValueObject;
 
 abstract class IntValueObject
 {

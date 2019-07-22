@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Activities\Domain\Shared\CommandBus;
+namespace App\Shared\CommandBus;
 
 interface CacheQueryInterface
 {

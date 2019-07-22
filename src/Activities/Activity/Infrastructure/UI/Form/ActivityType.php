@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\UI\Form;
+namespace App\Activities\Activity\Infrastructure\UI\Form;
 
-use App\Activities\Domain\Activity\Activity;
+use App\Activities\Activity\Domain\Activity;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ActivityType extends AbstractType
@@ -19,11 +20,12 @@ class ActivityType extends AbstractType
             ->add('save', SubmitType::class)
         ;
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => Activity::class,
-            'csrf_protection' => false
-        ));
+            'csrf_protection' => false,
+        ]);
     }
 }

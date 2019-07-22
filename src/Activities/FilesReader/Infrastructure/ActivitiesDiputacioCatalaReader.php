@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Activities\Infrastructure\FilesReader;
+declare(strict_types=1);
+
+namespace App\Activities\FilesReader\Infrastructure;
 
 use App\Activities\Activity\Application\Create\CreateActivityCommand;
 use App\Activities\Activity\Domain\Repository\ActivityRepository;
-use App\Activities\Domain\FilesReader\FilesReader;
+use App\Activities\FilesReader\Domain\FilesReader;
 use App\Activities\Provincia\Application\Create\CreateProvinciaCommand;
 use App\Activities\Provincia\Domain\Repository\ProvinciaRepository;
 use App\Activities\Site\Application\Create\CreateSiteCommand;
@@ -129,10 +131,12 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
             $nameMunicipi = !isset($file['rel_municipis']['municipi_nom']) ? null : $file['rel_municipis']['municipi_nom'];
             $nameProvincia = isset($file['rel_municipis']['grup_provincia']['provincia_nom']) ? $file['rel_municipis']['grup_provincia']['provincia_nom'] : null;
 
-            if (!is_null($nameProvincia)) {
+            if (!empty($nameProvincia) && !empty($nameMunicipi)) {
+                /** @var string $nameProvincia */
                 $provincia = $this->provinciaRepository->byName($nameProvincia);
 
                 if (is_null($provincia)) {
+                    /** @var string $nameMunicipi */
                     $commandProvincia = new CreateProvinciaCommand(
                         $idProvincia = new Id(UuidGenerator::generateId()),
                         $code,
@@ -141,9 +145,8 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                         $nameMunicipi
                     );
                     $this->commandBus->handle($commandProvincia);
-                    $provincia = $this->provinciaRepository->byId(new Id($idProvincia));
+                    $provincia = $this->provinciaRepository->byId($idProvincia);
                 }
-
                 if ($provincia->hasMunicipi($nameMunicipi)) {
                     $provincia->registerMunicipi(
                         $idMunicipi,
@@ -151,28 +154,28 @@ class ActivitiesDiputacioCatalaReader implements FilesReader
                     );
                     $this->provinciaRepository->save($provincia);
                 }
+            }
 
-                $idSite = null;
-                if (isset($file['grup_adreca'])) {
-                    $site = $this->siteRepository->bySite($file['grup_adreca']['adreca_nom']);
+            $idSite = null;
+            if (isset($file['grup_adreca'])) {
+                $site = $this->siteRepository->bySite($file['grup_adreca']['adreca_nom']);
 
-                    if (null === $site) {
-                        $commandSite = new CreateSiteCommand(
-                            $idSite = new Id(UuidGenerator::generateId()),
-                            $file['grup_adreca']['adreca_nom'],
-                            $file['grup_adreca']['adreca'],
-                            $file['grup_adreca']['codi_postal'],
-                            $idMunicipi,
-                            $file['grup_adreca']['localitzacio'],
-                            null,
-                            null,
-                            null
-                        );
+                if (null === $site) {
+                    $commandSite = new CreateSiteCommand(
+                        $idSite = new Id(UuidGenerator::generateId()),
+                        $file['grup_adreca']['adreca_nom'],
+                        $file['grup_adreca']['adreca'],
+                        $file['grup_adreca']['codi_postal'],
+                        $idMunicipi,
+                        $file['grup_adreca']['localitzacio'],
+                        null,
+                        null,
+                        null
+                    );
 
-                        $this->commandBus->handle($commandSite);
-                    } else {
-                        $idSite = $site->id();
-                    }
+                    $this->commandBus->handle($commandSite);
+                } else {
+                    $idSite = $site->id();
                 }
             }
 

@@ -1,40 +1,34 @@
 <?php
 
-namespace App\Activities\Infrastructure\FilesReader;
+declare(strict_types=1);
 
-use App\Activities\Application\Activity\Create\CreateActivityCommand;
-use App\Activities\Application\Provincia\Create\CreateProvinciaCommand;
-use App\Activities\Application\Site\Create\CreateSiteCommand;
-use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Domain\FilesReader\FilesReader;
-use App\Activities\Domain\Provincia\Municipi;
-use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
-use App\Activities\Domain\Shared\ValueObject\Id;
-use App\Activities\Domain\Shared\ValueObject\Uuid;
-use App\Activities\Domain\Site\Repository\SiteRepository;
-use App\Activities\Infrastructure\FilesReader\GetActivitiesAjBcnFromOpenData;
+namespace App\Activities\FilesReader\Infrastructure;
+
+use App\Activities\Activity\Application\Create\CreateActivityCommand;
+use App\Activities\Activity\Domain\Repository\ActivityRepository;
+use App\Activities\FilesReader\Domain\FilesReader;
+use App\Activities\Provincia\Application\Create\CreateProvinciaCommand;
+use App\Activities\Provincia\Domain\Municipi;
+use App\Activities\Provincia\Domain\Repository\ProvinciaRepository;
+use App\Activities\Site\Application\Create\CreateSiteCommand;
+use App\Activities\Site\Domain\Repository\SiteRepository;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
+use App\Shared\ValueObject\Id;
 use DateTime;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
 
 class ActivitiesAjBCNReader implements FilesReader
 {
-    /** @var GetActivitiesFromOpenData */
-    private $getActivitiesFromOpenData;
-
-    /** @var GetActivitiesFromOpenDataLibraries */
-    private $getActivitiesFromOpenDataLibraries;
-
-    /** @var ProvinciaRepository  */
+    /** @var ProvinciaRepository */
     private $provinciaRepository;
 
-    /** @var SiteRepository  */
+    /** @var SiteRepository */
     private $siteRepository;
 
-    /** @var ActivityRepository  */
+    /** @var ActivityRepository */
     private $activityRepository;
 
-    /** @var CommandBus $commandBus  */
+    /** @var CommandBus $commandBus */
     private $commandBus;
 
     private $getActivitiesFromOpenDataAjBcn;
@@ -45,15 +39,12 @@ class ActivitiesAjBCNReader implements FilesReader
         SiteRepository $siteRepository,
         ActivityRepository $sctivityRepository,
         CommandBus $commandBus
-    )
-    {
+    ) {
         $this->getActivitiesFromOpenDataAjBcn = $getActivitiesFromOpenDataAjBcn;
         $this->provinciaRepository = $provinciaRepository;
         $this->siteRepository = $siteRepository;
         $this->activityRepository = $sctivityRepository;
         $this->commandBus = $commandBus;
-
-
     }
 
     public function read(string $language): void
@@ -63,19 +54,19 @@ class ActivitiesAjBCNReader implements FilesReader
         foreach ($groups as $group) {
             foreach ($group as $item) {
                 foreach ($item as $file) {
-                    if(is_array($file['data']['data_inici'])){
+                    if (is_array($file['data']['data_inici'])) {
                         continue;
                     }
 
                     $nom = $file['lloc_simple']['nom'];
                     $site = $this->siteRepository->bySite($nom);
                     $code = is_array($file['lloc_simple']['adreca_simple']['codi_postal']) ? '08' : substr($file['lloc_simple']['adreca_simple']['codi_postal'], 0, 4);
-                    $nameMunicipi =  ucfirst(strtolower($file['lloc_simple']['adreca_simple']['municipi']));
+                    $nameMunicipi = ucfirst(strtolower($file['lloc_simple']['adreca_simple']['municipi']));
                     $municipi = new Municipi(new Id(UuidGenerator::generateId()), $nameMunicipi);
 
                     $provincia = $this->provinciaRepository->byName('barcelona');
 
-                    if(is_null($provincia)) {
+                    if (is_null($provincia)) {
                         $commandProvincia = new CreateProvinciaCommand(
                             $idProvincia = new Id(UuidGenerator::generateId()),
                             $code,
@@ -87,7 +78,7 @@ class ActivitiesAjBCNReader implements FilesReader
                         $provincia = $this->provinciaRepository->byId($idProvincia);
                     }
 
-                    if(!is_null($nameMunicipi) && !$provincia->hasMunicipi($municipi->name())){
+                    if (!is_null($nameMunicipi) && !$provincia->hasMunicipi($municipi->name())) {
                         $provincia->registerMunicipi(
                             $municipi->id(),
                             $municipi->name()
@@ -95,7 +86,7 @@ class ActivitiesAjBCNReader implements FilesReader
                         $this->provinciaRepository->save($provincia);
                     }
 
-                    if (is_null( $site) && !is_null($nom)) {
+                    if (is_null($site) && !is_null($nom)) {
                         $commandSite = new CreateSiteCommand(
                             $idSite = new Id(UuidGenerator::generateId()),
                             $nom,

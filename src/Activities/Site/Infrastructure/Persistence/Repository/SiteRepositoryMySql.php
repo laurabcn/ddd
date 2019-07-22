@@ -1,17 +1,17 @@
 <?php
-declare(strict_types = 1);
 
-namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
+declare(strict_types=1);
 
-use App\Activities\Domain\Shared\ValueObject\Id;
-use App\Activities\Domain\Site\Repository\SiteRepository;
-use App\Activities\Domain\Site\Site;
+namespace App\Activities\Site\Infrastructure\Persistence\Repository;
+
+use App\Activities\Site\Domain\Repository\SiteRepository;
+use App\Activities\Site\Domain\Site;
+use App\Shared\ValueObject\Id;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 final class SiteRepositoryMySql extends ServiceEntityRepository implements SiteRepository
 {
-
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Site::class);
@@ -32,5 +32,4 @@ final class SiteRepositoryMySql extends ServiceEntityRepository implements SiteR
     {
         return $this->findOneBy(['name' => $site]);
     }
-
 }

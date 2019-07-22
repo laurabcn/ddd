@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Activities\Domain\FilesReader;
+declare(strict_types=1);
+
+namespace App\Activities\FilesReader\Domain;
 
 final class File
 {
@@ -11,6 +13,7 @@ final class File
     {
         $this->name = $name;
     }
+
     public function name(): string
     {
         return $this->name;

@@ -1,7 +1,8 @@
 <?php
-declare(strict_types = 1);
 
-namespace App\Activities\Domain\Shared\ValueObject;
+declare(strict_types=1);
+
+namespace App\Shared\ValueObject;
 
 use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;

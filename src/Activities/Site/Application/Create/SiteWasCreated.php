@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Activities\Site\Application\Create;
 
-use App\Activities\Domain\Shared\Bus\Event\Event;
+use App\Shared\Bus\Event\Event;
 
 final class SiteWasCreated implements Event
 {
@@ -38,6 +38,7 @@ final class SiteWasCreated implements Event
 
     /**
      * @param array $payload
+     *
      * @return self
      */
     public function fromPayload(array $payload): object

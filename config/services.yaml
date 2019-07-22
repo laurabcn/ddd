@@ -24,54 +24,52 @@ services:
     GuzzleHttp\Client: ~
     GuzzleHttp\ClientInterface: '@GuzzleHttp\Client'
 
-    App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioLanguagesReader: ~
-    App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioCatalaReader: ~
-    App\Activities\Infrastructure\FilesReader\ActivitiesGeneralitatCatalaReader: ~
-    App\Activities\Infrastructure\FilesReader\Sites\SitesAjuntamentBCNReader: ~
-    App\Activities\Infrastructure\Persistence\Doctrine\Repository\ActivityRepositoryMySql: ~
-    App\Activities\Infrastructure\Persistence\Doctrine\Repository\ProvinciaRepositoryMySql: ~
-    App\Activities\Infrastructure\Persistence\Doctrine\Repository\SiteRepositoryMySql: ~
+    App\Activities\FilesReader\Infrastructure\ActivitiesDiputacioLanguagesReader: ~
+    App\Activities\FilesReader\Infrastructure\ActivitiesDiputacioCatalaReader: ~
+    App\Activities\FilesReader\Infrastructure\ActivitiesGeneralitatCatalaReader: ~
+    App\Activities\FilesReader\Infrastructure\Sites\SitesAjuntamentBCNReader: ~
+    App\Activities\FilesReader\Infrastructure\ActivitiesAjBCNReader: ~
+    App\Activities\Activity\Infrastructure\Persistence\Repository\ActivityRepositoryMySql: ~
+    App\Activities\Provincia\Infrastructure\Persistence\Repository\ProvinciaRepositoryMySql: ~
+    App\Activities\Site\Infrastructure\Persistence\Repository\SiteRepositoryMySql: ~
 
-    App\Activities\Infrastructure\Commands\GetActivitiesDiputacioLanguages:
+    App\Activities\Activity\Infrastructure\Commands\GetActivitiesDiputacioLanguages:
         arguments:
-            $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioLanguagesReader'
+            $reader: '@App\Activities\FilesReader\Infrastructure\ActivitiesDiputacioLanguagesReader'
 
-    App\Activities\Infrastructure\Commands\GetActivitiesAjBCN:
+    App\Activities\Activity\Infrastructure\Commands\GetActivitiesAjBCN:
         arguments:
-            $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesAjBCNReader'
+            $reader: '@App\Activities\FilesReader\Infrastructure\ActivitiesAjBCNReader'
 
-    App\Activities\Infrastructure\Commands\GetActivitiesDiputacioCatala:
+    App\Activities\Activity\Infrastructure\Commands\GetActivitiesDiputacioCatala:
         arguments:
-            $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesDiputacioCatalaReader'
+            $reader: '@App\Activities\FilesReader\Infrastructure\ActivitiesDiputacioCatalaReader'
 
-    App\Activities\Infrastructure\Commands\GetActivitiesGeneralitatCatala:
+    App\Activities\Activity\Infrastructure\Commands\GetActivitiesGeneralitatCatala:
         arguments:
-            $reader: '@App\Activities\Infrastructure\FilesReader\ActivitiesGeneralitatCatalaReader'
+            $reader: '@App\Activities\FilesReader\Infrastructure\ActivitiesGeneralitatCatalaReader'
 
-    App\Activities\Infrastructure\Commands\GetSitesAjuntament:
+    App\Activities\Activity\Infrastructure\Commands\GetSitesAjuntament:
         arguments:
-            $reader: '@App\Activities\Infrastructure\FilesReader\Sites\SitesAjuntamentBCNReader'
+            $reader: '@App\Activities\FilesReader\Infrastructure\Sites\SitesAjuntamentBCNReader'
 
-    App\Activities\Infrastructure\Bus\SimpleEventBus: ~
-    App\Shared\Bus\Event\EventBus: '@App\Activities\Infrastructure\Bus\SimpleEventBus'
+    App\Activities\Activity\Domain\Repository\ActivityRepository: '@App\Activities\Activity\Infrastructure\Persistence\Repository\ActivityRepositoryMySql'
+    App\Activities\Provincia\Domain\Repository\ProvinciaRepository: '@App\Activities\Provincia\Infrastructure\Persistence\Repository\ProvinciaRepositoryMySql'
+    App\Activities\Site\Domain\Repository\SiteRepository: '@App\Activities\Site\Infrastructure\Persistence\Repository\SiteRepositoryMySql'
 
-    App\Activities\Domain\Activity\Repository\ActivityRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\ActivityRepositoryMySql'
-    App\Activities\Domain\Provincia\Repository\ProvinciaRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\ProvinciaRepositoryMySql'
-    App\Activities\Domain\Site\Repository\SiteRepository: '@App\Activities\Infrastructure\Persistence\Doctrine\Repository\SiteRepositoryMySql'
-
-    App\Activities\Application\Activity\Create\CreateActivityHandler:
+    App\Activities\Activity\Application\Create\CreateActivityHandler:
         tags:
             - { name: command_handler, handles: 'App\Activities\Application\Activity\Create\CreateActivityCommand' }
 
-    App\Activities\Application\Provincia\Create\CreateProvinciaHandler:
+    App\Activities\Provincia\Application\Create\CreateProvinciaHandler:
         tags:
             - { name: command_handler, handles: 'App\Activities\Application\Provincia\Create\CreateProvinciaCommand' }
 
-    App\Activities\Application\Site\Create\CreateSiteHandler:
+    App\Activities\Site\Application\Create\CreateSiteHandler:
         tags:
             - { name: command_handler, handles: 'App\Activities\Application\Site\Create\CreateSiteCommand' }
 
-    App\Activities\Application\Activity\Find\FindActivityHandler:
+    App\Activities\Activity\Application\Find\FindActivityHandler:
         tags:
             - { name: command_handler, handles: 'App\Activities\Application\Activity\Find\FindActivityQuery' }
 

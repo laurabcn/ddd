@@ -1,14 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\FilesReader\Sites;
+namespace App\Activities\FilesReader\Infrastructure\Sites;
 
-use App\Activities\Application\Site\Create\CreateSiteCommand;
-use App\Activities\Domain\FilesReader\FilesReader;
-use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
-use App\Activities\Domain\Shared\ValueObject\Id;
-use App\Activities\Domain\Site\Repository\SiteRepository;
+use App\Activities\FilesReader\Domain\FilesReader;
+use App\Activities\Provincia\Domain\Repository\ProvinciaRepository;
+use App\Activities\Site\Application\Create\CreateSiteCommand;
+use App\Activities\Site\Domain\Repository\SiteRepository;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
+use App\Shared\ValueObject\Id;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
 
 class SitesAjuntamentBCNReader implements FilesReader
@@ -16,13 +17,13 @@ class SitesAjuntamentBCNReader implements FilesReader
     /** @var GetSitesFromOpenData */
     private $getSitesFromOpenData;
 
-    /** @var ProvinciaRepository  */
+    /** @var ProvinciaRepository */
     private $provinciaRepository;
 
-    /** @var SiteRepository  */
+    /** @var SiteRepository */
     private $siteRepository;
 
-    /** @var CommandBus $commandBus  */
+    /** @var CommandBus $commandBus */
     private $commandBus;
 
     public function __construct(
@@ -30,8 +31,7 @@ class SitesAjuntamentBCNReader implements FilesReader
         ProvinciaRepository $provinciaRepository,
         SiteRepository $siteRepository,
         CommandBus $commandBus
-    )
-    {
+    ) {
         $this->getSitesFromOpenData = $getSitesFromOpenData;
         $this->provinciaRepository = $provinciaRepository;
         $this->siteRepository = $siteRepository;
@@ -48,7 +48,7 @@ class SitesAjuntamentBCNReader implements FilesReader
 
             $provincia = $this->provinciaRepository->byName('Barcelona');
 
-            $coordinates = isset($file['coordaddressx']) && isset( $file['coordaddressy']) ? $file['coordaddressx']. ', ' . $file['coordaddressy'] : null;
+            $coordinates = isset($file['coordaddressx']) && isset($file['coordaddressy']) ? $file['coordaddressx'] . ', ' . $file['coordaddressy'] : null;
 
             if (null === $site) {
                 $commandSite = new CreateSiteCommand(
@@ -58,9 +58,9 @@ class SitesAjuntamentBCNReader implements FilesReader
                     null,
                     $provincia->getMunicipiByName('Barcelona')->id(),
                     $coordinates,
-                    $file['phonenumber']??null,
-                    $file['content']??null,
-                    $file['code_url']??null
+                    $file['phonenumber'] ?? null,
+                    $file['content'] ?? null,
+                    $file['code_url'] ?? null
                 );
 
                 $this->commandBus->handle($commandSite);

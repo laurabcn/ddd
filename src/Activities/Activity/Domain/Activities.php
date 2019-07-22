@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Domain\Activity;
+namespace App\Activities\Activity\Domain;
 
-use App\Activities\Domain\Shared\Collection;
+use App\Shared\Collection;
 
 final class Activities extends Collection
 {

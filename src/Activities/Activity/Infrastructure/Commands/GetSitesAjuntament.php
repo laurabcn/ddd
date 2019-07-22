@@ -1,15 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\Commands;
+namespace App\Activities\Activity\Infrastructure\Commands;
 
-use App\Activities\Domain\FilesReader\FilesReader;
+use App\Activities\FilesReader\Domain\FilesReader;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GetActivitiesDiputacioCatala extends ContainerAwareCommand
+class GetSitesAjuntament extends ContainerAwareCommand
 {
     private $reader;
 
@@ -22,12 +23,12 @@ class GetActivitiesDiputacioCatala extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('get:diputacio:catala')
-            ->setDescription('Insert data from activities to Barcelona')
+            ->setName('get:sites-bcn:languages')
+            ->setDescription('Insert sites tourist interest to Barcelona')
             ->addArgument(
                 'language',
-                null,
-                'ca : Català, es : español, en : english, ru : russian, de : aleman, fr : Frances'
+                InputArgument::REQUIRED,
+                'ca: català, es : español, en : english, fr : Française'
             )
             ->setHelp('This command get data for tourism calendar...')
         ;
@@ -40,12 +41,16 @@ class GetActivitiesDiputacioCatala extends ContainerAwareCommand
             '================================',
         ]);
 
-        $output->writeln($this->someMethod());
+        $output->writeln($this->someMethod($input));
         $output->writeln('Whoa!');
     }
 
-    private function someMethod()
+    private function someMethod(InputInterface $input)
     {
-        $this->reader->read('ca');
+        $language = $input->getArgument('language');
+
+        if (in_array($language, ['ca', 'es', 'en', 'fr'], true)) {
+            $this->reader->read($language);
+        }
     }
 }

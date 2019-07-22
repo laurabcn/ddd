@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Activities\Infrastructure\FilesReader;
+declare(strict_types=1);
+
+namespace App\Activities\FilesReader\Infrastructure;
 
 use GuzzleHttp\Client;
 
 class GetActivitiesFromOpenDataMuseum
 {
-
-    CONST urlApi= 'https://do.diba.cat/api/dataset/actesmuseus/pag-ini/1/pag-fi/100/format/json';
+    const urlApi = 'https://do.diba.cat/api/dataset/actesmuseus/pag-ini/1/pag-fi/100/format/json';
 
     /** @var Client */
     private $client;
@@ -20,10 +21,11 @@ class GetActivitiesFromOpenDataMuseum
     public function execute(string $language)
     {
         $rootUrlProject = self::urlApi;
+
         return $this->retrieveFiles($rootUrlProject);
     }
 
-    private function retrieveFiles(String $path): array
+    private function retrieveFiles(string $path): array
     {
         $response = $this->getFromOpenData($path);
 
@@ -32,17 +34,18 @@ class GetActivitiesFromOpenDataMuseum
         $files = [];
 
         foreach ($elements as $key => $value) {
-            if(new \DateTime($value['data_fi']) < new \DateTime('today')){
+            if (new \DateTime($value['data_fi']) < new \DateTime('today')) {
                 continue;
             }
             $files[] = $value;
         }
+
         return $files;
     }
 
-    protected function getFromOpenData(string $path){
-
-        $response =  $this->client->request('GET', $path);
+    protected function getFromOpenData(string $path)
+    {
+        $response = $this->client->request('GET', $path);
 
         return json_decode($response->getBody(), true);
     }

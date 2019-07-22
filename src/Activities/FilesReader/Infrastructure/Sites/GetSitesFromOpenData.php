@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\FilesReader\Sites;
+namespace App\Activities\FilesReader\Infrastructure\Sites;
 
 use GuzzleHttp\Client;
-use function GuzzleHttp\Psr7\str;
 
 class GetSitesFromOpenData
 {
@@ -26,17 +26,19 @@ class GetSitesFromOpenData
     public function execute(string $language)
     {
         $rootUrlProject = self::API_URL[strtoupper($language)];
+
         return $this->retrieveFiles($rootUrlProject);
     }
 
-    private function retrieveFiles(String $path): array
+    private function retrieveFiles(string $path): array
     {
-        $xml =  $this->getFromOpenData($path);
+        $xml = $this->getFromOpenData($path);
         $json = json_encode($xml);
-        $response = json_decode($json,true);
+        $response = json_decode($json, true);
 
         return $response['list_items']['row'];
     }
+
     protected function getFromOpenData(string $path): \SimpleXMLElement
     {
         return new \SimpleXMLElement($path, 0, true);

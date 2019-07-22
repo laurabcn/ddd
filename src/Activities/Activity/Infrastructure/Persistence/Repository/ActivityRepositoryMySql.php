@@ -1,23 +1,22 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\Persistence\Doctrine\Repository;
+namespace App\Activities\Activity\Infrastructure\Persistence\Repository;
 
 use App\Activities\Activity\Domain\Activity;
+use App\Activities\Activity\Domain\Exceptions\ActivityNotFoundException;
 use App\Activities\Activity\Domain\Repository\ActivityRepository;
-use App\Activities\Domain\Activity\Exceptions\ActivityNotFoundException;
 use App\Shared\ValueObject\Id;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-final class ActivityRepositoryMySql extends ServiceEntityRepository  implements ActivityRepository
+final class ActivityRepositoryMySql extends ServiceEntityRepository implements ActivityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Activity::class);
     }
-
 
     public function save(Activity $activity): void
     {
@@ -30,13 +29,19 @@ final class ActivityRepositoryMySql extends ServiceEntityRepository  implements 
         return $this->findOneBy(['id' => $id->id()]);
     }
 
+    /**
+     * @param Id $id
+     *
+     * @return Activity
+     *
+     * @throws ActivityNotFoundException
+     */
     public function byIdOrException(Id $id): Activity
     {
-        $activity =  $this->byId($id);
+        $activity = $this->byId($id);
 
-        if(is_null($activity))
-        {
-            throw (new ActivityNotFoundException())->notFound($id);
+        if (is_null($activity)) {
+            throw new ActivityNotFoundException($id);
         }
 
         return $activity;

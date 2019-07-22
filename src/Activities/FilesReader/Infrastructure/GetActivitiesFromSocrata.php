@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Activities\Infrastructure\FilesReader;
+declare(strict_types=1);
+
+namespace App\Activities\FilesReader\Infrastructure;
 
 use GuzzleHttp\Client;
 
 class GetActivitiesFromSocrata
 {
-
-    CONST urlApi = 'https://analisi.transparenciacatalunya.cat/resource/ta2y-snj2.json';
+    const urlApi = 'https://analisi.transparenciacatalunya.cat/resource/ta2y-snj2.json';
 
     /** @var Client */
     private $client;
@@ -23,10 +24,10 @@ class GetActivitiesFromSocrata
 
         $where = '?$limit=30000';
 
-        return $this->retrieveFiles($rootUrlProject.$where);
+        return $this->retrieveFiles($rootUrlProject . $where);
     }
 
-    private function retrieveFiles(String $path): array
+    private function retrieveFiles(string $path): array
     {
         $response = $this->getFromOpenData($path);
 
@@ -34,37 +35,37 @@ class GetActivitiesFromSocrata
         var_dump('and limit = 30000');
 
         foreach ($response as $key => $value) {
-            if(!isset($value['data_fi'])){
+            if (!isset($value['data_fi'])) {
                 continue;
             }
 
-            if(!isset($value['comarca_i_municipi'])){
+            if (!isset($value['comarca_i_municipi'])) {
                 continue;
             }
 
-            if(!isset($value['adre_a'])){
+            if (!isset($value['adre_a'])) {
                 continue;
             }
 
-            if(new \DateTime($value['data_fi']) < new \DateTime('today')){
+            if (new \DateTime($value['data_fi']) < new \DateTime('today')) {
                 continue;
             }
             $comarca = explode('/', $value['comarca_i_municipi']);
 
-            if($comarca[1] !== 'barcelona')
-            {
+            if ('barcelona' !== $comarca[1]) {
                 continue;
             }
 
             $files[] = $value;
         }
         var_dump(count($files));
+
         return $files;
     }
 
-    protected function getFromOpenData(string $path){
-
-        $response =  $this->client->request('GET', $path);
+    protected function getFromOpenData(string $path)
+    {
+        $response = $this->client->request('GET', $path);
 
         return json_decode($response->getBody(), true);
     }

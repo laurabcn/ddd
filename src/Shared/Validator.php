@@ -1,7 +1,8 @@
 <?php
-declare(strict_types = 1);
 
-namespace App\Activities\Domain\Shared;
+declare(strict_types=1);
+
+namespace App\Shared;
 
 final class Validator
 {
@@ -16,9 +17,9 @@ final class Validator
     {
         $validators = [
             'string' => self::stringValidator(),
-            'int'    => self::intValidator(),
-            'float'  => self::floatValidator(),
-            'array'  => self::arrayValidator(),
+            'int' => self::intValidator(),
+            'float' => self::floatValidator(),
+            'array' => self::arrayValidator(),
         ];
 
         return $validators[$type];

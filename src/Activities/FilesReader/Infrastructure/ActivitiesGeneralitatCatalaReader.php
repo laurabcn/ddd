@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Activities\Infrastructure\FilesReader;
+declare(strict_types=1);
 
-use App\Activities\Application\Activity\Create\CreateActivityCommand;
-use App\Activities\Application\Provincia\Create\CreateProvinciaCommand;
-use App\Activities\Application\Site\Create\CreateSiteCommand;
-use App\Activities\Domain\Activity\Repository\ActivityRepository;
-use App\Activities\Domain\FilesReader\FilesReader;
-use App\Activities\Domain\Provincia\Repository\ProvinciaRepository;
-use App\Activities\Domain\Shared\ValueObject\Id;
-use App\Activities\Domain\Site\Repository\SiteRepository;
+namespace App\Activities\FilesReader\Infrastructure;
+
+use App\Activities\Activity\Application\Create\CreateActivityCommand;
+use App\Activities\Activity\Domain\Repository\ActivityRepository;
+use App\Activities\FilesReader\Domain\FilesReader;
+use App\Activities\Provincia\Application\Create\CreateProvinciaCommand;
+use App\Activities\Provincia\Domain\Repository\ProvinciaRepository;
+use App\Activities\Site\Application\Create\CreateSiteCommand;
+use App\Activities\Site\Domain\Repository\SiteRepository;
 use App\Activities\Toolkit\IdGenerator\UuidGenerator;
+use App\Shared\ValueObject\Id;
 use SimpleBus\SymfonyBridge\Bus\CommandBus;
 
 class ActivitiesGeneralitatCatalaReader implements FilesReader
@@ -18,16 +20,16 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
     /** @var GetActivitiesFromSocrata */
     private $getActivitiesFromSocrata;
 
-    /** @var ProvinciaRepository  */
+    /** @var ProvinciaRepository */
     private $provinciaRepository;
 
-    /** @var SiteRepository  */
+    /** @var SiteRepository */
     private $siteRepository;
 
-    /** @var ActivityRepository  */
+    /** @var ActivityRepository */
     private $activityRepository;
 
-    /** @var CommandBus $commandBus  */
+    /** @var CommandBus $commandBus */
     private $commandBus;
 
     public function __construct(
@@ -36,8 +38,7 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
         SiteRepository $siteRepository,
         ActivityRepository $sctivityRepository,
         CommandBus $commandBus
-    )
-    {
+    ) {
         $this->getActivitiesFromSocrata = $getActivitiesFromSocrata;
         $this->provinciaRepository = $provinciaRepository;
         $this->siteRepository = $siteRepository;
@@ -52,38 +53,43 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
         foreach ($files as $file) {
             $comarca = explode('/', $file['comarca_i_municipi']);
             $idMunicipi = new Id(UuidGenerator::generateId());
-            $idProvincia = !isset( $file['rel_municipis']['grup_provincia']['provincia_codi']) ? '8' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
+            $idProvincia = !isset($file['rel_municipis']['grup_provincia']['provincia_codi']) ? '8' : $file['rel_municipis']['grup_provincia']['provincia_codi'];
             $nameMunicipi = !isset($comarca[3]) ? null : $comarca[3];
-            $nameProvincia = !isset( $comarca[1]) ? null : $comarca[1];
+            $nameProvincia = !isset($comarca[1]) ? null : $comarca[1];
 
-            $provincia = $this->provinciaRepository->byName($nameProvincia);
-
-             if(is_null($provincia) && !is_null($nameProvincia)) {
-                $commandProvincia = new CreateProvinciaCommand(
-                    new Id(UuidGenerator::generateId()),
-                    $idProvincia,
-                    $nameProvincia,
-                    $idMunicipi,
-                    $nameMunicipi
-                );
-                $this->commandBus->handle($commandProvincia);
+            if (!is_null($nameProvincia)) {
+                /** @var string $nameProvincia */
                 $provincia = $this->provinciaRepository->byName($nameProvincia);
+
+                if (is_null($provincia) && !empty($nameMunicipi)) {
+                    /** @var string $nameMunicipi */
+                    $commandProvincia = new CreateProvinciaCommand(
+                        new Id(UuidGenerator::generateId()),
+                        $idProvincia,
+                        $nameProvincia,
+                        $idMunicipi,
+                        $nameMunicipi
+                    );
+                    $this->commandBus->handle($commandProvincia);
+                    $provincia = $this->provinciaRepository->byName($nameProvincia);
+                }
             }
 
-            if(!is_null($nameMunicipi) && !$provincia->hasMunicipi($nameMunicipi)){
-               $provincia->registerMunicipi(
+            /** @var string $nameMunicipi */
+            if (!is_null($nameMunicipi) && !$provincia->hasMunicipi($nameMunicipi)) {
+                $provincia->registerMunicipi(
                    $idMunicipi,
                    $nameMunicipi
                );
-               $this->provinciaRepository->save($provincia);
+                $this->provinciaRepository->save($provincia);
             }
 
             $idSite = new Id(UuidGenerator::generateId());
-            if(isset($file['espai'])) {
+            if (isset($file['espai'])) {
                 $site = $this->siteRepository->bySite($file['espai']);
 
                 if (null === $site) {
-                    $coordinates = (isset($file['longitud']) && isset($file['latitud'])) ? $file['longitud'] .', '. $file['latitud'] : null;
+                    $coordinates = (isset($file['longitud']) && isset($file['latitud'])) ? $file['longitud'] . ', ' . $file['latitud'] : null;
                     $commandSite = new CreateSiteCommand(
                         $idSite,
                         $file['espai'],
@@ -105,7 +111,7 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
             $activity = $this->activityRepository->byCode($file['codi']);
 
             if (null === $activity) {
-                $tipus = isset($file['tags_categor_es']) ?  explode('/', $file['tags_categor_es']) : null;
+                $tipus = isset($file['tags_categor_es']) ? explode('/', $file['tags_categor_es']) : null;
 
                 $commandActivity = new CreateActivityCommand(
                     new Id(UuidGenerator::generateId()),
@@ -115,14 +121,14 @@ class ActivitiesGeneralitatCatalaReader implements FilesReader
                     $file['data_fi'],
                     $language,
                     $file['descripcio'] ?? null,
-                    $file['imatges']?? null,
-                    $file['enlla_os']?? null,
-                    $file['url']?? null,
+                    $file['imatges'] ?? null,
+                    $file['enlla_os'] ?? null,
+                    $file['url'] ?? null,
                     null,
                     null,
                     $idSite,
                     null,
-                    $file['horari']?? null,
+                    $file['horari'] ?? null,
                     $tipus[1],
                     $file['subt_tol'] ?? null,
                     null,

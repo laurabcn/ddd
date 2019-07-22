@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Activities\Provincia\Domain;
@@ -61,7 +62,7 @@ class Provincia extends AggregateRoot
 
     public function addMunicipi(Municipi $municipi): void
     {
-        if(!$this->hasMunicipi($municipi->name())){
+        if (!$this->hasMunicipi($municipi->name())) {
             $this->municipi[] = $municipi;
         }
     }
@@ -74,10 +75,11 @@ class Provincia extends AggregateRoot
     public function getMunicipiByName(string $municipi): ?Municipi
     {
         foreach ($this->municipi() as $item) {
-            if($item->name() === $municipi){
+            if ($item->name() === $municipi) {
                 return $item;
             }
-        };
+        }
+
         return null;
     }
 

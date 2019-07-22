@@ -1,11 +1,12 @@
 <?php
-declare(strict_types = 1);
 
-namespace App\Activities\Domain\Shared\ValueObject;
+declare(strict_types=1);
 
-use ReflectionClass;
+namespace App\Shared\ValueObject;
+
 use function App\Activities\Toolkit\snake_to_camel;
 use function Lambdish\Phunctional\reindex;
+use ReflectionClass;
 
 abstract class Enum
 {
@@ -36,7 +37,7 @@ abstract class Enum
         $class = static::class;
 
         if (!isset(self::$cache[$class])) {
-            $reflected           = new ReflectionClass($class);
+            $reflected = new ReflectionClass($class);
             self::$cache[$class] = reindex(self::keysFormatter(), $reflected->getConstants());
         }
 
@@ -55,7 +56,7 @@ abstract class Enum
 
     public function equals(Enum $other): bool
     {
-        return $other == $this;
+        return $other === $this;
     }
 
     private function ensureIsBetweenAcceptedValues($value): void

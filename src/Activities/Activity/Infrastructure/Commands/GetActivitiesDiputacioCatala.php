@@ -1,15 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Activities\Infrastructure\Commands;
+namespace App\Activities\Activity\Infrastructure\Commands;
 
-use App\Activities\Domain\FilesReader\FilesReader;
+use App\Activities\FilesReader\Domain\FilesReader;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GetActivitiesGeneralitatCatala extends ContainerAwareCommand
+class GetActivitiesDiputacioCatala extends ContainerAwareCommand
 {
     private $reader;
 
@@ -22,8 +22,13 @@ class GetActivitiesGeneralitatCatala extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('get:generalitat:catala')
+            ->setName('get:diputacio:catala')
             ->setDescription('Insert data from activities to Barcelona')
+            ->addArgument(
+                'language',
+                null,
+                'ca : Català, es : español, en : english, ru : russian, de : aleman, fr : Frances'
+            )
             ->setHelp('This command get data for tourism calendar...')
         ;
     }

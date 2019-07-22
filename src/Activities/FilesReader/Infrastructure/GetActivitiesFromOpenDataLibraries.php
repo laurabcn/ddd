@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Activities\Infrastructure\FilesReader;
+declare(strict_types=1);
+
+namespace App\Activities\FilesReader\Infrastructure;
 
 use GuzzleHttp\Client;
 
 class GetActivitiesFromOpenDataLibraries
 {
-
-    CONST urlApiTurisme = 'https://do.diba.cat/api/dataset/actesbiblioteques_';
-    CONST format = '/format/json';
+    const urlApiTurisme = 'https://do.diba.cat/api/dataset/actesbiblioteques_';
+    const format = '/format/json';
 
     /** @var Client */
     private $client;
@@ -21,10 +22,11 @@ class GetActivitiesFromOpenDataLibraries
     public function execute(string $language)
     {
         $rootUrlProject = self::urlApiTurisme . $language . self::format;
+
         return $this->retrieveFiles($rootUrlProject);
     }
 
-    private function retrieveFiles(String $path): array
+    private function retrieveFiles(string $path): array
     {
         $response = $this->getFromOpenData($path);
 
@@ -33,18 +35,19 @@ class GetActivitiesFromOpenDataLibraries
         $files = [];
 
         foreach ($elements as $key => $value) {
-            if(new \DateTime($value['data_fi']) < new \DateTime('today')){
+            if (new \DateTime($value['data_fi']) < new \DateTime('today')) {
                 continue;
             }
 
             $files[] = $value;
         }
+
         return $files;
     }
 
-    protected function getFromOpenData(string $path){
-
-        $response =  $this->client->request('GET', $path);
+    protected function getFromOpenData(string $path)
+    {
+        $response = $this->client->request('GET', $path);
 
         return json_decode($response->getBody(), true);
     }
