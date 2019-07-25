@@ -59,19 +59,19 @@ services:
 
     App\Activities\Activity\Application\Create\CreateActivityHandler:
         tags:
-            - { name: command_handler, handles: 'App\Activities\Application\Activity\Create\CreateActivityCommand' }
+            - { name: command_handler, handles: 'App\Activities\Activity\Application\Create\CreateActivityCommand' }
 
     App\Activities\Provincia\Application\Create\CreateProvinciaHandler:
         tags:
-            - { name: command_handler, handles: 'App\Activities\Application\Provincia\Create\CreateProvinciaCommand' }
+            - { name: command_handler, handles: 'App\Activities\Provincia\Application\Create\CreateProvinciaCommand' }
 
     App\Activities\Site\Application\Create\CreateSiteHandler:
         tags:
-            - { name: command_handler, handles: 'App\Activities\Application\Site\Create\CreateSiteCommand' }
+            - { name: command_handler, handles: 'App\Activities\Site\Application\Create\CreateSiteCommand' }
 
     App\Activities\Activity\Application\Find\FindActivityHandler:
         tags:
-            - { name: command_handler, handles: 'App\Activities\Application\Activity\Find\FindActivityQuery' }
+            - { name: command_handler, handles: 'App\Activities\Activity\Application\Find\FindActivityQuery' }
 
 
     sensio_framework_extra.view.listener:

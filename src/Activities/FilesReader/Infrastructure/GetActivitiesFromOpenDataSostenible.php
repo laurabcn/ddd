@@ -20,9 +20,7 @@ class GetActivitiesFromOpenDataSostenible
 
     public function execute(string $language)
     {
-        $rootUrlProject = self::urlApi;
-
-        return $this->retrieveFiles($rootUrlProject);
+        return $this->retrieveFiles(self::urlApi);
     }
 
     private function retrieveFiles(string $path): array
@@ -47,6 +45,6 @@ class GetActivitiesFromOpenDataSostenible
     {
         $response = $this->client->request('GET', $path);
 
-        return json_decode($response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
     }
 }

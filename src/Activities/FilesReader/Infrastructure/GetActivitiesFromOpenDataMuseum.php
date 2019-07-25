@@ -47,6 +47,6 @@ class GetActivitiesFromOpenDataMuseum
     {
         $response = $this->client->request('GET', $path);
 
-        return json_decode($response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
     }
 }

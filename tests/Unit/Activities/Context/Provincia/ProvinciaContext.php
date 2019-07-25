@@ -1,12 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Tests\Unit\Activities\Context\Provincia;
 
-use App\Activities\Domain\Activity\Activity;
-use App\Activities\Domain\Provincia\Municipi;
-use App\Activities\Domain\Provincia\Provincia;
-use App\Activities\Domain\Shared\ValueObject\Id;
+use App\Activities\Provincia\Domain\Municipi;
+use App\Activities\Provincia\Domain\Provincia;
+use App\Shared\ValueObject\Id;
 use App\Tests\Unit\Activities\Core\UnitTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
@@ -51,5 +51,4 @@ trait ProvinciaContext
             ->method('registerMunicipi')
             ->with(new Id($municipi->id()->id()), $municipi->name());
     }
-
 }

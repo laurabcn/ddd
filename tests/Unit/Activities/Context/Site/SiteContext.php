@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Tests\Unit\Activities\Context\Site;
 
-use App\Activities\Domain\Shared\ValueObject\Id;
-use App\Activities\Domain\Site\Site;
+use App\Activities\Site\Domain\Site;
+use App\Shared\ValueObject\Id;
 use App\Tests\Unit\Activities\Core\UnitTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
