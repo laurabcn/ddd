@@ -17,5 +17,5 @@ return [
     SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle::class => ['all' => true],
     SimpleBus\SymfonyBridge\SimpleBusEventBusBundle::class => ['all' => true],
     JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
-    FOS\RestBundle\FOSRestBundle::class => ['all' => true]
+    FOS\RestBundle\FOSRestBundle::class => ['all' => true],
 ];

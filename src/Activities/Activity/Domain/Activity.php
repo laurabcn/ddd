@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Activities\Activity\Domain;
 
 use App\Activities\Activity\Application\Create\ActivityWasCreated;
-use App\Shared\Aggregate\AggregateRoot;
-use App\Shared\ValueObject\Id;
+use App\Shared\Domain\Aggregate\AggregateRoot;
+use App\Shared\Domain\ValueObject\Uuid;
 
 class Activity extends AggregateRoot
 {
-    /** @var Id */
+    /** @var Uuid */
     private $id;
     /** @var string */
     private $acteId;
@@ -50,7 +50,7 @@ class Activity extends AggregateRoot
     private $inscription;
 
     public function __construct(
-        Id $id,
+        Uuid $id,
         string $acteId,
         string $title,
         \DateTimeInterface $startDate,
@@ -91,10 +91,10 @@ class Activity extends AggregateRoot
         $this->capacity = $capacity;
         $this->inscription = $inscription;
 
-        $this->recordThat(new ActivityWasCreated($id->id(), $title));
+        $this->record(new ActivityWasCreated($id->id(), $title));
     }
 
-    public function id(): Id
+    public function id(): Uuid
     {
         return $this->id;
     }

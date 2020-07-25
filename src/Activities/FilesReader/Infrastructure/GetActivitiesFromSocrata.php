@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 
 class GetActivitiesFromSocrata
 {
-    const urlApi = 'https://analisi.transparenciacatalunya.cat/resource/ta2y-snj2.json';
+    const urlApi = 'https://analisi.transparenciacatalunya.cat/resource/rhpv-yr4f.json?$where=data_fi>';
 
     /** @var Client */
     private $client;
@@ -22,9 +22,10 @@ class GetActivitiesFromSocrata
     {
         $rootUrlProject = self::urlApi;
 
-        $where = '?$limit=30000';
+        $where = (new \DateTime('today'))->format("'Y-m-d\TH:i:s'");
+        $limit = '&$limit=30000';
 
-        return $this->retrieveFiles($rootUrlProject . $where);
+        return $this->retrieveFiles($rootUrlProject . $where . $limit);
     }
 
     private function retrieveFiles(string $path): array
@@ -32,27 +33,14 @@ class GetActivitiesFromSocrata
         $response = $this->getFromOpenData($path);
 
         var_dump(count($response));
-        var_dump('and limit = 30000');
-
+        var_dump('and limit = 300000');
+        $i =0;
         foreach ($response as $key => $value) {
-            if (!isset($value['data_fi'])) {
-                continue;
-            }
-
             if (!isset($value['comarca_i_municipi'])) {
                 continue;
             }
 
             if (!isset($value['adre_a'])) {
-                continue;
-            }
-
-            if (new \DateTime($value['data_fi']) < new \DateTime('today')) {
-                continue;
-            }
-            $comarca = explode('/', $value['comarca_i_municipi']);
-
-            if ('barcelona' !== $comarca[1]) {
                 continue;
             }
 

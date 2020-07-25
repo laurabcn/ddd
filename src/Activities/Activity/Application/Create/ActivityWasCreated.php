@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Activities\Activity\Application\Create;
 
-use App\Shared\Bus\Event\Event;
+use App\Shared\Domain\Bus\Event\DomainEvent;
 
-final class ActivityWasCreated implements Event
+final class ActivityWasCreated extends DomainEvent
 {
     const NAME = 'activity.activity_created';
 
@@ -54,5 +54,24 @@ final class ActivityWasCreated implements Event
             'id' => $this->id(),
             'name' => $this->name(),
         ];
+    }
+
+    public function toPrimitives(): array
+    {
+        // TODO: Implement toPrimitives() method.
+    }
+
+    public static function fromPrimitives(
+        string $aggregateId,
+        array $body,
+        string $eventId,
+        string $occurredOn
+    ): DomainEvent {
+        // TODO: Implement fromPrimitives() method.
+    }
+
+    public static function eventName(): string
+    {
+        // TODO: Implement eventName() method.
     }
 }

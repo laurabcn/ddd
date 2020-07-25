@@ -6,16 +6,20 @@ namespace App\Activities\Activity\Application\Create;
 
 use App\Activities\Activity\Domain\Activity;
 use App\Activities\Activity\Domain\Repository\ActivityRepository;
+use App\Shared\Bus\Bus;
 use App\Shared\Bus\Command\CommandHandler;
+use SimpleBus\SymfonyBridge\Bus\EventBus;
 
 final class CreateActivityHandler implements CommandHandler
 {
-    /** @var ActivityRepository */
-    private $activityRepository;
+    private ActivityRepository $activityRepository;
 
-    public function __construct(ActivityRepository $activityRepository)
+    private Bus $bus;
+
+    public function __construct(ActivityRepository $activityRepository, Bus $bus)
     {
         $this->activityRepository = $activityRepository;
+        $this->bus = $bus;
     }
 
     public function handle(CreateActivityCommand $command): void
@@ -43,6 +47,7 @@ final class CreateActivityHandler implements CommandHandler
         );
 
         $this->activityRepository->save($activity);
+        $this->bus->publish(...$activity->pullDomainEvents());
     }
 }
 
